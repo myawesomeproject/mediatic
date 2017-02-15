@@ -2,18 +2,54 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Connexion Mediatic</title>
+<!-- Import CSS & JS-->
+	<script src="../ressources/jquery-3.1.1.js"></script>
+	<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+	<script	src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<link rel="stylesheet" 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" 	href="../ressources/css/connexion.css">
+
 </head>
 <body>
-<div class="formconnexion">
-	<form action="/src/main/HTML/mediaRecherche.html"> 
-		<label>Nom d'utilisateur :</label>
-		<input type="text" id="pseudo"></input>
-		<br>
-		<label>Code secret :</label>
-		<input type="password" id="password"></input>
-		<br>
-		<button type="submit" id="connexion">Connexion</button>
-	</form>
+
+<div class = "container">
+	<div class="wrapper">
+		<form action="mediaRecherche.html" method="post" name="Login_Form" class="form-signin">       
+		    <h3 class="form-signin-heading">Bienvenu sur Mediatic </h3>
+			  <hr class="colorgraph"><br>
+			  <label>Nom d'utilisateur :</label>
+			  <input type="text" class="form-control" name="Username" placeholder="Utilisateur" required="" autofocus="" />
+			  <label>Code secret :</label>
+			  <input type="password" class="form-control" name="Password" placeholder="Mot de passe" required=""/>     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Connexion</button>  			
+		</form>			
+	</div>
 </div>
+
+
+	<!-- DEBUT DU FOOTER -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- FIN DU FOOTER -->
 </body>
 </html>

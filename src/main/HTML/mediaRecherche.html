@@ -3,12 +3,13 @@
 <meta charset="ISO-8859-1">
 <title>Recherche Media</title>
 <!-- Import de bootstrap -->
-<link rel="stylesheet" href="../ressources/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../ressources/bootstrap-3.3.7-dist/css/bootstrap.css">
+<!-- Import de bootstrap theme -->
+<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
 <!-- Import de font awesome -->
 <link rel="stylesheet" href="../ressources/font-awesome-4.7.0/css/font-awesome.css">
 <!-- Import de jQuery -->
 <script src="../ressources/jquery-3.1.1.js"></script>
-
 
 <script>
 'use strict';
@@ -43,10 +44,46 @@ function minimizeRechercheAvancee(){
 
 </script>
 
+
 </head>
 
 <body>
 
+	<!-- CREATION/DEBUT DU MENU -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><i class="fa fa-university " aria-hidden="true"></i> Mediatic </a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="mediaRecherche.html"> <i class="fa fa-database" aria-hidden="true"></i> Media </a>
+						</li>
+						<li>
+							<a href="adherentRecherche.html"><i class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="connexion.html"> <i class="fa fa-sign-out fa-1x" aria-hidden="true"></i> D&eacute;connexion </a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+	<!-- FIN DU MENU -->
 
 <!-- Barre de recherche -->
 <input type="text">
@@ -83,29 +120,29 @@ function minimizeRechercheAvancee(){
 					<th class="colonneVue">Aller &agrave;</th>
 					<th class="colonneTitre">Titre
 						<button class="btn btn-default btn-xs" id="buttonSortTitre" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 					<th class="colonneAuteur">Auteur
 						<button class="btn btn-default btn-xs" id="buttonSortAuteur" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 					<th class="colonneType">Type
 						<button class="btn btn-default btn-xs" id="buttonSortType" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 					<th class="colonneEtat">&Eacute;tat
 						<button class="btn btn-default btn-xs" id="buttonSortEtat" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 					<th class="colonneNomEmprunteur">Emprunt&eacute; par
 						<button class="btn btn-default btn-xs" id="buttonSortNomEmprunteur"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 					<th class="colonneDateRetour">Retour le
 						<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i class="fa fa-sort" aria-hidden="true"></i></button>
 					</th>
 				</tr>
 				<tr class="rowRechercheAvancee">
@@ -201,18 +238,27 @@ function minimizeRechercheAvancee(){
 
 
 
+	<!-- DEBUT DU FOOTER -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-
-
-
-
-
-
-
-
-
-
-
+	</footer>
+	<!-- FIN DU FOOTER -->
 
 </body>
 </html>
