@@ -9,7 +9,23 @@
 <link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
 <script src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 <link rel="stylesheet" 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+#siemprunt{
+	display:none;
+}
 
+#sipasemprunt{
+	display:block;
+}
+
+#testemprunt:checked ~ #siemprunt {
+display:block;
+}
+#testemprunt:checked ~ #sipasemprunt {
+display:none;
+}?
+
+</style>
 </head>
 <body>
 
@@ -50,7 +66,101 @@
 	</header>
 	<!-- FIN DU MENU -->
 
-
+<!-- Debut de la page de visualisation -->
+<div class="row">
+	<div class="col-sm-6 col-xs-offset-1">
+		<!-- Informations générales de visualisation-->
+		<div id="infomedia">
+			<label>Titre : </label>
+			<label id="titrevisu"></label>
+			<br>
+			<label>Auteur :</label>
+			<label id="auteurvisu"></label>
+			<br>
+			<label>Type :</label>
+			<label id="typevisu"></label>
+		</div>
+		<!-- pour le test-->
+		<input type="checkbox" id="testemprunt">Emprunt ?
+		
+		<div id="siemprunt">
+		<!-- S'affiche si le média est emprunté-->
+			<h2>Emprunt&eacute</h2>
+			<label>Nom emprunteur :</label>
+			<label id="nomemprunteur"></label>
+			<br>
+			<label>Prenom emprunteur :</label>
+			<label id="prenomemprunteur"></label>
+			<br>
+			<label>Date d'emprun :</label>
+			<label id="dateempruntvisumedia"></label>
+			<br>
+			<label>Date de retour maximum :</label>
+			<label id="dateretourvisumedia"></label>
+			<br>
+			<button id="boutonretourmedia">Validation retour</button>
+		</div>
+		
+		<div id="sipasemprunt">
+		<!-- S'affiche si le média n'est pas emprunté-->
+			<h2>Libre</h2>
+			<label>Nom emprunteur :</label>
+			<input type="text" id="nomemprunt">
+			<br>
+			<label>Prenom emprunteur :</label>
+			<input type="text" id="prenomemprunt">
+			<br>
+			<button id="boutonrempruntmedia">Validation emprunt</button>
+		</div>
+	</div>
+	
+	<div class="col-sm-4">
+		<div id = "historiqueempruntmedia" class="xs-pull-right">
+		<!-- Tableau d'historique sur le coté droit de la page-->
+			<h2 class="text-center">Historique</h2>
+			<table id="historiquemedia" class="table table-bordered table-striped">
+				
+				
+				<tr>
+					<td>Nom</td>
+					<td>Prenom</td>
+					<td>Date emprunt</td>
+					<td>Date retour</td>
+				</tr>
+				<tr>
+					<td>Pompidou</td>
+					<td>Georges</td>
+					<td>29/02/87</td>
+					<td>5/03/87</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
 
 	<!-- DEBUT DU FOOTER -->
 	<footer>

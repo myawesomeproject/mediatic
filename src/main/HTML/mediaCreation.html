@@ -13,9 +13,7 @@
 
 </head>
 <body>
-
-
-	<!-- CREATION/DEBUT DU MENU -->
+<!-- CREATION/DEBUT DU MENU -->
 	<header>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -50,8 +48,42 @@
 		</nav>
 	</header>
 	<!-- FIN DU MENU -->
+	
+	<div class="container" style="height: 100% ;">
+		<form class="form-horizontal">
 
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Titre</label>
+				<div class="col-xs-8">
+					<input class="form-control" id="focusedInput" type="text"
+						value="Titre">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Auteur</label>
+				<div class="col-xs-8">
+					<input class="form-control" id="focusedInput" type="text"
+						value="Auteur">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Type</label>
+				<div class="col-xs-8">
+					<select class="form-control">
+						<option>Livre</option>
+						<option>CD</option>
+						<option>DVD</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-10">
+					<button id="save_button" type="submit" class="btn btn-primary pull-right">Valider</button>
+				</div>
+			</div>
 
+		</form>
+	</div>
 
 	<!-- DEBUT DU FOOTER -->
 	<footer>
@@ -75,5 +107,16 @@
 	</footer>
 	<!-- FIN DU FOOTER -->
 </body>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+	window.jQuery
+			|| document
+					.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+</script>
+<script src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
 </html>
