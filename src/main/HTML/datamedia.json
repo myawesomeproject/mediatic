@@ -1,0 +1,44 @@
+[
+	{
+		"titre": "Le Dîner de cons",
+		"type": "DVD",
+		"auteur": "Francis Veber",
+		"emprunt": true
+	},
+	{
+		"titre": "Astérix et Obélix : Mission Cléopâtre",
+		"type": "DVD",
+		"auteur": "Alain Chabat",
+		"emprunt": false
+	},
+	{
+		"titre": "Je suis une Légende",
+		"type": "Livre",
+		"auteur": "Richard Matheson",
+		"emprunt": false
+	},
+	{
+		"titre": "Fifty Shades of Grey",
+		"type": "Livre",
+		"auteur": "E. L. James",
+		"emprunt": true
+	},
+	{
+		"titre": "En passant",
+		"type": "CD",
+		"auteur": "Jean-Jacques Goldman",
+		"emprunt": false
+	},
+	{
+		"titre": "Kill 'Em All",
+		"type": "CD",
+		"auteur": "Metallica",
+		"emprunt": true
+	},
+	{
+		"titre": "Mutter",
+		"type": "CD",
+		"auteur": "Rammstein",
+		"emprunt": false
+	}
+]
