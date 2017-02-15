@@ -1,4 +1,4 @@
-<html>
+<html lang="fr">
 <head>
 <meta charset="ISO-8859-1">
 <title>Recherche Media</title>
@@ -10,6 +10,15 @@
 <link rel="stylesheet" href="../ressources/font-awesome-4.7.0/css/font-awesome.css">
 <!-- Import de jQuery -->
 <script src="../ressources/jquery-3.1.1.js"></script>
+<!-- Import de jquery-ui pour datepicker -->
+<script src="../ressources/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+
+
 
 <script>
 'use strict';
@@ -41,6 +50,10 @@ function minimizeRechercheAvancee(){
     $(".rowRechercheAvancee").slideToggle();
 }
 
+$(function() {
+	$( ".datepicker" ).datepicker();
+	$( ".datepicker" ).datepicker( "option", "dateFormat", 'dd/mm/yy' );
+});
 
 </script>
 
@@ -84,6 +97,9 @@ function minimizeRechercheAvancee(){
 		</nav>
 	</header>
 	<!-- FIN DU MENU -->
+
+
+
 
 <!-- Barre de recherche -->
 <input type="text">
@@ -165,7 +181,7 @@ function minimizeRechercheAvancee(){
 					<th><input type="text" class="form-control"
 						name="inputRechercheNomEmprunteur"
 						id="inputRechercheNomEmprunteur" placeholder="Emprunt&eacute; par"></th>
-					<th><input type="date" max="2020-06-25" min="2015-08-13" name="the_date"></th>
+					<th><input type="text" class="datepicker"/></th>
 					<th><button class="btn btn-default"
 							id="buttonRechercheAvancee" onclick="">
 							<i class="fa fa-search" aria-hidden="true"></i>
@@ -220,11 +236,6 @@ function minimizeRechercheAvancee(){
 			</table>
 		</div>
 	</div>
-
-
-
-
-
 
 
 
