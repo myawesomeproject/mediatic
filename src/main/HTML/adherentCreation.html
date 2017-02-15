@@ -10,6 +10,28 @@
 	<script	src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 	<link rel="stylesheet" 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
 
+<style>
+
+.form-control2 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 0px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+</style>
 
 </head>
 <body>
@@ -50,7 +72,93 @@
 	<!-- FIN DU MENU -->
 
 
+<!-- DEBUT DU Conteneur -->
+<div class="contains">
 
+<!-- Name Section -->
+  <div class="row">
+    <div class="col-md-8 col-md-offset-1 ">
+      <form class="form-horizontal" role="form">
+          
+        <fieldset>
+<!-- Information personnel Section -->
+          <!-- Form Name -->
+          <legend>Information personnel :</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <div class="col-sm-3"> 			  
+              <input type="text" name="fistName" placeholder="Nom" class="form-control">
+            </div>
+            <div class="col-sm-3">
+              <input type="text" name="middleName" placeholder="Prenom" class="form-control">
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group">
+            <div class="col-sm-4">
+              <input type="date" placeholder="Date de Naissance" class="form-control">
+            </div>
+          </div>
+           <!-- Text input-->
+          <div class="form-group">
+          <div class="col-sm-4">
+              <input type="email" name="pEmail" placeholder="Email" class="form-control">
+            </div>
+          </div>
+      
+
+
+          <!-- Form Name -->
+          <legend>Adresse : </legend>
+          <!-- Text input-->
+          <div class="form-group">
+            <div class="col-sm-10">
+              <input type="text" name="addressLine2" placeholder="Adresse (N&deg;, Rue, Avenue ...) " class="form-control">
+            </div>
+          </div>
+          <!-- Text input-->
+          <div class="form-group">
+             <div class="col-sm-4">
+              <input type="text" name="postalCode" placeholder="Code postal" class="form-control">
+            </div>
+            <div class="col-sm-4">
+              <input type="text" name="city" placeholder="Ville" class="form-control">
+            </div>
+          </div>
+<!--Gestion Abonnement Membre Section -->
+          <!-- Form Name -->
+          <legend>Gestion Abonnement Membre :</legend>
+          <!-- Text input-->
+           <div class="form-group">
+            <div class="col-sm-4">
+              <input type="date" name="Date_de_Cotisation"  placeholder="Date de Cotisation" class="form-control">
+            </div>
+            <div class="col-sm-3">
+              <input type="text" placeholder="Montant" class="form-control">
+            </div>
+            <div class="col-sm-4">
+             <div class="form-control2"> <input type="checkbox" name="payer" value="payer"  > Payer  </div>
+            </div>
+          </div>
+
+<!-- Command -->
+          <div class="form-group">
+            <div class="col-sm-5 col-sm-offset-1">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+
+</div>
+<!-- Fin DU Conteneur -->
 
 
 	<!-- DEBUT DU FOOTER -->
