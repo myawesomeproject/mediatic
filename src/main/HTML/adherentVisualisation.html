@@ -64,85 +64,105 @@
 		<div class="col-md-7 col-md-offset-1 ">
 			<form class="form-horizontal" role="form">
 
-				<fieldset>
-					<!-- Information personnel Section -->
-					<!-- Form Name -->
-					<legend>Informations personnelles :</legend>
 
-					<div class="form-group">
-						<div class="col-sm-3">
-							<label class="col-sm-2 control-label" for="">Nom:</label>
-						</div>
+				<!-- Information personnel Section -->
+				<!-- Form Name -->
+				<legend>
+					Informations personnelles <a href="#" id="edit"
+						class="btn btn-sm btn-default"><span
+						class="glyphicon glyphicon-pencil"></span></a>
+				</legend>
 
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label class="col-sm-2 control-label" for="">Nom:</label>
 					</div>
-					<div class="form-group">
-						<div class="col-sm-3">
-							<label class="col-sm-2 control-label">Prenom:</label>
-						</div>
-
-					</div>
-					<!-- Text input-->
-					<div class="form-group">
-						<label class="col-sm-3 control-label">Date de naissance:</label>
-					</div>
-					<!-- Text input-->
-					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Email:</label>
-						</div>
+					<div class="col-sm-3">
+						<label class="editlabel col-sm-2 control-label" for="name">Billy</label>
 					</div>
 
-					<!-- Form Name -->
-					<legend>Adresse : </legend>
-					<!-- Text input-->
-					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Code postal:</label>
-						</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<label class="col-sm-2 control-label">Prenom:</label>
 					</div>
-					<!-- Text input-->
-					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Ville:</label>
-						</div>
+					<div class="col-sm-3">
+						<label class="editlabel col-sm-2 control-label">Budd:</label>
 					</div>
 
-					<legend>Gestion Abonnement Membre :</legend>
-					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Date de cotisation:</label>
-						</div>
-						<div class="col-sm-3">
-							<label class="col-sm-4 control-label"> Montant:</label>
-						</div>
+				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Date de naissance:</label>
+				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class=" col-sm-4 control-label">Email:</label>
+					</div>
+					<div class="col-sm-4">
+						<label class="editlabel col-sm-4 control-label">mmm@gmail.com</label>
+					</div>
+				</div>
 
+				<!-- Form Name -->
+				<legend>
+					Adresse : <a href="#" class="btn btn-sm btn-default pull-right"><span
+						class="glyphicon glyphicon-pencil"></span></a>
+				</legend>
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class="col-sm-4 control-label">Code postal:</label>
 					</div>
-					<!--Gestion Abonnement Membre Section -->
-					<!-- Form Name -->
-					<legend>Gestion Emprunt :</legend>
-					<!-- Text input-->
-					<div class="form-group">
-						<div class="col-sm-3">
-							<input type="text" placeholder="Titre du Media"
-								class="form-control">
-						</div>
-						<div class="col-sm-4">
-							<input type="date" name="Date_de_l'emprunt"
-								placeholder="Date d'emprunt" class="form-control">
-						</div>
-							<div class="col-sm-4">
-							<input type="date" name="Date_de_l'emprunt"
-								placeholder="Date d'emprunt" class="form-control">
-						</div>
+				</div>
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class="col-sm-4 control-label">Ville:</label>
+					</div>
+				</div>
+
+				<legend>
+					Gestion Abonnement Membre : <a href="#"
+						class="btn btn-sm btn-default pull-right"><span
+						class="glyphicon glyphicon-pencil"></span></a>
+				</legend>
+				<div class="form-group">
+					<div class="col-sm-4">
+						<label class="col-sm-4 control-label">Date de cotisation:</label>
+					</div>
+					<div class="col-sm-3">
+						<label class="col-sm-4 control-label"> Montant:</label>
 					</div>
 
-					<!-- Command -->
-					<div class="form-group">
-						<div class="col-sm-12">
-							<button type="submit" class="btn btn-primary pull-right">Enregistrer</button>
-						</div>
+				</div>
+				<!--Gestion Abonnement Membre Section -->
+				<!-- Form Name -->
+				<legend>Gestion Emprunt :</legend>
+				<!-- Text input-->
+				<div class="form-group">
+					<div class="col-sm-3">
+						<input type="text" placeholder="Titre du Media"
+							class="form-control">
 					</div>
-				</fieldset>
+					<div class="col-sm-4">
+						<input type="date" name="Date_de_l'emprunt"
+							placeholder="Date d'emprunt" class="form-control">
+					</div>
+					<div class="col-sm-4">
+						<input type="date" name="Date_de_l'emprunt"
+							placeholder="Date d'emprunt" class="form-control">
+					</div>
+				</div>
+
+				<!-- Command -->
+				<div class="form-group">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-primary pull-right">Enregistrer</button>
+					</div>
+				</div>
+
 			</form>
 		</div>
 		<!-- /.col-lg-12 -->
@@ -224,7 +244,14 @@
 		</div>
 	</footer>
 	<!-- FIN DU FOOTER -->
-
+	<script language="JavaScript">
+		$('#edit').click(function() {
+			var text = $('.editlabel').text();
+			var input = $('<input type="text" placeholder="' + text + '" />')
+			$('.editlabel').text('').append(input);
+			console.log("entered");
+		});
+	</script>
 </body>
 
 </html>
