@@ -11,6 +11,60 @@
 	<script	src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 	<link rel="stylesheet" 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
 
+
+
+<script>
+'use strict';
+
+	function rechercheBasique() {
+		var searchinput = $('#inputRechercheBase').val();
+		if (searchinput === undefined | searchinput === null || searchinput === '') {
+			console.log("GO SEARCH YOURSELF");
+			return;
+		} else {
+			$('#inputRechercheBase').val("");
+			$('#inputRechercheBase').focus();
+			console.log("Recherche de " + searchinput);
+		}
+	}
+
+	function maximizeRechercheAvancee() {
+		$(".rowRechercheAvancee").slideToggle();
+		$(".rowRechercheBase").slideToggle();
+	}
+
+	function minimizeRechercheAvancee() {
+		$(".rowRechercheAvancee").slideToggle();
+		$(".rowRechercheBase").slideToggle();
+	}
+
+	$(function() {
+		$(".datepicker").datepicker();
+		$(".datepicker").datepicker("option", "dateFormat", 'dd/mm/yy');
+	});
+
+
+
+</script>
+
+
+<style type="text/css">
+
+.panel-footer {
+    padding: 0px 0px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.rowRechercheAvancee {
+	display: none;
+}
+
+
+</style>
+
 </head>
 <body>
 
@@ -52,9 +106,9 @@
 
 
 <div class="container">
+<!-- ZONE TITRE PAGE -->
 
 <div class="section">
-<!-- ZONE TITRE PAGE -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -66,9 +120,29 @@
  <!-- ZONE Bouton Ajout Membre  -->
         <div class="section">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12 well push-right">
-                        <a class="btn btn-primary" href="adherentCreation.html"><i class="fa fa-fw -square -circle fa-plus-square"></i> Ajouter Membre</a>
+                <div class="row well">
+					<!-- BARRE DE RECHERCHE -->
+					<div class=" rowRechercheBase ">
+						<div class="col-md-4 ">
+							<input type="text" class="form-control" name="inputRechercheBase"
+								id="inputRechercheBase"
+								placeholder="Cherchez des nom, prenom ou autre chose">
+						</div>
+						<div class="col-md-3">
+							<button class="btn btn-default" id="buttonRechercheBase"
+								onclick="rechercheBasique()">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+							<a id="linkbuttonRechercheAvancee"
+								class="linkbuttonRechercheAvancee" href="#"
+								onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
+						</div>
+					</div>
+					<!-- FIN DE LA BARRE -->
+
+
+					<div class=" ">
+                        <a class="btn btn-primary pull-right" href="adherentCreation.html"><i class="fa fa-fw -square -circle fa-plus-square"></i> Ajouter Membre</a>
                     </div>
                 </div>
             </div>
@@ -77,184 +151,167 @@
         <!-- ZONE Tableau Membre -->
         <div class="section">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table table-hover table-striped">
-                            <tbody>
-                               <thead>
-                           			 <tr>
-                                    <td>
-                                       <i class="-alt fa fa-eye fa-fw"></i> ID_membre 
-                                    </td>
-                                    <td>
-                                        
-                                    </td>
-                                    <td>
-                                       NOM   
-                                    </td>
-                                     <td>
-                                       Prenon   
-                                    </td>
-                                    <td>
-										<i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i> Date naissance
-                                    </td>
-                                    <td>
- 										Etat abonnement                                    
- 									</td>
-                                    <td>
-                                        <i class="fa fa-book" aria-hidden="true"></i> Nombre de pr&ecirc;t
-                                    </td>
-                                    
-                                </tr>
-                             </thead>
-                             <tfoot>
-                           			 <tr>
-                                    <td>
-                                        <i class="-alt fa fa-eye fa-fw"></i>  ID_membre
-                                    </td>
-                                    <td>
-                                        
-                                    </td>
-                                    <td>
-                                       NOM   
-                                    </td>
-                                     <td>
-                                       Prenon   
-                                    </td>
-                                    <td>
-										<i class="fa fa-envelope-o" aria-hidden="true"></i> E-mail
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i> Date naissance
-                                    </td>
-                                    <td>
- 										Etat abonnement                                    
- 									</td>
-                                    <td>
-                                        <i class="fa fa-book" aria-hidden="true"></i> Nombre de pr&ecirc;t
-                                    </td>
-                                    
-                                </tr>
-                             </tfoot>
-                             
-                                <tr>
-                                    <td>
-                                        <a href="adherentVisualisation.html"><i class="-alt fa fa-eye fa-fw"></i> @ID_membre</a>
-                                    </td>
-                                    <td>
-                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle" width="30">
-                                    </td>
-                                    <td>
-                                       <b>Durant</b>   
-                                    </td>
-                                     <td>
-                                       Marc   
-                                    </td>
-                                    <td>
-										<a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-                                    </td>
-                                    <td>
-                                        16/05/1986
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        06 <i class="fa fa-book" aria-hidden="true"></i>
-                                    </td>
-                                    
-                                </tr>
-                              
-                              <tr>
-                                    <td>
-                                        <a href="#"><i class="-alt fa fa-eye fa-fw"></i> @ID_membre</a>
-                                    </td>
-                                    <td>
-                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle" width="30">
-                                    </td>
-                                    <td>
-                                       <b>Durant</b>   
-                                    </td>
-                                     <td>
-                                       Marc   
-                                    </td>
-                                    <td>
-										<a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-                                    </td>
-                                    <td>
-                                        16/05/1986
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        06 <i class="fa fa-book" aria-hidden="true"></i>
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#"><i class="-alt fa fa-eye fa-fw"></i> @ID_membre</a>
-                                    </td>
-                                    <td>
-                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle" width="30">
-                                    </td>
-                                    <td>
-                                       <b>Durant</b>   
-                                    </td>
-                                     <td>
-                                       Marc   
-                                    </td>
-                                    <td>
-										<a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-                                    </td>
-                                    <td>
-                                        16/05/1986
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        04 <i class="fa fa-book" aria-hidden="true"></i>
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="#"><i class="fa fa-eye" aria-hidden="true"></i> @ID_membre</a>
-                                    </td>
-                                    <td>
-                                        <img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png" class="img-circle" width="30">
-                                    </td>
-                                    <td>
-                                       <b>Durant</b>   
-                                    </td>
-                                     <td>
-                                       Marc   
-                                    </td>
-                                    <td>
-										<a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-                                    </td>
-                                    <td>
-                                        16/05/1986
-                                    </td>
-                                    <td>
-                                        <i class="fa fa-check" aria-hidden="true"></i>
-                                    </td>
-                                    <td>
-                                        01 <i class="fa fa-book" aria-hidden="true"></i>
-                                    </td>
-                                    
-                                </tr>
-                                
-                                
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+				<div class="row">
+					<div class="col-md-12">
+					
+						<table class="table table-hover table-striped text-center">
+							<tbody>
+							<thead>
+								<tr>
+									<th><i class="-alt fa fa-eye fa-fw"></i> ID_membre <i
+										class="fa fa-sort pull-right" aria-hidden="true"></i></th>
+									<th></th>
+									<th>NOM <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th>Prenon <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-envelope-o" aria-hidden="true"></i>
+										E-mail <i class="fa fa-sort pull-right" aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-calendar-o" aria-hidden="true"></i>
+										Date naissance <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i></th>
+									<th>Etat abonnement <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-book" aria-hidden="true"></i> Nombre
+										de pr&ecirc;t <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i></th>
+
+								</tr>
+									<!-- FIN DES TITRES -->
+				<!-- BARRE DE RECHERCHE AVANCEE -->
+				<tr class="rowRechercheAvancee">
+					<th></th>
+					<th></th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheNom" id="inputRechercheNom"
+						placeholder="Nom"></th>
+					<th>
+					<input type="text" class="form-control"
+						name="inputRecherchePrenom" id="inputRecherchePrenom"
+						placeholder="Prenom">
+					</th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheEmail" id="inputRechercheEmail"
+						placeholder="E-mail">
+						</th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheNaissance"
+						id="inputRechercheNaissance" placeholder="date nainssance"></th>
+					<th></th>
+					
+					<th><input type="text" class="form-control"
+						name="inputRechercheNombre"
+						id="inputRechercheNombre" placeholder="Nombre">
+						</th>
+					<th><button class="btn btn-default"
+							id="buttonRechercheAvancee" onclick="">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button></th>
+					<th><button class="btn btn-default"
+							id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+							<i class="fa fa-window-minimize" aria-hidden="true"></i>
+						</button></th>
+				</tr>
+							</thead>
+							<tfoot>
+								
+							</tfoot>
+
+							<tr>
+								<td><a href="adherentVisualisation.html"><i
+										class="-alt fa fa-eye fa-fw"></i> @ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check" aria-hidden="true"></i></td>
+								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td><a href="#"><i class="-alt fa fa-eye fa-fw"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-times" aria-hidden="true"></i></td>
+								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+							<tr>
+								<td><a href="#"><i class="-alt fa fa-eye fa-fw"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check" aria-hidden="true"></i></td>
+								<td>04 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+							<tr>
+								<td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check" aria-hidden="true"></i></td>
+								<td>01 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+
+
+							</tbody>
+						</table>
+
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col col-xs-11">
+									<ul class="pagination hidden-xs pull-right">
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+									</ul>
+									<ul class="pagination visible-xs pull-right">
+										<li><a href="#">«</a></li>
+										<li><a href="#">»</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
             </div>
         </div>
     
