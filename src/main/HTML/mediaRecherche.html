@@ -13,23 +13,8 @@
 <!-- Import de jquery-ui pour datepicker -->
 <script src="../ressources/jquery-ui-1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-
-
-
-
-<!-- Import du module de pagination -->
-<!-- <script src="../ressources/jQuery-Paging/paging.js"></script>  -->
-
-
-
-<script src="../ressources/jQuery-Paging/jquery.simplePagination.js"></script> 
-<link type="text/css" rel="stylesheet" href="../ressources/jQuery-Paging/simplePagination.css"/>
-
-
-
- 
-
-
+<!-- Import du module de pagination custom par Guillaume -->
+<script src="../ressources/jQuery-Paging_Guillaume/paging.js"></script> 
 
 <script>
 'use strict';
@@ -60,33 +45,53 @@
 		$(".datepicker").datepicker();
 		$(".datepicker").datepicker("option", "dateFormat", 'dd/mm/yy');
 	});
-
-// 	$(function() {
-// 		$('.table25PPage').paging({limit:2});		
-// 	});
 	
+	$.getJSON('datamedia.json', function(data) {
+	    var ligne;
+	    for (var i = 0; i < data.length; i++) {
+	        ligne = $('<tr/>');	        
+	        var bidule = '<a href=\"mediaVisualisation.html\" class=\"btn buttonlinkVoirMedia\"><i class=\"fa fa-eye\" aria-hidden=\"true"></i></a>'; 
+	        ligne.append("<td>" + bidule + "</td>");
+	        ligne.append("<td>" + data[i].titre + "</td>");
+	        ligne.append("<td>" + data[i].auteur + "</td>");
+	        if (data[i].type === "DVD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-film\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else if (data[i].type === "CD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-book\" aria-hidden=\"true\"></i>" + "</td>");
+	        }	        
+	        if (data[i].emprunt === true) {
+	        	ligne.append("<td>" + "<i class=\"fa fa-ban\" aria-hidden=\"true\"></i>" + "</td>")
+	        	ligne.append("<td>" + data[i].emprunteur + "</td>");
+		        ligne.append("<td>" + data[i].retour + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-check\" aria-hidden=\"true\"></i>" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        }
+	        $('table').append(ligne);
+	    }
+	});
 	
 	$(function() {
-    $('.table25PPage').pagination({
-        items: 100,
-        itemsOnPage: 5,
-        cssStyle: 'light-theme'
-    });
-});
+		$('.table25PPage').paging({limit:5});		
+	});
+	
+	$(function() {
+		$('.paging-nav').addClass("hidden-xs pull-right");		
+	});
+	
 	
 </script>
-
-
-
-
 
 <style>
 
 .rowRechercheAvancee {
 	display: none;
-}
-.poney {
-	font = 72pts;
 }
 
 </style>
@@ -130,9 +135,7 @@
 		</nav>
 	</header>
 	<!-- FIN DU MENU -->
-
-
-
+<div class="section">
 
 	<!-- BARRE DE RECHERCHE -->
 	<div class="row rowRechercheBase">
@@ -154,197 +157,99 @@
 				class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau
 				m&eacute;dia</a>
 		</div>
+
+</div>
 	</div>
 	<!-- FIN DE LA BARRE -->
-	
-	<div><p></p></div>
-	
 	<!-- TABLEAU DE DONNEES -->
+		<div class="section">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<table class="table table-striped table-bordered table-hover table-sortable table25PPage">
+		<div class="table-responsive col-md-8 col-md-offset-2">
+			<table
+				class="table table-striped table-bordered table-hover table-sortable table25PPage">
 				<!--TITRE DES COLONNES + BOUTONS DE TRI -->
 				<thead>
-				<tr>
-					<th class="colonneVue">Aller &agrave;</th>
-					<th class="colonneTitre">Titre
-						<button class="btn btn-default btn-xs" id="buttonSortTitre" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-					<th class="colonneAuteur">Auteur
-						<button class="btn btn-default btn-xs" id="buttonSortAuteur" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-					<th class="colonneType">Type
-						<button class="btn btn-default btn-xs" id="buttonSortType" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-					<th class="colonneEtat">&Eacute;tat
-						<button class="btn btn-default btn-xs" id="buttonSortEtat" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-					<th class="colonneNomEmprunteur">Emprunt&eacute; par
-						<button class="btn btn-default btn-xs" id="buttonSortNomEmprunteur"
-							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-					<th class="colonneDateRetour">Retour le
-						<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
-							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i></button>
-					</th>
-				</tr>				
-				<!-- FIN DES TITRES -->
-				<!-- BARRE DE RECHERCHE AVANCEE -->
-				<tr class="rowRechercheAvancee">
-					<th></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheTitre" id="inputRechercheTitre"
-						placeholder="Titre"></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheAuteur" id="inputRechercheAuteur"
-						placeholder="Auteur"></th>
-					<th><select class="form-control">
-							<option>Livre</option>
-							<option>CD</option>
-							<option>DVD</option>
-					</select></th>
-					<th><select class="form-control">
-							<option>Emprunt&eacute;</option>
-							<option>En rayon</option>
-					</select></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheNomEmprunteur"
-						id="inputRechercheNomEmprunteur" placeholder="Emprunt&eacute; par"></th>
-					<th><input type="text" class="datepicker"/></th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="">
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button></th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
-							<i class="fa fa-window-minimize" aria-hidden="true"></i>
-						</button></th>
-				</tr>
+					<tr>
+						<th class="colonneVue">Aller &agrave;</th>
+						<th class="colonneTitre">Titre
+							<button class="btn btn-default btn-xs" id="buttonSortTitre"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneAuteur">Auteur
+							<button class="btn btn-default btn-xs" id="buttonSortAuteur"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneType">Type
+							<button class="btn btn-default btn-xs" id="buttonSortType"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneEtat">&Eacute;tat
+							<button class="btn btn-default btn-xs" id="buttonSortEtat"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneNomEmprunteur">Emprunt&eacute; par
+							<button class="btn btn-default btn-xs"
+								id="buttonSortNomEmprunteur" onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneDateRetour">Retour le
+							<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+					</tr>
+					<!-- FIN DES TITRES -->
+					<!-- BARRE DE RECHERCHE AVANCEE -->
+					<tr class="rowRechercheAvancee">
+						<th></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheTitre" id="inputRechercheTitre"
+							placeholder="Titre"></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheAuteur" id="inputRechercheAuteur"
+							placeholder="Auteur"></th>
+						<th><select class="form-control">
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+						</select></th>
+						<th><select class="form-control">
+								<option>Emprunt&eacute;</option>
+								<option>En rayon</option>
+						</select></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheNomEmprunteur"
+							id="inputRechercheNomEmprunteur"
+							placeholder="Emprunt&eacute; par"></th>
+						<th><input type="text" class="datepicker" /></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+								<i class="fa fa-window-minimize" aria-hidden="true"></i>
+							</button></th>
+					</tr>
 				</thead>
 				<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
-				<tbody>
-				<tr>
-					<td><a href="mediaVisualisation.html"
-						class="btn buttonlinkVoirMedia"><i class="fa fa-eye"
-							aria-hidden="true"></i></a></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="série débile">Fr&egrave;res
-							scotts</span></td>
-					<td class="TV"><span class="glyphicon glyphicon-film"
-						aria-hidden="true"></span></td>
-					<td><span data-toggle="tooltip" title="Auteur de la série!">Myriam</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="idem">Vampire
-							diaries</span></td>
-					<td class="TV"><span class="glyphicon glyphicon-film"
-						aria-hidden="true"></span></td>
-					<td><span data-toggle="tooltip" title="Victime de la série!">Sterenn</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="film de l'année">50
-							nuances de conneries</span></td>
-					<td class="journal"><span class="fa fa-newspaper-o"
-						aria-hidden="true"></span></td>
-					<td><span data-toggle="tooltip" title="Victime de sa voiture">Guillaume</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-					<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-					<td><span data-toggle="tooltip" title="sous merde">Fabien
-							P.</span></td>
-				</tr>
-				
+				<tbody class="myTable">
 				</tbody>
-				<tfoot>				
+				<tfoot>
 				</tfoot>
 			</table>
 		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
+	</div></div>
 
 
 	<!-- DEBUT DU FOOTER -->
