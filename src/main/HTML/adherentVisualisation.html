@@ -12,12 +12,11 @@
 <script src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 <link rel="stylesheet"
 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
-	
+
 
 
 </head>
 <body>
-
 
 	<!-- CREATION/DEBUT DU MENU -->
 	<header>
@@ -66,141 +65,60 @@
 		<div class="col-md-7 col-md-offset-1 ">
 			<form class="form-horizontal" role="form">
 
-
-
 				<!-- Information personnel Section -->
 				<!-- Form Name -->
-				<legend>
-					Informations personnelles <a href="#" id="edit"
-						class="btn btn-sm btn-default"><span
-						class="glyphicon glyphicon-pencil"></span></a>
-				</legend>
-
-				<div class="form-group">
-					<div class="col-sm-3">
-						<label class="col-sm-2 control-label" for="">Nom:</label>
-					</div>
-					<div class="col-sm-3">
-						<label class="editlabel col-sm-2 control-label" for="name">Billy</label>
-					</div>
-
-				</div>
-				<div class="form-group">
-					<div class="col-sm-3">
-						<label class="col-sm-2 control-label">Prenom:</label>
-					</div>
-					<div class="col-sm-3">
-						<label class="editlabel col-sm-2 control-label">Budd:</label>
-					</div>
-
-				</div>
-				<!-- Text input-->
-				<div class="form-group">
-					<label class="col-sm-3 control-label">Date de naissance:</label>
-				</div>
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="col-sm-4">
-						<label class=" col-sm-4 control-label">Email:</label>
-					</div>
-					<div class="col-sm-4">
-						<label class="editlabel col-sm-4 control-label">mmm@gmail.com</label>
-					</div>
-				</div>
-
-				<!-- Form Name -->
-				<legend>
-					Adresse : <a href="#" class="btn btn-sm btn-default pull-right"><span
-						class="glyphicon glyphicon-pencil"></span></a>
-				</legend>
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="col-sm-4">
-						<label class="col-sm-4 control-label">Code postal:</label>
-					</div>
-				</div>
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="col-sm-4">
-						<label class="col-sm-4 control-label">Ville:</label>
-					</div>
-				</div>
-
-				<legend>
-					Gestion Abonnement Membre : <a href="#"
-						class="btn btn-sm btn-default pull-right"><span
-						class="glyphicon glyphicon-pencil"></span></a>
-				</legend>
-				<div class="form-group">
-					<div class="col-sm-4">
-						<label class="col-sm-4 control-label">Date de cotisation:</label>
-					</div>
-					<div class="col-sm-3">
-						<label class="col-sm-4 control-label"> Montant:</label>
-					</div>
-
-				</div>
-				<!--Gestion Abonnement Membre Section -->
-				<!-- Form Name -->
-				<legend>Gestion Emprunt :</legend>
-				<!-- Text input-->
-				<div class="form-group">
-					<div class="col-sm-3">
-						<input type="text" placeholder="Titre du Media"
-							class="form-control">
-					</div>
-					<div class="col-sm-4">
-						<input type="date" name="Date_de_l'emprunt"
-							placeholder="Date d'emprunt" class="form-control">
-					</div>
-					<div class="col-sm-4">
-						<input type="date" name="Date_de_l'emprunt"
-							placeholder="Date d'emprunt" class="form-control">
-					</div>
-				</div>
-
-				<!-- Command -->
-				<div class="form-group">
-					<div class="col-sm-12">
-						<button type="submit" class="btn btn-primary pull-right">Enregistrer</button>
-					</div>
-				</div>
-
 
 				<fieldset>
 					<!-- Information personnel Section -->
 					<!-- Form Name -->
-					<legend>Informations personnelles :</legend>
+					<legend>
+						Informations personnelles <a href="#" id="editInfos"
+							class="btn btn-md btn-default pull-right"> <span
+							class="glyphicon glyphicon-pencil"></span></a>
+					</legend>
 
 					<div class="form-group">
 						<div class="col-sm-3">
 							<label class="col-sm-2 control-label" for="">Nom:</label>
 						</div>
-
+						<div class="col-sm-3">
+							<label class="editinfo col-sm-2 control-label" for="">Billy:</label>
+						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-3">
 							<label class="col-sm-2 control-label">Prenom:</label>
 						</div>
-
+						<div class="col-sm-3">
+							<label class="editinfo col-sm-2 control-label" for="">Budd:</label>
+						</div>
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-3 control-label" style=" padding-right: 7px;">Date de naissance:</label>
+						<label class="col-sm-3 control-label" style="padding-right: 4px;">Date
+							de naissance:</label> <label class="editinfo col-sm-3 control-label"
+							style="padding-right: 4px;">26/12/1222</label>
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
 						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Email:</label>
+							<label class="col-sm-4 control-label">Email:</label> <label
+								class="editinfo col-sm-4 control-label">ben10@gmail.com:</label>
 						</div>
 					</div>
 
 					<!-- Form Name -->
-					<legend>Adresse : </legend>
+					<legend>
+						Adresse : <a href="#" id="editAdresse"
+							class="btn btn-md btn-default pull-right"> <span
+							class="glyphicon glyphicon-pencil"></span>
+						</a>
+					</legend>
 					<!-- Text input-->
 					<div class="form-group">
 						<div class="col-sm-4">
-							<label class="control-label" style=" padding-left: 15px;">Code postal:</label>
+							<label class="control-label" style="padding-left: 15px;">Code
+								postal:</label>
 						</div>
 					</div>
 					<!-- Text input-->
@@ -210,10 +128,15 @@
 						</div>
 					</div>
 
-					<legend>Gestion Abonnement Membre :</legend>
+					<legend>
+						Gestion Abonnement Membre : <a href="#"
+							class="btn btn-md btn-default pull-right"> <span
+							class="glyphicon glyphicon-pencil"></span></a>
+					</legend>
 					<div class="form-group">
 						<div class="col-sm-4">
-							<label class="control-label" style= "padding-left : 15px;">Date de cotisation:</label>
+							<label class="control-label" style="padding-left: 15px;">Date
+								de cotisation:</label>
 						</div>
 						<div class="col-sm-3">
 							<label class="col-sm-4 control-label"> Montant:</label>
@@ -233,9 +156,9 @@
 							<input type="date" name="Date_de_l'emprunt"
 								placeholder="Date d'emprunt" class="form-control">
 						</div>
-							<div class="col-sm-4">
+						<div class="col-sm-4">
 							<input type="date" name="Date_de_l'emprunt"
-								placeholder="Date d'emprunt" class="form-control">
+								placeholder="Date de retour prevu" class="form-control">
 						</div>
 					</div>
 
@@ -333,10 +256,10 @@
 	</footer>
 	<!-- FIN DU FOOTER -->
 	<script language="JavaScript">
-		$('#edit').click(function() {
-			var text = $('.editlabel').text();
-			var input = $('<input type="text" placeholder="' + text + '" />')
-			$('.editlabel').text('').append(input);
+		$('#editInfos').click(function() {
+			var text = $('.editinfo').text();
+			var input = $('<input type="text"  value="' + text + '" />')
+			$('.editinfo').text('').append(input);
 			console.log("entered");
 		});
 	</script>
