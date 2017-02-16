@@ -16,14 +16,6 @@
 <!-- Import du module de pagination custom par Guillaume -->
 <script src="../ressources/jQuery-Paging_Guillaume/paging.js"></script> 
 
-
-
-
-
- 
-
-
-
 <script>
 'use strict';
 
@@ -53,7 +45,38 @@
 		$(".datepicker").datepicker();
 		$(".datepicker").datepicker("option", "dateFormat", 'dd/mm/yy');
 	});
-
+	
+	$.getJSON('datamedia.json', function(data) {
+	    var ligne;
+	    for (var i = 0; i < data.length; i++) {
+	        ligne = $('<tr/>');	        
+	        var bidule = '<a href=\"mediaVisualisation.html\" class=\"btn buttonlinkVoirMedia\"><i class=\"fa fa-eye\" aria-hidden=\"true"></i></a>'; 
+	        ligne.append("<td>" + bidule + "</td>");
+	        ligne.append("<td>" + data[i].titre + "</td>");
+	        ligne.append("<td>" + data[i].auteur + "</td>");
+	        if (data[i].type === "DVD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-film\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else if (data[i].type === "CD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-book\" aria-hidden=\"true\"></i>" + "</td>");
+	        }	        
+	        if (data[i].emprunt === true) {
+	        	ligne.append("<td>" + "<i class=\"fa fa-ban\" aria-hidden=\"true\"></i>" + "</td>")
+	        	ligne.append("<td>" + data[i].emprunteur + "</td>");
+		        ligne.append("<td>" + data[i].retour + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-check\" aria-hidden=\"true\"></i>" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        }
+	        $('table').append(ligne);
+	    }
+	});
+	
 	$(function() {
 		$('.table25PPage').paging({limit:5});		
 	});
@@ -62,19 +85,14 @@
 		$('.paging-nav').addClass("hidden-xs pull-right");		
 	});
 	
-
+	
 </script>
-
-
-
-
 
 <style>
 
 .rowRechercheAvancee {
 	display: none;
 }
-
 
 </style>
 
@@ -117,9 +135,7 @@
 		</nav>
 	</header>
 	<!-- FIN DU MENU -->
-
-
-
+<div class="section">
 
 	<!-- BARRE DE RECHERCHE -->
 	<div class="row rowRechercheBase">
@@ -141,10 +157,12 @@
 				class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau
 				m&eacute;dia</a>
 		</div>
+
+</div>
 	</div>
 	<!-- FIN DE LA BARRE -->
-	
 	<!-- TABLEAU DE DONNEES -->
+		<div class="section">
 	<div class="row">
 		<div class="table-responsive col-md-8 col-md-offset-2">
 			<table
@@ -226,118 +244,12 @@
 				</thead>
 				<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 				<tbody class="myTable">
-					<tr>
-						<td><a href="mediaVisualisation.html"
-							class="btn buttonlinkVoirMedia"><i class="fa fa-eye"
-								aria-hidden="true"></i></a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="série débile">Fr&egrave;res
-								scotts</span></td>
-						<td class="TV"><span class="glyphicon glyphicon-film"
-							aria-hidden="true"></span></td>
-						<td><span data-toggle="tooltip" title="Auteur de la série!">Myriam</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="idem">Vampire
-								diaries</span></td>
-						<td class="TV"><span class="glyphicon glyphicon-film"
-							aria-hidden="true"></span></td>
-						<td><span data-toggle="tooltip" title="Victime de la série!">Sterenn</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="film de l'année">50
-								nuances de conneries</span></td>
-						<td class="journal"><span class="fa fa-newspaper-o"
-							aria-hidden="true"></span></td>
-						<td><span data-toggle="tooltip" title="Victime de sa voiture">Guillaume</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><span data-toggle="tooltip" title="best thing ever">Chats</span></td>
-						<td class="web"><i class="fa fa-firefox" aria-hidden="true"></i></td>
-						<td><span data-toggle="tooltip" title="sous merde">Fabien
-								P.</span></td>
-					</tr>
 				</tbody>
 				<tfoot>
 				</tfoot>
 			</table>
 		</div>
-	</div>
-
-
-
-
-
-
-
-
+	</div></div>
 
 
 	<!-- DEBUT DU FOOTER -->
