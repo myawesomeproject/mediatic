@@ -53,6 +53,9 @@ public class Run {
 		EmpruntDAO.instance().persist(e1);
 		
 		
+		AdherentDAO adao = AdherentDAO.instance();
+		adao.MediasEmprunt(2L);
+		
 	}
 
 }
