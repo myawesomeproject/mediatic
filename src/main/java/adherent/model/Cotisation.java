@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
+@Table(name="cotisation")
 public class Cotisation {
 
 	@Id

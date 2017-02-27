@@ -1,5 +1,6 @@
 import javax.persistence.EntityManager;
 
+
 import service.DatabaseHelper;
 
 public class Run {
@@ -8,8 +9,7 @@ public class Run {
 		// TODO Auto-generated method stub
 		
 		EntityManager manager = DatabaseHelper.createEntityManager();
-
-
+	
 	}
 
 }
