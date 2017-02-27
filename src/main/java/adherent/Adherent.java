@@ -26,7 +26,7 @@ public class Adherent {
 	@Column
 	private Boolean adhesion;	
 	
-	@OneToMany
+/*	@OneToMany
 	private Long id_emprunt;
 	@OneToMany
 	private Long id_media;
@@ -39,7 +39,7 @@ public class Adherent {
 	@OneToOne
 	private Date date_cotisation;
 	@OneToOne
-	private int montant;
+	private int montant;*/
 	
 	
 	
