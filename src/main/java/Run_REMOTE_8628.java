@@ -1,26 +1,19 @@
-<<<<<<< HEAD
-import javax.persistence.EntityManager;
-
-
-import service.DatabaseHelper;
-
-public class Run {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		EntityManager manager = DatabaseHelper.createEntityManager();
-	
-	}
-
-}
-=======
 import java.sql.Date;
 
 import adherent.dao.AdherentDAO;
 import adherent.model.Adherent;
 import adherent.model.Cotisation;
+impimport adherent.model.Cotisation;
+imporimport adherent.model.Cotisation;
 import emprunt.dao.EmpruntDAO;
+import emprunt.model.Emprunt;
+import media.dao.MediaDAO;
+import media.model.Media;
+import media.model.TypeMedia;t emprunt.dao.EmpruntDAO;
+import emprunt.model.Emprunt;
+import media.dao.MediaDAO;
+import media.model.Media;
+import media.model.TypeMedia;ort emprunt.dao.EmpruntDAO;
 import emprunt.model.Emprunt;
 import media.dao.MediaDAO;
 import media.model.Media;
@@ -73,4 +66,3 @@ public class Run {
 	}
 
 }
->>>>>>> d3a86d72e9e073e3b1ffe80a46fd45217e61dc1b
