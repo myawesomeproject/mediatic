@@ -52,6 +52,11 @@ public class Run {
 		
 		EmpruntDAO.instance().persist(e1);
 		
+		Media mtmp = MediaDAO.instance().findByIdwithEmprunt(m1.getId());
+		
+		
+		System.out.println(mtmp);
+		System.out.println(mtmp.getEmprunts());
 		
 	}
 
