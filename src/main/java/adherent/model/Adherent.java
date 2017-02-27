@@ -1,6 +1,9 @@
-package adherent;
+package adherent.model;
 
 import javax.persistence.*;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 import java.util.Date;
 
 
@@ -11,37 +14,31 @@ public class Adherent {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column
+	
+	@NotBlank
 	private String nom;
-	@Column
+	
+	@NotBlank
 	private String prenom;
-	@Column
+	
+	@NotBlank
 	private String adresse;
-	@Column
-	private int code_postal;
-	@Column
+	
+	@NotBlank
+	private Integer codePostal;
+	
+	@NotBlank
 	private String ville;
-	@Column
+	
+	@NotBlank
 	private String email;
-	@Column
-	private Boolean adhesion;	
 	
-	@OneToMany
-	private Long id_emprunt;
-	@OneToMany
-	private Long id_media;
-	@OneToMany
-	private Date date_emprunt;
-	@OneToMany
-	private Date date_retour;
 	@OneToOne
-	private long id_cotisation;
-	@OneToOne
-	private Date date_cotisation;
-	@OneToOne
-	private int montant;
+	private Cotisation cotisation;
+
 	
-	
+	public Adherent(){
+	}
 	
 	
 	
