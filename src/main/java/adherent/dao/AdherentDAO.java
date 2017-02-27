@@ -43,7 +43,7 @@ public class AdherentDAO extends GenericDAO<Adherent> {
                         "FROM Adherent a " +
                         "LEFT JOIN FETCH a.emprunts e " +
                         "LEFT JOIN FETCH e.media " +
-                        "WHERE e.id=:id";
+                        "WHERE a.id=:id";
         TypedQuery<Adherent> query = entityManager.createQuery(qlQuery, Adherent.class);
         query.setParameter("id", AdherentId);
         return query.getSingleResult();
