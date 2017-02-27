@@ -28,7 +28,7 @@ public class AdherentDAO extends GenericDAO<Adherent> {
     
     
 
-    public Adherent findAdherentAndFetchMedias2Requests(Long id) {
+  /*  public Adherent findAdherentAndFetchMedias2Requests(Long id) {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
         Adherent Adherent = entityManager.find(Adherent.class, id);
         Hibernate.initialize(Adherent.getBoughtMedias());
@@ -65,5 +65,5 @@ public class AdherentDAO extends GenericDAO<Adherent> {
         TypedQuery<Media> query = entityManager.createQuery(qlQuery, Media.class);
         query.setParameter("id", AdherentId);
         return query.getResultList();
-    }
+    }*/
 }

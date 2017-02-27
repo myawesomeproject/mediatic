@@ -49,6 +49,7 @@ public class GenericDAO<T> {
             DatabaseHelper.beginTx(entityManager);
             entityManager.remove(entityManager.find(klass, id));
             DatabaseHelper.commitTxAndClose(entityManager);
+            
         } catch (Exception e) {
             DatabaseHelper.rollbackTxAndClose(entityManager);
             throw new RuntimeException(e);

@@ -4,6 +4,9 @@ package media.model;
 import java.util.List;
 
 import javax.persistence.*;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 import emprunt.model.*;
 
 @Entity
@@ -14,7 +17,7 @@ public class Media {
 	@GeneratedValue
 	private Long id;
 	
-	@Column
+	@NotBlank
 	private String titre;
 	
 	@Enumerated (EnumType.STRING)
@@ -27,47 +30,50 @@ public class Media {
 	@OneToMany (mappedBy = "media")
 	private List<Emprunt> emprunts;
 
-	
+	/* si besoin pour plus tard
+	@Column
+	private Emprunt emprunt;
+	*/
 	
 	
 	/*********************  SET et GET  *****************/
-	protected Long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	protected String getTitre() {
+	public String getTitre() {
 		return titre;
 	}
 
-	protected void setTitre(String titre) {
+	public void setTitre(String titre) {
 		this.titre = titre;
 	}
 
-	protected TypeMedia getType() {
+	public TypeMedia getType() {
 		return type;
 	}
 
-	protected void setType(TypeMedia type) {
+	public void setType(TypeMedia type) {
 		this.type = type;
 	}
 
-	protected String getAuteur() {
+	public String getAuteur() {
 		return auteur;
 	}
 
-	protected void setAuteur(String auteur) {
+	public void setAuteur(String auteur) {
 		this.auteur = auteur;
 	}
 
-	protected List<Emprunt> getEmprunts() {
+	public List<Emprunt> getEmprunts() {
 		return emprunts;
 	}
 
-	protected void setEmprunts(List<Emprunt> emprunts) {
+	public void setEmprunts(List<Emprunt> emprunts) {
 		this.emprunts = emprunts;
 	}
 

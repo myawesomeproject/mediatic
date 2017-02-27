@@ -34,53 +34,56 @@ public class Emprunt {
 	private Date dateRetour;
 	
 	@Column
-	private Boolean retourner;
+	private boolean retourner =false;
 
-	protected Long getId() {
+	
+	
+	/******************    GET & SET **************************/
+	public Long getId() {
 		return id;
 	}
 
-	protected void setId(Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	protected Adherent getadherent() {
+	public Adherent getadherent() {
 		return adherent;
 	}
 
-	protected void setadherent(Adherent adherent) {
+	public void setadherent(Adherent adherent) {
 		this.adherent = adherent;
 	}
 
-	protected Media getMedia() {
+	public Media getMedia() {
 		return media;
 	}
 
-	protected void setMedia(Media media) {
+	public void setMedia(Media media) {
 		this.media = media;
 	}
 
-	protected Date getDateEmprunt() {
+	public Date getDateEmprunt() {
 		return dateEmprunt;
 	}
 
-	protected void setDateEmprunt(Date dateEmprunt) {
+	public void setDateEmprunt(Date dateEmprunt) {
 		this.dateEmprunt = dateEmprunt;
 	}
 
-	protected Date getDateRetour() {
+	public Date getDateRetour() {
 		return dateRetour;
 	}
 
-	protected void setDateRetour(Date dateRetour) {
+	public void setDateRetour(Date dateRetour) {
 		this.dateRetour = dateRetour;
 	}
 
-	protected Boolean getRetourner() {
+	public Boolean getRetourner() {
 		return retourner;
 	}
 
-	protected void setRetourner(Boolean retourner) {
+	public void setRetourner(Boolean retourner) {
 		this.retourner = retourner;
 	}
 
