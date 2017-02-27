@@ -1,7 +1,11 @@
 package adherent;
 
 import javax.persistence.*;
+
+import emprunt.model.Emprunt;
+
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -26,9 +30,11 @@ public class Adherent {
 	@Column
 	private Boolean adhesion;	
 	
+	
+	@OneToMany(mappedBy = "abonne")
+	private List<Emprunt> emprunts;
+	
 /*	@OneToMany
-	private Long id_emprunt;
-	@OneToMany
 	private Long id_media;
 	@OneToMany
 	private Date date_emprunt;
