@@ -1,3 +1,4 @@
+
 import java.sql.Date;
 
 import adherent.dao.AdherentDAO;
@@ -61,3 +62,4 @@ public class Run {
 	}
 
 }
+

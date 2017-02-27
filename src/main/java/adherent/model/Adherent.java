@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @Entity
+@Table(name="adherent")
 public class Adherent {
 
 	@Id
