@@ -43,42 +43,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-<<<<<<< HEAD
-	
-	  <dependencies>
-   <dependency>
-       <groupId>org.postgresql</groupId>
-       <artifactId>postgresql</artifactId>
-       <version>9.4-1206-jdbc42</version>
-   </dependency>
 
-   <dependency>
-       <groupId>org.hibernate</groupId>
-       <artifactId>hibernate-entitymanager</artifactId>
-       <version>4.3.11.Final</version>
-   </dependency>
 
-   <dependency>
-       <groupId>org.hibernate</groupId>
-       <artifactId>hibernate-hikaricp</artifactId>
-       <version>4.3.11.Final</version>
-   </dependency>
-</dependencies>
 
-=======
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
->>>>>>> aa27d8411df60662195857c56bec4c612c9590a6
 </project>
