@@ -46,9 +46,6 @@ public class Adherent {
 	private List<Emprunt> emprunts;
 
 	
-	public Adherent(){
-	}
-	
 	
 	
 }
