@@ -54,7 +54,7 @@ public class Run {
 		
 		
 		AdherentDAO adao = AdherentDAO.instance();
-		adao.MediasEmprunt(2L);
+		System.out.println(adao.MediasEmprunt(2L));
 		
 	}
 

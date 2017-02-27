@@ -36,17 +36,17 @@ public class AdherentDAO extends GenericDAO<Adherent> {
         return empruntMedia;
     }
 
-    public List<Media> MediasEmprunt(Long AdherentId) {
+    public Adherent MediasEmprunt(Long AdherentId) {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
         String qlQuery =
                 "SELECT a " +
                         "FROM Adherent a " +
-                        "INNER JOIN FETCH a.emprunt e " +
-                        "INNER JOIN FETCH a.media " +
+                        "LEFT JOIN FETCH a.emprunts e " +
+                        "LEFT JOIN FETCH e.media " +
                         "WHERE e.id=:id";
-        TypedQuery<Media> query = entityManager.createQuery(qlQuery, Media.class);
+        TypedQuery<Adherent> query = entityManager.createQuery(qlQuery, Adherent.class);
         query.setParameter("id", AdherentId);
-        return query.getResultList();
+        return query.getSingleResult();
     }
     
  
