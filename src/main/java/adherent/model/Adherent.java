@@ -151,6 +151,15 @@ public class Adherent {
 	public void setEmprunts(List<Emprunt> emprunts) {
 		this.emprunts = emprunts;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Adherent [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+				+ ", adresse=" + adresse + ", codePostal=" + codePostal + ", ville=" + ville + ", email=" + email
+				+ ", cotisation=" + cotisation +  "]";
+	}
+	
 	
 	
 
