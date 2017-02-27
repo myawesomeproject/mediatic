@@ -1,6 +1,6 @@
 package Media.model;
 
-public enum Type {
+public enum TypeMedia {
 
 		Livre, CD, DVD;
 }

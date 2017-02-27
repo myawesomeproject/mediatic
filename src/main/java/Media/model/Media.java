@@ -15,7 +15,7 @@ public class Media {
 	
 	@Enumerated (EnumType.STRING)
 	@Column
-	private Type type;
+	private TypeMedia type;
 	
 	@Column
 	private String auteur;
