@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import Media.model.*;
-import adherent.Adherent;
+import adherent.model.*;
 
 
 
