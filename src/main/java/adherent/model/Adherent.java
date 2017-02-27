@@ -22,6 +22,9 @@ public class Adherent {
 	private String prenom;
 	
 	@NotBlank
+	private String dateNaissance;
+	
+	@NotBlank
 	private String adresse;
 	
 	@NotBlank
