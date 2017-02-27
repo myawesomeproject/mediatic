@@ -47,6 +47,7 @@ public class Adherent {
 	private List<Emprunt> emprunts;
 
 	
+<<<<<<< HEAD
 	public Adherent(){
 	}
 
@@ -151,6 +152,8 @@ public class Adherent {
 	}
 	
 	
+=======
+>>>>>>> 5a40f018a29f8780f892d149e27484f06a272c19
 	
 	
 }
