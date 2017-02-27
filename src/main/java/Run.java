@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import javax.persistence.EntityManager;
-
-
-import service.DatabaseHelper;
-
-public class Run {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		EntityManager manager = DatabaseHelper.createEntityManager();
-	
-	}
-
-}
-=======
 import java.sql.Date;
 
 import adherent.dao.AdherentDAO;
@@ -73,4 +56,4 @@ public class Run {
 	}
 
 }
->>>>>>> d3a86d72e9e073e3b1ffe80a46fd45217e61dc1b
+
