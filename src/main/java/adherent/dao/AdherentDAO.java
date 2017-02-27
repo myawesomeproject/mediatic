@@ -1,7 +1,10 @@
-package service;
+package adherent.dao;
 
 import adherent.model.*;
 import media.model.*;
+import service.DatabaseHelper;
+import service.GenericDAO;
+
 import org.hibernate.Hibernate;
 
 import javax.persistence.EntityManager;
@@ -22,6 +25,8 @@ public class AdherentDAO extends GenericDAO<Adherent> {
         }
         return dao;
     }
+    
+    
 
     public Adherent findAdherentAndFetchMedias2Requests(Long id) {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
@@ -54,9 +59,9 @@ public class AdherentDAO extends GenericDAO<Adherent> {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
         String qlQuery =
                 "SELECT b " +
-                        "FROM Adherent c " +
-                        "INNER JOIN c.boughtMedias b " +
-                        "WHERE c.id=:id";
+                        "FROM Adherent a " +
+                        "INNER JOIN a.boughtMedias b " +
+                        "WHERE a.id=:id";
         TypedQuery<Media> query = entityManager.createQuery(qlQuery, Media.class);
         query.setParameter("id", AdherentId);
         return query.getResultList();

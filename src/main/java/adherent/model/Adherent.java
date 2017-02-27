@@ -1,6 +1,7 @@
 package adherent.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -11,7 +12,6 @@ import java.util.List;
 
 
 @Entity
-@Table (name="adherent")
 public class Adherent {
 
 	@Id
@@ -24,14 +24,14 @@ public class Adherent {
 	@NotBlank
 	private String prenom;
 	
-	@NotBlank
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
 	
 	@NotBlank
 	private String adresse;
 	
-	@NotBlank
+	@NotNull
 	private Integer codePostal;
 	
 	@NotBlank
