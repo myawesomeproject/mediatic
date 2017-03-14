@@ -104,7 +104,12 @@
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 			<tbody class="myTable">
-			
+				<td><a href="#/livre/{{livre._id.$oid}}">{{livre['ISBN-13']}}</a></td>
+				<td ng-bind="livre.title"></td>
+				<!-- marche aussi	<td>{{ livre.title }}</td> -->
+				<td>{{ livre.price | currency }}</td>
+				<td>
+					<button ng-click="ajoute(livre)">+</button>
 			</tbody>
 			<tfoot>
 			</tfoot>

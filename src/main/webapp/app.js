@@ -6,56 +6,55 @@
 							'MyApp.Connexion',
 							'MyApp.Adherent',												
 							'MyApp.Media',
-//							'MyApp.Emprunt',
+							//'MyApp.Emprunt',
 							])
 	
 		.config(function($routeProvider){
 			
 			$routeProvider.when('/connexion', {
-				controller :'connexionCtrl',
+				controller :'ConnexionCtrl',
 				templateUrl : './template/connexion.html',
 				title: 'Connexion'
 			});	
 			
 			$routeProvider.when('/adherentrecherche', {
-				controller :'adherentrechercheCtrl',
+				controller :'AdherentRechercheCtrl',
 				templateUrl : './template/adherentrecherche.html',
 				title: 'Liste des adhérents'
 			});	
 			
 			$routeProvider.when('/mediarecherche', {
-				controller : 'mediarechercheCtrl',
+				controller : 'MediaRechercheCtrl',
 				templateUrl : './template/mediarecherche.html',
 				title : 'Liste des médias'
 			});
 			
 			$routeProvider.when('/adherentvisualisation', {
-				controller : 'adherentvisualisationCtrl',
+				controller : 'AdherentVisualisationCtrl',
 				templateUrl : './template/adherentvisualisation.html',
 				title: 'Adhérent'
 			});	
 			
 			$routeProvider.when('/mediavisualisation', {
-				controller :'mediavisualisationCtrl',
+				controller :'MediaVisualisationCtrl',
 				templateUrl : './template/mediavisualisation.html',
 				title : 'Média'
 			});	
 		
 			$routeProvider.when('/adherentcreation', {
-				controller : 'adherentcreationCtrl',
+				controller : 'AdherentCreationCtrl',
 				templateUrl : './template/adherentcreation.html',
 				title : 'Ajout d\'adhérent'
 			});
 			
 			$routeProvider.when('/mediacreation', {
-				controller : 'mediacreationCtrl',
+				controller : 'MediaCreationCtrl',
 				templateUrl : './template/mediacreation.html',
 				title : 'Ajout de média'
 			});
 	
-			$routeProvider.otherwise('/connexion');
-	
-		})
+			$routeProvider.otherwise('/connexion');	
+			})
 	
 		.run(function($location, $rootScope) {
 				$rootScope.title = 'Home';			
