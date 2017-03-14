@@ -11,8 +11,8 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 		});	
 		
 		$routeProvider.when('/adherentvisualisation', {
-			controller :'adherentCtrl',
-			templateUrl : './template/adherent.html',
+			controller :'adherentvisulationCtrl',
+			templateUrl : './template/adherentvisualisation.html',
 			title: 'Adhérent'
 		});	
 		
@@ -23,8 +23,8 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 		});	
 		
 		$routeProvider.when('/mediavisualisation', {
-			controller :'mediaCtrl',
-			templateUrl : './template/media.html',
+			controller :'mediavisualisationCtrl',
+			templateUrl : './template/mediavisualisation.html',
 			title: 'Média'
 		});	
 		
