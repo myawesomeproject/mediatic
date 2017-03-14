@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('MyApp.Media',['ngRoute'])
+		.module('MyApp.Media')
 		.controller('MediaRechercheCtrl',function($scope, $rootScope, ListeMediaService, MediaRechercheService) {
 		
 			$rootScope.title = "Liste des médias" ;
