@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('MyApp.mediavisualisation',['ngRoute'])
+angular.module('MyApp.Mediavisualisation',['ngRoute'])
 
 	.controller('mediavisualisationCtrl',function($rootScope) {
 		
