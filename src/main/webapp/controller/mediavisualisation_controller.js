@@ -4,20 +4,10 @@
 
 	angular
 		.module('MyApp.Media',['ngRoute'])
-		.controller('MediaVisualisationCtrl',function($scope, $rootScope, catalogService, PanierService, rechercheService) {
+		.controller('MediaVisualisationCtrl',function($rootScope) {
 		
-			$rootScope.title = "Visualisation du media" ;
-			
-			$scope.recherche = rechercheService;
-			
-			$scope.catalogue = undefined;
+			$rootScope.title = "Visualisation du media" ;		
 
-			catalogService.getList().then(function(data) {
-				
-				$scope.catalogue = data;
-				
-			});
-		 
 		});
 
 })();
