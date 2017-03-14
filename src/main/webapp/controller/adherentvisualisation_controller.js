@@ -2,7 +2,7 @@
 
 angular.module('MyApp.Adherent',['ngRoute'])
 
-	.controller('adherentvisualisationCtrl',function($rootScope) {
+	.controller('AdherentvisualisationCtrl',function($rootScope) {
 		
 		$rootScope.title = "Visualisation de l'adhérent" ;
 		 
