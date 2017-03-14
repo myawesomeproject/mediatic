@@ -6,7 +6,7 @@
 							'MyApp.Connexion',
 							'MyApp.Adherent',												
 							'MyApp.Media',
-							'MyApp.Emprunt',
+//							'MyApp.Emprunt',
 							])
 	
 		.config(function($routeProvider){
