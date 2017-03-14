@@ -1,30 +1,29 @@
-(function() {
-	'use strict';
+'use strict';
 
-	angular.module('MyApp', [ 'ngRoute', 'MyApp.Connexion' ])
+angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 
-	.config(function($routeProvider) {
-
+	.config(function($routeProvider){
+		
 		$routeProvider.when('/connexion', {
-			controller : 'connexionCtrl',
+			controller :'connexionCtrl',
 			templateUrl : './template/connexion.html',
-			title : 'Connexion'
-		});
-
+			title: 'Connexion'
+		});	
+		
 		$routeProvider.when('/adherentvisualisation', {
 			controller : 'adherentvisualisationCtrl',
 			templateUrl : './template/adherentvisualisation.html',
-			title : 'Adhérent'
-		});
-
+			title: 'Adhérent'
+		});	
+		
 		$routeProvider.when('/adherentrecherche', {
-			controller : 'adherentrechercheCtrl',
+			controller :'adherentrechercheCtrl',
 			templateUrl : './template/adherentrecherche.html',
-			title : 'Liste des adhérents'
-		});
-
+			title: 'Liste des adhérents'
+		});	
+		
 		$routeProvider.when('/mediavisualisation', {
-			controller : 'mediavisualisationCtrl',
+			controller :'mediavisualisationCtrl',
 			templateUrl : './template/mediavisualisation.html',
 			title : 'Média'
 		});
@@ -48,10 +47,11 @@
 		});
 
 		$routeProvider.otherwise('/connexion');
+
 	})
 
 	.run(function($location, $rootScope) {
-		$rootScope.title = 'Home';
+
+			$rootScope.title = 'Home';			
 	});
 
-})();
