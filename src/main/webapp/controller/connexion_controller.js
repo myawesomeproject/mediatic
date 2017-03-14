@@ -2,7 +2,7 @@
 
 angular.module('MyApp.Connexion',['ngRoute'])
 
-	.controller('connexionCtrl',function($rootScope) {
+	.controller('ConnexionCtrl',function($rootScope) {
 		
 		$rootScope.title = "connexion" ;
 		 
