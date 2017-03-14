@@ -29,7 +29,7 @@
 				title : 'Liste des médias'
 			});
 			
-			$routeProvider.when('/adherentvisualisation', {
+			$routeProvider.when('/adherentvisualisation/:id', {
 				controller : 'AdherentVisualisationCtrl',
 				templateUrl : './template/adherentvisualisation.html',
 				title: 'Adhérent'

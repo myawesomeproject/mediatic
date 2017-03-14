@@ -114,71 +114,24 @@
 								
 							</tfoot>
 
-							<tr>
-								<td><a href="#/adherentvisualisation"><i
-										class="-alt fa fa-eye fa-fw"></i> @ID_membre</a></td>
+							<tr ng-repeat="ligne in membres">
+								<td><a href="#/adherentvisualisation/{{ligne.id}}"><i
+										class="-alt fa fa-eye fa-fw"></i> @{{ligne.id}}</a></td>
 								<td><img
 									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
 									class="img-circle" width="30"></td>
-								<td><b>Durant</b></td>
-								<td>Marc</td>
-								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								<td><b>{{ligne.nom}}</b></td>
+								<td>{{ligne.prenom}}</td>
+								<td><a href="mailto:{{ligne.email}}">{{ligne.email}}</a>
 								</td>
-								<td>16/05/1986</td>
+								<td>{{ligne.date_naissance}}</td>
 								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
-								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
+								<td>{{ligne.nombre_media}} <i class="fa fa-book" aria-hidden="true"></i>
 								</td>
 
 							</tr>
 
-							<tr>
-								<td><a href="#/adherentvisualisation"><i class="-alt fa fa-eye fa-fw"></i>
-										@ID_membre</a></td>
-								<td><img
-									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
-									class="img-circle" width="30"></td>
-								<td><b>Durant</b></td>
-								<td>Marc</td>
-								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-								</td>
-								<td>16/05/1986</td>
-								<td><i class="fa fa-times colorRed" aria-hidden="true"></i></td>
-								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
-								</td>
-
-							</tr>
-							<tr>
-								<td><a href="#/adherentvisualisation"><i class="-alt fa fa-eye fa-fw"></i>
-										@ID_membre</a></td>
-								<td><img
-									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
-									class="img-circle" width="30"></td>
-								<td><b>Durant</b></td>
-								<td>Marc</td>
-								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-								</td>
-								<td>16/05/1986</td>
-								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
-								<td>04 <i class="fa fa-book" aria-hidden="true"></i>
-								</td>
-
-							</tr>
-							<tr>
-								<td><a href="#/adherentvisualisation"><i class="fa fa-eye" aria-hidden="true"></i>
-										@ID_membre</a></td>
-								<td><img
-									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
-									class="img-circle" width="30"></td>
-								<td><b>Durant</b></td>
-								<td>Marc</td>
-								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
-								</td>
-								<td>16/05/1986</td>
-								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
-								<td>01 <i class="fa fa-book" aria-hidden="true"></i>
-								</td>
-
-							</tr>
+							
 
 
 							</tbody>
@@ -208,7 +161,5 @@
             </div>
         </div>
     
-
-
 
 

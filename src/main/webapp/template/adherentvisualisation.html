@@ -19,33 +19,21 @@
 					</legend>
 
 					<div class="form-group">
-						<div class="col-sm-3">
-							<label class="col-sm-2 control-label" for="">Nom:</label>
-						</div>
-						<div class="col-sm-3">
-							<label class="editinfo col-sm-2 control-label" for="">Billy:</label>
-						</div>
+							<label class="col-sm-3">Nom:</label>						
+							{{membre.nom}}
 					</div>
 					<div class="form-group">
-						<div class="col-sm-3">
-							<label class="col-sm-2 control-label">Prenom:</label>
-						</div>
-						<div class="col-sm-3">
-							<label class="editinfo col-sm-2 control-label" for="">Budd:</label>
-						</div>
+							<label class="col-sm-3 ">Prenom:</label>
+							{{membre.prenom}}
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<label class="col-sm-3 control-label" style="padding-right: 4px;">Date
-							de naissance:</label> <label class="editinfo col-sm-3 control-label"
-							style="padding-right: 4px;">26/12/1222</label>
+						<label class="col-sm-3" >Date de naissance:</label> 
+							{{membre.date_naissance}}
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Email:</label> <label
-								class="editinfo col-sm-4 control-label">ben10@gmail.com:</label>
-						</div>
+							<label class="col-sm-3">Email:</label> {{membre.email}}		
 					</div>
 
 					<!-- Form Name -->
@@ -57,16 +45,22 @@
 					</legend>
 					<!-- Text input-->
 					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="control-label" style="padding-left: 15px;">Code
-								postal:</label>
-						</div>
+						
+							<label class="col-sm-3">Rue : </label>
+							{{membre.adresse.ligne1}}, {{membre.adresse.ligne2}} 
+					
 					</div>
 					<!-- Text input-->
 					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="col-sm-4 control-label">Ville:</label>
-						</div>
+
+							<label class="col-sm-3" >Code postal:</label> 
+							{{membre.adresse.codepostal}}
+						
+					</div>
+					<!-- Text input-->
+					<div class="form-group">	
+							<label class="col-sm-3">Ville:</label>
+							{{membre.adresse.ville}}
 					</div>
 
 					<legend>
@@ -75,13 +69,14 @@
 							class="glyphicon glyphicon-pencil"></span></a>
 					</legend>
 					<div class="form-group">
-						<div class="col-sm-4">
-							<label class="control-label" style="padding-left: 15px;">Date
-								de cotisation:</label>
-						</div>
-						<div class="col-sm-3">
-							<label class="col-sm-4 control-label"> Montant:</label>
-						</div>
+						
+							<label class="col-sm-3" >Date de cotisation:</label> 
+								{{membre.cotisation.debut}}
+					</div>
+					<div class="form-group">	
+							<label class="col-sm-3"> Montant:</label> 
+							{{membre.cotisation.montant |currency}}
+						
 
 					</div>
 					<!--Gestion Abonnement Membre Section -->
@@ -121,7 +116,7 @@
 				<h2 class="text-center">Historique</h2>
 				<table id="historiquemedia"
 					class="table table-bordered table-striped">
-
+					<thead>
 
 					<tr>
 						<td>Media</td>
@@ -130,41 +125,18 @@
 						<td>Date emprunt</td>
 						<td>Date retour</td>
 					</tr>
-					<tr>
-						<td>Livre</td>
-						<td>The Kid</td>
-						<td>Billy</td>
-						<td>5/03/87</td>
-						<td>5/06/87</td>
+					</thead>
+					<tbody>
+					
+					<tr ng-repeat="media in membre.emprunt">
+						<td> {{media.media.type}}</td>
+						<td>{{media.media.titre}}</td>
+						<td>{{media.media.auteur}}</td>
+						<td>{{media.depart}}</td>
+						<td>{{media.retour}}</td>
 					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
+					</tbody>
+			
 				</table>
 			</div>
 		</div>
