@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('MyApp.Adherent',['ngRoute'])
+		.module('MyApp.Adherent')
 		.controller('AdherentRechercheCtrl',function($rootScope) {
 		
 			$rootScope.title = "Adhérents" ;

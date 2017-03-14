@@ -3,7 +3,7 @@
 	'use strict';
 
 	angular
-		.module('MyApp.Media',['ngRoute'])
+		.module('MyApp.Media')
 		.controller('MediaCreationCtrl',function($rootScope) {
 		
 			$rootScope.title = "Création de media" ;
