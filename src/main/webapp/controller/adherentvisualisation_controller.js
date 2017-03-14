@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('MyApp.Adherent',['ngRoute'])
+angular.module('MyApp.Adherentvisualisation',['ngRoute'])
 
 	.controller('adherentvisualisationCtrl',function($rootScope) {
 		
