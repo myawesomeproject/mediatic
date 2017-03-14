@@ -2,3 +2,5 @@ target/
 .settings/
 .classpath
 .project
+src/main/bower_components/
+src/main/node_modules/
