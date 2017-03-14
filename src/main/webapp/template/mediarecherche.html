@@ -103,14 +103,18 @@
 				</tr>
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
-			<tbody class="myTable">
-				<td><a href="#/livre/{{livre._id.$oid}}">{{livre['ISBN-13']}}</a></td>
-				<td ng-bind="livre.title"></td>
-				<!-- marche aussi	<td>{{ livre.title }}</td> -->
-				<td>{{ livre.price | currency }}</td>
-				<td>
-					<button ng-click="ajoute(livre)">+</button>
-			</tbody>
+			<tbody>
+				<tr data-ng-repeat="media in listeMedia">
+<!-- 				<tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titre} | intervalPrice:recherche.pmin:recherche.pmax"> -->
+			
+
+
+				<td><a href="#/livre/{{media._id.$oid}}">{{media['ISBN-13']}}</a></td>
+				<td ng-bind="media.title"></td>
+<!-- marche aussi	<td>{{ livre.title }}</td> -->
+				<td>{{ media.price | currency }}</td>
+			</tr>
+		</tbody>
 			<tfoot>
 			</tfoot>
 		</table>
