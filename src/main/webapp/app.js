@@ -1,3 +1,4 @@
+(function() {
 'use strict';
 
 angular.module('MyApp',['ngRoute','MyApp.Connexion'])
@@ -54,4 +55,6 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 
 			$rootScope.title = 'Home';			
 	});
+
+})();
 
