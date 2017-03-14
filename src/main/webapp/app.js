@@ -1,48 +1,45 @@
-'use strict';
+(function() {
+	'use strict';
 
-angular.module('MyApp',['ngRoute','MyApp.Connexion'])
+	angular.module('MyApp', [ 'ngRoute', 'MyApp.Connexion' ])
 
-	.config(function($routeProvider){
-		
+	.config(function($routeProvider) {
+
 		$routeProvider.when('/connexion', {
-			controller :'connexionCtrl',
+			controller : 'connexionCtrl',
 			templateUrl : './template/connexion.html',
-			title: 'Connexion'
-		});	
-		
+			title : 'Connexion'
+		});
+
 		$routeProvider.when('/adherentvisualisation', {
-			controller :'adherentvisulationCtrl',
+			controller : 'adherentvisulationCtrl',
 			templateUrl : './template/adherentvisualisation.html',
-			title: 'Adhérent'
-		});	
-		
+			title : 'Adhérent'
+		});
+
 		$routeProvider.when('/adherentrecherche', {
-			controller :'adherentrechercheCtrl',
+			controller : 'adherentrechercheCtrl',
 			templateUrl : './template/adherentrecherche.html',
-			title: 'Liste des adhérents'
-		});	
-		
+			title : 'Liste des adhérents'
+		});
+
 		$routeProvider.when('/mediavisualisation', {
-			controller :'mediavisualisationCtrl',
+			controller : 'mediavisualisationCtrl',
 			templateUrl : './template/mediavisualisation.html',
-			title: 'Média'
-		});	
-		
+			title : 'Média'
+		});
+
 		$routeProvider.when('/mediatrecherche', {
-			controller :'mediarechercheCtrl',
+			controller : 'mediarechercheCtrl',
 			templateUrl : './template/mediarecherche.html',
-			title: 'Liste des médias'
-		});	
-		
-	/*	$routeProvider.when('/book/:id', {
-			controller :'bookCtrl',
-			templateUrl : './view-book/book.html',
-			title: 'Book'
-		});	*/
-		
-		$routeProvider.otherwise('/connexion');	
+			title : 'Liste des médias'
+		});
+
+		$routeProvider.otherwise('/connexion');
 	})
 
 	.run(function($location, $rootScope) {
-			$rootScope.title = 'Home';			
+		$rootScope.title = 'Home';
 	});
+
+})();
