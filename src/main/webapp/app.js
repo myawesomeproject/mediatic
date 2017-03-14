@@ -11,7 +11,11 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 		});	
 		
 		$routeProvider.when('/adherentvisualisation', {
+<<<<<<< HEAD
 			controller :'adherentvisulationCtrl',
+=======
+			controller : 'adherentvisualationCtrl',
+>>>>>>> 97146d6761537bf26f6988bf569c944a761282a5
 			templateUrl : './template/adherentvisualisation.html',
 			title: 'Adhérent'
 		});	
@@ -25,6 +29,7 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 		$routeProvider.when('/mediavisualisation', {
 			controller :'mediavisualisationCtrl',
 			templateUrl : './template/mediavisualisation.html',
+<<<<<<< HEAD
 			title: 'Média'
 		});	
 		
@@ -41,6 +46,30 @@ angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 		});	*/
 		
 		$routeProvider.otherwise('/connexion');	
+=======
+			title : 'Média'
+		});
+
+		$routeProvider.when('/mediarecherche', {
+			controller : 'mediarechercheCtrl',
+			templateUrl : './template/mediarecherche.html',
+			title : 'Liste des médias'
+		});
+		
+		$routeProvider.when('/mediacreation', {
+			controller : 'mediacreationCtrl',
+			templateUrl : './template/mediacreation.html',
+			title : 'Ajout de média'
+		});
+
+		$routeProvider.when('/adherentcreation', {
+			controller : 'adherentcreationCtrl',
+			templateUrl : './template/adherentcreation.html',
+			title : 'Ajout d\'adhérent'
+		});
+
+		$routeProvider.otherwise('/connexion');
+>>>>>>> 97146d6761537bf26f6988bf569c944a761282a5
 	})
 
 	.run(function($location, $rootScope) {
