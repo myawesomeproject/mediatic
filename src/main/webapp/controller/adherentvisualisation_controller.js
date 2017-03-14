@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('MyApp.Adherentvisualisation',['ngRoute'])
+angular.module('MyApp.Adherent',['ngRoute'])
 
-	.controller('AdherentvisualisationCtrl',function($rootScope) {
+	.controller('AdherentVisualisationCtrl',function($rootScope) {
 		
 		$rootScope.title = "Visualisation de l'adhérent" ;
 		 
