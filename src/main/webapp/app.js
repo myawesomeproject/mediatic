@@ -12,7 +12,7 @@
 		});
 
 		$routeProvider.when('/adherentvisualisation', {
-			controller : 'adherentvisulationCtrl',
+			controller : 'adherentvisualationCtrl',
 			templateUrl : './template/adherentvisualisation.html',
 			title : 'Adhérent'
 		});
@@ -29,7 +29,7 @@
 			title : 'Média'
 		});
 
-		$routeProvider.when('/mediatrecherche', {
+		$routeProvider.when('/mediarecherche', {
 			controller : 'mediarechercheCtrl',
 			templateUrl : './template/mediarecherche.html',
 			title : 'Liste des médias'
