@@ -6,4 +6,5 @@ angular.module('MyApp.Connexion',['ngRoute'])
 		
 		$rootScope.title = "connexion" ;
 		 
+		
 	});
