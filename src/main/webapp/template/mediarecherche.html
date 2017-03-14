@@ -1,0 +1,113 @@
+
+	<!-- BARRE DE RECHERCHE -->
+	<div class="row rowRechercheBase">
+		<div class="col-md-2 col-md-offset-2">
+				<input type="text" class="form-control" name="inputRechercheBase"
+					id="inputRechercheBase"
+					placeholder="Cherchez des titres, auteurs ou autre chose">
+		</div>
+		<div class="col-md-2">
+				<button class="btn btn-default" id="buttonRechercheBase" onclick="rechercheBasique()">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+				<a id="linkbuttonRechercheAvancee"
+					class="linkbuttonRechercheAvancee" href="#"
+					onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
+		</div>
+		<div class="col-md-2 col-md-offset-3">
+			<a href="mediaCreation.html"
+				class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau
+				m&eacute;dia</a>
+		</div>
+</div>
+
+	<!-- FIN DE LA BARRE -->
+	<!-- TABLEAU DE DONNEES -->
+
+	<div class="row">
+		<div class="table-responsive col-md-8 col-md-offset-2">
+			<table
+				class="table table-striped table-bordered table-hover table-sortable table25PPage text-center">
+				<!--TITRE DES COLONNES + BOUTONS DE TRI -->
+				<thead>
+					<tr>
+						<th class="colonneVue">Aller &agrave;</th>
+						<th class="colonneTitre">Titre
+							<button class="btn btn-default btn-xs" id="buttonSortTitre"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneAuteur">Auteur
+							<button class="btn btn-default btn-xs" id="buttonSortAuteur"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneType">Type
+							<button class="btn btn-default btn-xs" id="buttonSortType"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneEtat">&Eacute;tat
+							<button class="btn btn-default btn-xs" id="buttonSortEtat"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneNomEmprunteur">Emprunt&eacute; par
+							<button class="btn btn-default btn-xs"
+								id="buttonSortNomEmprunteur" onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneDateRetour">Retour le
+							<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+					</tr>
+					<!-- FIN DES TITRES -->
+					<!-- BARRE DE RECHERCHE AVANCEE -->
+					<tr class="rowRechercheAvancee">
+						<th></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheTitre" id="inputRechercheTitre"
+							placeholder="Titre"></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheAuteur" id="inputRechercheAuteur"
+							placeholder="Auteur"></th>
+						<th><select class="form-control">
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+						</select></th>
+						<th><select class="form-control">
+								<option>Emprunt&eacute;</option>
+								<option>En rayon</option>
+						</select></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheNomEmprunteur"
+							id="inputRechercheNomEmprunteur"
+							placeholder="Emprunt&eacute; par"></th>
+						<th><input type="text" class="datepicker" /></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+								<i class="fa fa-window-minimize" aria-hidden="true"></i>
+							</button></th>
+					</tr>
+				</thead>
+				<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
+				<tbody class="myTable">
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</div>
+	</div>
