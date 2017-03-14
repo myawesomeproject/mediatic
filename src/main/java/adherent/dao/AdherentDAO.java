@@ -1,6 +1,8 @@
+
 package adherent.dao;
 
 import adherent.model.*;
+import emprunt.model.Emprunt;
 import media.model.*;
 import service.DatabaseHelper;
 import service.GenericDAO;
@@ -26,44 +28,27 @@ public class AdherentDAO extends GenericDAO<Adherent> {
         return dao;
     }
     
-    
 
-  /*  public Adherent findAdherentAndFetchMedias2Requests(Long id) {
+    public List<Emprunt> MediasBoughtBy2Requests(Long AdherentId) {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
-        Adherent Adherent = entityManager.find(Adherent.class, id);
-        Hibernate.initialize(Adherent.getBoughtMedias());
-        entityManager.close();
-        return Adherent;
+        List<Emprunt> empruntMedia = entityManager.find(Adherent.class, AdherentId).getEmprunts();
+        Hibernate.initialize(empruntMedia);
+        return empruntMedia;
     }
 
-    public Adherent findAdherentAndFetchMedias(Long id) {
+    public Adherent MediasEmprunt(Long AdherentId) {
         EntityManager entityManager = DatabaseHelper.createEntityManager();
         String qlQuery =
-                "SELECT c " +
-                        "FROM Adherent c " +
-                        "LEFT JOIN FETCH c.boughtMedias " +
-                        "WHERE c.id=:id";
+                "SELECT a " +
+                        "FROM Adherent a " +
+                        "LEFT JOIN FETCH a.emprunts e " +
+                        "LEFT JOIN FETCH e.media " +
+                        "WHERE a.id=:id";
         TypedQuery<Adherent> query = entityManager.createQuery(qlQuery, Adherent.class);
-        query.setParameter("id", id);
+        query.setParameter("id", AdherentId);
         return query.getSingleResult();
     }
-
-    public List<Media> MediasBoughtBy2Requests(Long AdherentId) {
-        EntityManager entityManager = DatabaseHelper.createEntityManager();
-        List<Media> boughtMedias = entityManager.find(Adherent.class, AdherentId).getBoughtMedias();
-        Hibernate.initialize(boughtMedias);
-        return boughtMedias;
-    }
-
-    public List<Media> MediasBoughtBy(Long AdherentId) {
-        EntityManager entityManager = DatabaseHelper.createEntityManager();
-        String qlQuery =
-                "SELECT b " +
-                        "FROM Adherent a " +
-                        "INNER JOIN a.boughtMedias b " +
-                        "WHERE a.id=:id";
-        TypedQuery<Media> query = entityManager.createQuery(qlQuery, Media.class);
-        query.setParameter("id", AdherentId);
-        return query.getResultList();
-    }*/
+    
+ 
 }
+
