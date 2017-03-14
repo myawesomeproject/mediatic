@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('MyApp',['ngRoute'])
+angular.module('MyApp',['ngRoute','MyApp.Connexion'])
 
 	.config(function($routeProvider){
 		
