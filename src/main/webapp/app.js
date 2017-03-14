@@ -34,6 +34,18 @@
 			templateUrl : './template/mediarecherche.html',
 			title : 'Liste des médias'
 		});
+		
+		$routeProvider.when('/mediacreation', {
+			controller : 'mediacreationCtrl',
+			templateUrl : './template/mediacreation.html',
+			title : 'Ajout de média'
+		});
+
+		$routeProvider.when('/adherentcreation', {
+			controller : 'adherentcreationCtrl',
+			templateUrl : './template/adherentcreation.html',
+			title : 'Ajout d\'adhérent'
+		});
 
 		$routeProvider.otherwise('/connexion');
 	})
