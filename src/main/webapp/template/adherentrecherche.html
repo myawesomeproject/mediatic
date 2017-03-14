@@ -1,0 +1,214 @@
+
+<div class="container">
+<!-- ZONE TITRE PAGE -->
+
+<div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Les Membres</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+ <!-- ZONE Bouton Ajout Membre  -->
+        <div class="section">
+            <div class="container">
+                <div class="row well">
+					<!-- BARRE DE RECHERCHE -->
+					<div class=" rowRechercheBase ">
+						<div class="col-md-4 ">
+							<input type="text" class="form-control" name="inputRechercheBase"
+								id="inputRechercheBase"
+								placeholder="Cherchez des nom, prenom ou autre chose">
+						</div>
+						<div class="col-md-3">
+							<button class="btn btn-default" id="buttonRechercheBase"
+								onclick="rechercheBasique()">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button>
+							<a id="linkbuttonRechercheAvancee"
+								class="linkbuttonRechercheAvancee" href="#"
+								onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
+						</div>
+					</div>
+					<!-- FIN DE LA BARRE -->
+
+
+					<div class=" ">
+                        <a class="btn btn-primary pull-right" href="adherentCreation.html"><i class="fa fa-fw -square -circle fa-plus-square"></i> Ajouter Membre</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ZONE Tableau Membre -->
+        <div class="section">
+            <div class="container">
+				<div class="row">
+					<div class="col-md-12">
+					
+						<table class="table table-hover table-striped text-center">
+							<tbody>
+							<thead>
+								<tr>
+									<th> #ID <i class="fa fa-sort pull-right" aria-hidden="true"></i></th>
+									<th></th>
+									<th>NOM <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th>Prenon <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-envelope-o" aria-hidden="true"></i>
+										E-mail <i class="fa fa-sort pull-right" aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-calendar-o" aria-hidden="true"></i>
+										Date naissance <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i></th>
+									<th>Etat abonnement <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i>
+									</th>
+									<th><i class="fa fa-book" aria-hidden="true"></i> Nombre
+										de pr&ecirc;t <i class="fa fa-sort pull-right"
+										aria-hidden="true"></i></th>
+
+								</tr>
+									<!-- FIN DES TITRES -->
+				<!-- BARRE DE RECHERCHE AVANCEE -->
+				<tr class="rowRechercheAvancee">
+					<th></th>
+					<th></th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheNom" id="inputRechercheNom"
+						placeholder="Nom"></th>
+					<th>
+					<input type="text" class="form-control"
+						name="inputRecherchePrenom" id="inputRecherchePrenom"
+						placeholder="Prenom">
+					</th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheEmail" id="inputRechercheEmail"
+						placeholder="E-mail">
+						</th>
+					<th><input type="text" class="form-control"
+						name="inputRechercheNaissance"
+						id="inputRechercheNaissance" placeholder="date nainssance"></th>
+					<th></th>
+					
+					<th><input type="text" class="form-control"
+						name="inputRechercheNombre"
+						id="inputRechercheNombre" placeholder="Nombre">
+						</th>
+					<th><button class="btn btn-default"
+							id="buttonRechercheAvancee" onclick="">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button></th>
+					<th><button class="btn btn-default"
+							id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+							<i class="fa fa-window-minimize" aria-hidden="true"></i>
+						</button></th>
+				</tr>
+							</thead>
+							<tfoot>
+								
+							</tfoot>
+
+							<tr>
+								<td><a href="adherentVisualisation.html"><i
+										class="-alt fa fa-eye fa-fw"></i> @ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
+								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+
+							<tr>
+								<td><a href="#"><i class="-alt fa fa-eye fa-fw"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-times colorRed" aria-hidden="true"></i></td>
+								<td>06 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+							<tr>
+								<td><a href="#"><i class="-alt fa fa-eye fa-fw"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
+								<td>04 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+							<tr>
+								<td><a href="#"><i class="fa fa-eye" aria-hidden="true"></i>
+										@ID_membre</a></td>
+								<td><img
+									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+									class="img-circle" width="30"></td>
+								<td><b>Durant</b></td>
+								<td>Marc</td>
+								<td><a href="mailto:Durant@gmail.com">Durant@gmail.com</a>
+								</td>
+								<td>16/05/1986</td>
+								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
+								<td>01 <i class="fa fa-book" aria-hidden="true"></i>
+								</td>
+
+							</tr>
+
+
+							</tbody>
+						</table>
+
+						<div class="panel-footer">
+							<div class="row">
+								<div class="col col-xs-11">
+									<ul class="pagination hidden-xs pull-right">
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+									</ul>
+									<ul class="pagination visible-xs pull-right">
+										<li><a href="#">«</a></li>
+										<li><a href="#">»</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+            </div>
+        </div>
+    
+
+
+
+
