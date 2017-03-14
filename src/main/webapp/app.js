@@ -12,7 +12,7 @@
 		});
 
 		$routeProvider.when('/adherentvisualisation', {
-			controller : 'adherentvisulationCtrl',
+			controller : 'adherentvisualisationCtrl',
 			templateUrl : './template/adherentvisualisation.html',
 			title : 'Adhérent'
 		});
