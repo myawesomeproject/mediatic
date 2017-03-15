@@ -67,6 +67,14 @@
 					</th>
 					<th 
 						class="colonneTitre">
+						<select 								
+							id="filtreType"
+							ng-model="filtreBy.type">
+							<option value="">Tous</option>
+							<option>Livre</option>
+							<option>CD</option>
+							<option>DVD</option>
+						</select>
 						Titre
 						<button 
 							class="btn btn-default btn-xs" 
@@ -92,29 +100,30 @@
 					</th>
 					<th 
 						class="colonneType">
-						Type
-						<button 
-							class="btn btn-default btn-xs" 
-							id="buttonSortType"
-							onclick="">
-							<i 
-								class="fa fa-sort" 
-								aria-hidden="true">
-							</i>
-						</button>
+						Type : 
+							<select 								
+								id="filtreType"
+								ng-model="filtreBy.type">
+								<option value="">Tous</option>
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+							</select>
 					</th>
 					<th 
 						class="colonneEtat">
 						&Eacute;tat
-						<button 
-							class="btn btn-default btn-xs" 
-							id="buttonSortEtat"
-							onclick="">
-							<i 
-								class="fa fa-sort" 
-								aria-hidden="true">
-							</i>
-						</button>
+						<select							
+							id="filtreEtat"
+							ng-model="filtreBy.etat">
+							<option value="">Tous</option>
+							<option value="PRETE">
+								Emprunt&eacute;
+							</option>
+							<option value="LIBRE">
+								En rayon
+							</option>
+						</select>
 					</th>
 					<th 
 						class="colonneNomEmprunteur">
@@ -166,23 +175,24 @@
 								ng-model="modelRechercheAvancee.auteur">
 						</th>
 						<th>
-							<select 
-								class="form-control"
-								id="inputRechercheType"
-								ng-model="modelRechercheAvancee.type">
-								<option>Livre</option>
-								<option>CD</option>
-								<option>DVD</option>
-							</select>
+<!-- 							<select  -->
+<!-- 								class="form-control" -->
+<!-- 								id="inputRechercheType" -->
+<!-- 								ng-model="modelRechercheAvancee.type"> -->
+<!-- 								<option>Tous</option> -->
+<!-- 								<option>Livre</option> -->
+<!-- 								<option>CD</option> -->
+<!-- 								<option>DVD</option> -->
+<!-- 							</select> -->
 						</th>
 						<th>
-							<select 
-								class="form-control"
-								id="inputRechercheEtat"
-								ng-model="modelRechercheAvancee.etat">
-								<option>Emprunt&eacute;</option>
-								<option>En rayon</option>
-							</select>
+<!-- 							<select  -->
+<!-- 								class="form-control" -->
+<!-- 								id="inputRechercheEtat" -->
+<!-- 								ng-model="modelRechercheAvancee.etat"> -->
+<!-- 								<option>Emprunt&eacute;</option> -->
+<!-- 								<option>En rayon</option> -->
+<!-- 							</select> -->
 						</th>
 						<th>
 							<input
@@ -190,7 +200,7 @@
 								type="text" 								
 								id="inputRechercheNomEmprunteur"
 								placeholder="Emprunt&eacute; par"
-								ng-model="modelRechercheAvancee.emprunteur">
+								ng-model="modelRechercheAvancee.emprunteur.nom">
 						</th>
 						<th>
 							<datepicker	
@@ -255,7 +265,9 @@
 
 
 <tr
-						dir-paginate="media in listeMedia |
+						dir-paginate="media in listeMedia |	
+										filter: {type:filtreBy.type} |
+										filter: {etat:filtreBy.etat} |
  										filter: filterRechercheBase |
  										filter: filterRechercheAvancee |			
  										itemsPerPage: 10" > 	 
@@ -274,6 +286,27 @@
 						</a>
 					</td>
 					<td> 
+						<span 						 
+							ng-if="media.type==='Livre'">
+							<i 
+								class="fa fa-book" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='CD'">
+							<i 
+								class="fa fa-music" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='DVD'">
+							<i 
+								class="fa fa-film" 
+								aria-hidden="true">
+							</i>
+						</span>	
 						<span 
 							ng-bind="media.titre">
 						</span>
@@ -304,7 +337,7 @@
 								class="fa fa-film" 
 								aria-hidden="true">
 							</i>
-						</span>
+						</span>						
 					</td>				
 <!-- Utilisation de ng-if-start et -end pour délimiter un bloc complet soumis à la condition : en l'espèce : que le média est emprunté -->
 					<td 
@@ -335,11 +368,11 @@
 					</td>
 <!-- idem quand le média est libre -->
 					<td 
-						ng-if-start="media.emprunteur===undefined">
+						ng-if-start="media.emprunteur===undefined">		
 						<i 
 							class="fa fa-check text-success" 
 							aria-hidden="true">
-						</i>
+						</i>						
 					</td>
 					<td></td>
 					<td ng-if-end></td>												
