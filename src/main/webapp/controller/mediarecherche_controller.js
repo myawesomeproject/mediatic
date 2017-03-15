@@ -9,7 +9,8 @@
 			$rootScope.title = "Liste des médias" ;
 			
 			$scope.recherche = MediaRechercheService;
-			$scope.avancee=false;
+			
+			$scope.rechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation
 			
 			$scope.listeMedia = undefined;
 
