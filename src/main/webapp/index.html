@@ -35,9 +35,15 @@
    <script src="./controller/mediavisualisation_controller.js"></script>
    <script src="./controller/mediarecherche_controller.js"></script>
    <script src="./controller/mediacreation_controller.js"></script>
+   
+   <script src="./controller/menu_controller.js"></script>
+    
    <script src="./service/listeMediaService.js"></script>
+   <script src="./service/adherent_service.js"></script>
+   
    
    <script src="./controller/emprunt.js"></script>
+
  
 <title ng-bind="$root.title +' - MyAPP Home'"> - MyApp</title>
 
@@ -64,11 +70,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav" ng-init="selectedTab='media'">
-						<li ng-class="{'active':selectedTab === 'media'}" ng-click="selectedTab = 'media'"><a href="#/mediarecherche"> <i
+					<ul class="nav navbar-nav" ng-controller="MenuCtrl">
+						<li ng-class="{ active: isMedia($root.title)}"><a href="#/mediarecherche"> <i
 								class="fa fa-database" aria-hidden="true"></i> Media
 						</a></li>
-						<li ng-class="{'active':selectedTab === 'adherent'}" ng-click="selectedTab = 'adherent'"><a href="#/adherentrecherche"><i
+						<li ng-class="{ active: isAdherent($root.title)}"><a href="#/adherentrecherche"><i
 								class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
