@@ -114,7 +114,7 @@
 								
 							</tfoot>
 
-							<tr ng-repeat="ligne in membres">
+							<tr dir-paginate="ligne in membres | itemsPerPage: 10">
 								<td><a href="#/adherentvisualisation/{{ligne.id}}"><i
 										class="-alt fa fa-eye fa-fw"></i> @{{ligne.id}}</a></td>
 								<td><img
@@ -138,20 +138,9 @@
 						</table>
 
 						<div class="panel-footer">
+						
 							<div class="row">
-								<div class="col col-xs-11">
-									<ul class="pagination hidden-xs pull-right">
-										<li><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-									</ul>
-									<ul class="pagination visible-xs pull-right">
-										<li><a href="#">«</a></li>
-										<li><a href="#">»</a></li>
-									</ul>
-								</div>
+							   <dir-pagination-controls class="pull-right"></dir-pagination-controls>
 							</div>
 						</div>
 					</div>
@@ -161,5 +150,4 @@
             </div>
         </div>
     
-
 
