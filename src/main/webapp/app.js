@@ -7,6 +7,7 @@
 							'MyApp.Adherent',												
 							'MyApp.Media',
 							'MyApp.Emprunt',
+							'angularUtils.directives.dirPagination'
 							])
 	
 		.config(function($routeProvider){
