@@ -13,7 +13,7 @@ angular.module('MyApp')
 			$scope.isMedia = function(value){
 				//console.log(value);
 				return (value === 'Liste des médias' 
-					|| value === 'Création media' 
-					|| value === 'Visualisation media');
+					|| value === 'Création média' 
+					|| value === 'Visualisation média');
 			}
 		});

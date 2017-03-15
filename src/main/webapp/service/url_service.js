@@ -18,7 +18,8 @@ angular.module('MyApp')
 	// MEDIA
 	var mediaRechercheUrl = serveur + '/resource/media.recherche';
 	var mediaCreationUrl = serveur + '/resource/media.creation';
-	var mediaModificationUrl = serveur + 'resource/media.modification';
+	var mediaModificationUrl = serveur + '/resource/media.modification';
+	var mediaAccessionUrl = serveur + '/resource/media.accession';
 
 	Service.getAdherentCreationUrl = function() {
 		return adherentCreationUrl;
@@ -57,6 +58,11 @@ angular.module('MyApp')
 	Service.getMediaModificationUrl = function() {
 
 		return mediaModificationUrl;
+	}
+	
+	Service.getMediaAccessionUrl = function() {
+
+		return mediaAccessionUrl;
 	}
 
 	return Service;

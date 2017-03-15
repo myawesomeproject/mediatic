@@ -3,31 +3,25 @@
 	<div class="container" style="height:80%">
 		<div class="col-sm-6 col-xs-offset-1">
 			<!-- Informations générales de visualisation-->
-			<legend><h1><i class="fa fa-film"></i> Les mis&eacute;roides</h1></legend>
+			<legend><h1><i class="fa fa-film"></i> {{media.titre}}</h1></legend>
 			<div id="infomedia">
 				<label>Auteur :</label>
-				<span style ="font-size:25px" class="visualisation">Martine</span>
+				<span style ="font-size:25px" class="visualisation">{{media.auteur}}</span>
 				<br>
 				<label>Type :</label>
-				<span style ="font-size:25px" class="visualisation">DVD</span>
+				<span style ="font-size:25px" class="visualisation">{{media.type}}</span>
 			</div>
-			<!-- pour le test-->
-			<input type="checkbox" id="testemprunt">Emprunt ?
 			
 			<div id="siemprunt">
 			<!-- S'affiche si le média est emprunté-->
 				<h3>Emprunt&eacute;</h3>
-				<label>Nom emprunteur :</label>
-				<label id="nomemprunteur"></label>
+				<label>Nom emprunteur :</label>{{media.emprunteurs[0].adherent.nom}}
 				<br>
-				<label>Prenom emprunteur :</label>
-				<label id="prenomemprunteur"></label>
+				<label>Prenom emprunteur :</label>{{media.emprunteurs[0].adherent.prenom}}
 				<br>
-				<label>Date d'emprunt :</label>
-				<label id="dateempruntvisumedia"></label>
+				<label>Date d'emprunt :</label>{{media.emprunteurs[0].depart}}
 				<br>
-				<label>Date de retour maximum :</label>
-				<label id="dateretourvisumedia"></label>
+				<label>Date de retour maximum :</label>{{media.emprunteurs[0].retour}}
 				<br>
 				<button class="btn btn-primary btn-lg" id="boutonretourmedia">Validation retour</button>
 			</div>
@@ -61,35 +55,11 @@
 									<td>Prenom</td>
 									<td>Date de naissance</td>
 								</tr>
-								<tr>
-									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
-									<td>Pompidou</td>
-									<td>Georges</td>
-									<td>29/02/87</td>
-								</tr>
-								<tr>
-									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
-									<td></td>
-									<td></td>
-									<td></td>
+								<tr ng-repeat='ligne in media.emprunteurs'>
+									<td><a href="#/adherentvisualisation/{{ligne.adherent.id}}" class="glyphicon glyphicon-user"></a></td>
+									<td>{{ligne.adherent.nom}}</td>
+									<td>{{ligne.adherent.prenom}}</td>
+									<td>{{ligne.adherent.date_naissance}}</td>
 								</tr>
 							</table>
 						</div>
@@ -112,35 +82,11 @@
 						<td>Date emprunt</td>
 						<td>Date retour</td>
 					</tr>
-					<tr>
-						<td>Pompidou</td>
-						<td>Georges</td>
-						<td>29/02/87</td>
-						<td>5/03/87</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+					<tr ng-repeat='ligne in media.emprunteurs'>
+						<td>{{ligne.adherent.nom}}</td>
+						<td>{{ligne.adherent.prenom}}</td>
+						<td>{{ligne.depart}}</td>
+						<td>{{ligne.retour}}</td>
 					</tr>
 				</table>
 			</div>
