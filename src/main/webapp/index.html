@@ -27,6 +27,8 @@
    <script src="./service/url_service.js"></script>   
    
    <script src="./controller/connexion_controller.js"></script>
+   <script src="./service/Auth.js"></script>
+   
    
    <script src="./controller/adherentvisualisation_controller.js"></script>
    <script src="./controller/adherentcreation_controller.js"></script>
@@ -78,7 +80,7 @@
 								class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#/connexion"> <i
+						<li><a href="#/connexion" ng-click="disconnet()"> <i
 								class="fa fa-sign-out fa-1x" aria-hidden="true"></i>
 								D&eacute;connexion
 						</a></li>

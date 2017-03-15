@@ -21,6 +21,14 @@ angular.module('MyApp')
 	var mediaModificationUrl = serveur + '/resource/media.modification';
 	var mediaAccessionUrl = serveur + '/resource/media.accession';
 
+	
+	var ConnexionUrl = serveur + '/resource/connexion.login';
+	//var ConnexionUrl = serveur + '/resource/connexion.rights';
+	
+	Service.getConnection = function() {
+		return ConnexionUrl;
+	}
+	
 	Service.getAdherentCreationUrl = function() {
 		return adherentCreationUrl;
 	}
