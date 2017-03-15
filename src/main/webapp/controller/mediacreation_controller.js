@@ -6,7 +6,7 @@
 		.module('MyApp.Media')
 		.controller('MediaCreationCtrl',function($rootScope) {
 		
-			$rootScope.title = "Création de media" ;
+			$rootScope.title = "Création media" ;
 			
 			
 		});

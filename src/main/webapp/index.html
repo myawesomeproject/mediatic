@@ -36,6 +36,7 @@
    <script src="./service/listeMediaService.js"></script>
    
    <script src="./controller/emprunt.js"></script>
+
  
 <title ng-bind="$root.title +' - MyAPP Home'"> - MyApp</title>
 
@@ -62,11 +63,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav" ng-init="selectedTab='media'">
-						<li ng-class="{'active':selectedTab === 'media'}" ng-click="selectedTab = 'media'"><a href="#/mediarecherche"> <i
+					<ul class="nav navbar-nav">
+						<li ng-class="{ active: ($root.title === 'Liste des m&eacute;dias' || $root.title === 'Cr&eacute;ation media' || $root.title === 'Visualisation media')}"><a href="#/mediarecherche"> <i
 								class="fa fa-database" aria-hidden="true"></i> Media
 						</a></li>
-						<li ng-class="{'active':selectedTab === 'adherent'}" ng-click="selectedTab = 'adherent'"><a href="#/adherentrecherche"><i
+						<li ng-class="{ active: ($root.title === 'Adh&eacute;rents' || $root.title === 'Cr&eacute;ation adh&eacute;rents' || $root.title === 'Visualisation adh&eacute;rent')}"><a href="#/adherentrecherche"><i
 								class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
