@@ -4,7 +4,7 @@ angular.module('MyApp.Adherent',['ngRoute'])
 
 	.controller('AdherentVisualisationCtrl',function($rootScope,$scope,UrlService,$http,$routeParams) {
 		
-		$rootScope.title = "Visualisation de l'adhérent";
+		$rootScope.title = "Visualisation adhérent";
 		
 		
 		var url = UrlService.getAdherentAccessionUrl();

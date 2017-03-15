@@ -1,111 +1,208 @@
-
 <!-- BARRE DE RECHERCHE -->
-<div class="row rowRechercheBase">
-	<div class="col-md-2 col-md-offset-2">
-			<input type="text" class="form-control" name="inputRechercheBase"
-				id="inputRechercheBase"
-				placeholder="Cherchez des titres, auteurs ou autre chose">
+<div 
+	class="row rowRechercheBase">
+	<div 
+		class="col-md-2 col-md-offset-2">
+		<input 			 
+			class="form-control" 
+			type="text"
+			name="inputRechercheBase"
+			id="inputRechercheBase"
+			placeholder="Cherchez des titres, auteurs ou autre chose">
 	</div>
-	<div class="col-md-2">
-			<button class="btn btn-default" id="buttonRechercheBase" onclick="rechercheBasique()">
-				<i class="fa fa-search" aria-hidden="true"></i>
-			</button>
-			<button id="linkbuttonRechercheAvancee"
-				class="btn btn-link" href="#"
-				zzonclick="maximizeRechercheAvancee()"
-				ng-show="avancee===false"
-				ng-click="avancee=true">Recherche avanc&eacute;e</a>
+	<div 
+		class="col-md-2">
+		<button 
+			class="btn btn-default" 
+			id="buttonRechercheBase" 
+			onclick="rechercheBasique()">
+			<i 
+				class="fa fa-search" 
+				aria-hidden="true">
+			</i>
+		</button>
+		<button 
+			class="btn btn-link" 
+			id="linkbuttonRechercheAvancee"			
+			href="#"			
+			ng-show="rechercheAvancee===false"
+			ng-click="rechercheAvancee=true">
+			Recherche avanc&eacute;e</a>
+		</button>
 	</div>
-	<div class="col-md-2 col-md-offset-3">
-		<a href="#/mediacreation"
-			class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau m&eacute;dia</a>
+	<div 
+		class="col-md-2 col-md-offset-3">
+		<a 
+			class="btn btn-default buttonlinkAjouterMedia"
+			href="#/mediacreation">
+			Ajouter nouveau m&eacute;dia</a>
 	</div>
 </div>
 <!-- FIN DE LA BARRE -->
 
 <!-- TABLEAU DE DONNEES -->
-<div class="row">
-	<div class="table-responsive col-md-8 col-md-offset-2">
-		<table
-			class="table table-striped table-bordered table-hover table-sortable table25PPage text-center">
-			<!--TITRE DES COLONNES + BOUTONS DE TRI -->
+<div 
+	class="row">
+	<div 
+		class="table-responsive col-md-8 col-md-offset-2">
+		<table 
+			class="table table-striped table-bordered table-hover table-sortable text-center">
+<!--TITRE DES COLONNES + BOUTONS DE TRI -->
 			<thead>
 				<tr>
-					<th class="colonneVue">Aller &agrave;</th>
-					<th class="colonneTitre">Titre
-						<button class="btn btn-default btn-xs" id="buttonSortTitre"
+					<th 
+						class="colonneVue">
+						Aller &agrave;
+					</th>
+					<th 
+						class="colonneTitre">
+						Titre
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortTitre"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
-					<th class="colonneAuteur">Auteur
-						<button class="btn btn-default btn-xs" id="buttonSortAuteur"
+					<th 
+						class="colonneAuteur">
+						Auteur
+						<button class="btn btn-default btn-xs" 
+							id="buttonSortAuteur"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
-					<th class="colonneType">Type
-						<button class="btn btn-default btn-xs" id="buttonSortType"
+					<th 
+						class="colonneType">
+						Type
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortType"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
-					<th class="colonneEtat">&Eacute;tat
-						<button class="btn btn-default btn-xs" id="buttonSortEtat"
+					<th 
+						class="colonneEtat">
+						&Eacute;tat
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortEtat"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
-					<th class="colonneNomEmprunteur">Emprunt&eacute; par
-						<button class="btn btn-default btn-xs"
-							id="buttonSortNomEmprunteur" onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+					<th 
+						class="colonneNomEmprunteur">
+						Emprunt&eacute; par
+						<button 
+							class="btn btn-default btn-xs"
+							id="buttonSortNomEmprunteur" 
+							onclick="">
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
-					<th class="colonneDateRetour">Retour le
-						<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
+					<th 
+						class="colonneDateRetour">
+						Retour le
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortDateRetour"
 							onclick="">
-							<i class="fa fa-sort" aria-hidden="true"></i>
+							<i 
+								class="fa fa-sort" 
+								aria-hidden="true">
+							</i>
 						</button>
 					</th>
 				</tr>
 				<!-- FIN DES TITRES -->
 				<!-- BARRE DE RECHERCHE AVANCEE -->
-				<tr class="rowRechercheAvancee">
-					<th></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheTitre" id="inputRechercheTitre"
-						placeholder="Titre"></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheAuteur" id="inputRechercheAuteur"
-						placeholder="Auteur"></th>
-					<th><select class="form-control">
-							<option>Livre</option>
-							<option>CD</option>
-							<option>DVD</option>
-					</select></th>
-					<th><select class="form-control">
-							<option>Emprunt&eacute;</option>
-							<option>En rayon</option>
-					</select></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheNomEmprunteur"
-						id="inputRechercheNomEmprunteur"
-						placeholder="Emprunt&eacute; par"></th>
-					<th><input type="text" class="datepicker" /></th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="">
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button></th>
-					<th>
-						<button
-							class="btn btn-default"
-							id="buttonRechercheAvancee"
-							zzonclick="minimizeRechercheAvancee()"
-							ng-show="avancee==true"
-							ng-click="avancee=false">
-							<i class="fa fa-window-minimize" aria-hidden="true"></i>
-						</button></th>
+				<tr 
+					class="rowRechercheAvancee" 
+					ng-show="rechercheAvancee==true">
+						<th></th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 
+								name="inputRechercheTitre" 
+								id="inputRechercheTitre"
+								placeholder="Titre">
+						</th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 
+								name="inputRechercheAuteur" 
+								id="inputRechercheAuteur"
+								placeholder="Auteur">
+						</th>
+						<th>
+							<select 
+								class="form-control">
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+							</select>
+						</th>
+						<th>
+							<select 
+								class="form-control">
+								<option>Emprunt&eacute;</option>
+								<option>En rayon</option>
+							</select>
+						</th>
+						<th>
+							<input
+								class="form-control"
+								type="text" 
+								name="inputRechercheNomEmprunteur"
+								id="inputRechercheNomEmprunteur"
+								placeholder="Emprunt&eacute; par">
+						</th>
+						<th>
+							<input 
+								class="datepicker"
+								type="text">
+						</th>
+						<th>
+							<button 
+								class="btn btn-default"
+								id="buttonRechercheAvancee"
+								onclick="">
+								<i 
+									class="fa fa-search" 
+									aria-hidden="true">
+								</i>
+							</button></th>
+						<th>
+							<button
+								class="btn btn-default"
+								id="buttonRechercheAvancee"
+								zzonclick="minimizeRechercheAvancee()"							
+								ng-click="rechercheAvancee=false">
+								<i 
+									class="fa fa-window-minimize" 
+									aria-hidden="true">
+								</i>
+							</button></th>
 				</tr>
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
@@ -113,34 +210,91 @@
 				<tr data-ng-repeat="media in listeMedia">
 <!-- 			<tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titre} | intervalPrice:recherche.pmin:recherche.pmax"> -->			
 
-					<td><a href="#/mediavisualisation" class="btn"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-					<td ng-bind="media.titre"></td>
-					<td ng-bind="media.auteur"></td>
-					<td ng-if="media.type==='Livre'"><i class="fa fa-book" aria-hidden="true"></i></td>
-					<td ng-if="media.type==='CD'"><i class="fa fa-music" aria-hidden="true"></i></td>
-					<td ng-if="media.type==='DVD'"><i class="fa fa-film" aria-hidden="true"></i></td>	
+					<td>
+						<a 
+							class="btn"
+							href="#/mediavisualisation">
+							<i 
+								class="fa fa-eye" 
+								aria-hidden="true">
+							</i>
+						</a>
+					</td>
+					<td> 
+						<span 
+							ng-bind="media.titre">
+						</span>
+					</td>
+					<td> 
+						<span 
+							ng-bind="media.auteur">
+						</span>
+					</td>
+					<td>
+						<span 						 
+							ng-if="media.type==='Livre'">
+							<i 
+								class="fa fa-book" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='CD'">
+							<i 
+								class="fa fa-music" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='DVD'">
+							<i 
+								class="fa fa-film" 
+								aria-hidden="true">
+							</i>
+						</span>
+					</td>				
 <!-- Utilisation de ng-if-start et -end pour délimiter un bloc complet soumis à la condition : en l'espèce : que le média est emprunté -->
-					<td ng-if-start="media.emprunteur!==undefined">
-						<i class="fa fa-ban text-danger" aria-hidden="true"></i>
+					<td 
+						ng-if-start="media.emprunteur!==undefined">
+						<i 
+							class="fa fa-ban text-danger" 
+							aria-hidden="true">
+						</i>
 					</td>					
 					<td>
-						<a href="#/adherentvisualisation" class="btn">
-							<i class="fa fa-user-circle" aria-hidden="true"></i>
+						<a 
+							class="btn"
+							href="#/adherentvisualisation">
+							<i 
+								class="fa fa-user-circle" 
+								aria-hidden="true">
+							</i>
 						</a>
-						<span ng-bind="media.emprunteur.nom"></span>
+						<span 
+							ng-bind="media.emprunteur.nom">
+						</span>
 					</td>
-					<td ng-if-end ng-bind="media.retour"></td>
+					<td>
+						<span 
+							ng-if-end ng-bind="media.retour">
+						</span>	
+					</td>
 <!-- idem quand le média est libre -->
-					<td ng-if-start="media.emprunteur===undefined">
-						<i class="fa fa-check text-success" aria-hidden="true"></i>
+					<td 
+						ng-if-start="media.emprunteur===undefined">
+						<i 
+							class="fa fa-check text-success" 
+							aria-hidden="true">
+						</i>
 					</td>
 					<td></td>
-					<td ng-if-end></td>
-												
+					<td ng-if-end></td>												
 				</tr>		
-			</tbody>		
+			</tbody>
+					
 			<tfoot>
 			</tfoot>
+			
 		</table>
 	</div>
 </div>

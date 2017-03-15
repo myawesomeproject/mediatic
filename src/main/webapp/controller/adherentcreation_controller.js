@@ -6,7 +6,7 @@
 		.module('MyApp.Adherent')
 		.controller('AdherentCreationCtrl',function($rootScope,AdherentService,$scope,dateFilter) {
 		
-			$rootScope.title = "Création d'adhérents" ;
+			$rootScope.title = "Création adhérents" ;
 			
 			/*var datatest = {
 					"nom": "toto",
