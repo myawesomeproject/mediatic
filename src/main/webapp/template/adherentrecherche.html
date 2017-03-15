@@ -20,7 +20,7 @@
 						<div class="col-md-4 ">
 							<input type="text" class="form-control" name="inputRechercheBase"
 								id="inputRechercheBase"
-								placeholder="Cherchez des nom, prenom ou autre chose">
+								placeholder="Cherchez des nom, prenom ou autre chose" ng-model="recherche.All">
 						</div>
 						<div class="col-md-3">
 							<button class="btn btn-default" id="buttonRechercheBase"
@@ -114,7 +114,7 @@
 								
 							</tfoot>
 
-							<tr dir-paginate="ligne in membres | itemsPerPage: 10">
+							<tr dir-paginate="ligne in membres |filter:recherche.All | itemsPerPage: 6">
 								<td><a href="#/adherentvisualisation/{{ligne.id}}"><i
 										class="-alt fa fa-eye fa-fw"></i> @{{ligne.id}}</a></td>
 								<td><img
