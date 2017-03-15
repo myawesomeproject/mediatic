@@ -12,30 +12,24 @@
 				<span style ="font-size:25px" class="visualisation">{{media.type}}</span>
 			</div>
 			
-			<div id="siemprunt">
+			<div id="siemprunt" ng-if="isReturn(media.retour)">
 			<!-- S'affiche si le média est emprunté-->
 				<h3>Emprunt&eacute;</h3>
-				<label>Nom emprunteur :</label>{{media.emprunteurs[0].adherent.nom}}
+				<label>Nom emprunteur :</label>{{media.emprunteur.nom}}
 				<br>
-				<label>Prenom emprunteur :</label>{{media.emprunteurs[0].adherent.prenom}}
+				<label>Prenom emprunteur :</label>{{media.emprunteur.prenom}}
 				<br>
-				<label>Date d'emprunt :</label>{{media.emprunteurs[0].depart}}
+				<label>Date d'emprunt :</label>{{media.emprunteurs[media.emprunteurs.length-1].depart}}
 				<br>
-				<label>Date de retour maximum :</label>{{media.emprunteurs[0].retour}}
+				<label>Date de retour maximum :</label>{{media.emprunteurs[media.emprunteurs.length-1].retour}}
 				<br>
 				<button class="btn btn-primary btn-lg" id="boutonretourmedia">Validation retour</button>
 			</div>
 			
-			<div id="sipasemprunt">
+			<div id="sipasemprunt" ng-if="!isReturn(media.retour)">
 			<!-- S'affiche si le média n'est pas emprunté-->
 				<h3>Libre</h3>
-				<label>Nom emprunteur :</label>
-				<input type="text" id="nomemprunt">
-				<br>
-				<label>Prenom emprunteur :</label>
-				<input type="text" id="prenomemprunt">
-				<br>
-				<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Validation emprunt</button>
+				<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">R&eacute;aliser un  emprunt</button>
 			</div>
 			<!-- Modal de confirmation -->
 			<div class="modal fade bs-modal-sm" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -48,18 +42,25 @@
 						</div>
 						
 						<div class="modal-body">
+						
+							<label>Nom emprunteur :</label>
+							<input type="text" id="nomemprunt" ng-model="filtreemprunteur.nom">
+							<br>
+							<label>Prenom emprunteur :</label>
+							<input type="text" id="prenomemprunt" ng-model="filtreemprunteur.prenom">
+							<br>
 							<table id="emprunteurconfirm" class="table table-bordered table-striped">
 								<tr>
-									<td></td>
+									<td>Valid</td>
 									<td>Nom</td>
 									<td>Prenom</td>
 									<td>Date de naissance</td>
 								</tr>
-								<tr ng-repeat='ligne in media.emprunteurs'>
-									<td><a href="#/adherentvisualisation/{{ligne.adherent.id}}" class="glyphicon glyphicon-user"></a></td>
-									<td>{{ligne.adherent.nom}}</td>
-									<td>{{ligne.adherent.prenom}}</td>
-									<td>{{ligne.adherent.date_naissance}}</td>
+								<tr ng-repeat='ligne in adherents | filter: filtreemprunteur'>
+									<td><a href="#/adherentvisualisation/{{lignes.id}}" data-dismiss="modal" class="glyphicon glyphicon-user"></a></td>
+									<td>{{ligne.nom}}</td>
+									<td>{{ligne.prenom}}</td>
+									<td>{{ligne.date_naissance}}</td>
 								</tr>
 							</table>
 						</div>
@@ -93,4 +94,6 @@
 		</div>
 	</div>
 <!-- fin de la page de visualisation -->
+
+<pre>{{adherents | json}}</pre>
 

@@ -54,7 +54,7 @@
 				title : 'Ajout de média'
 			});
 	
-			$routeProvider.otherwise('/connexion');	
+			$routeProvider.otherwise('/mediarecherche');	
 			})
 	
 		.run(function($location, $rootScope) {

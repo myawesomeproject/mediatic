@@ -8,14 +8,28 @@
 		
 			$rootScope.title = "Visualisation média" ;
 			
+			$scope.Date=new Date();
+			
+			$scope.isReturn=function(dateparam){
+				return Date > dateparam;
+			}
+			
 			var url = UrlService.getMediaAccessionUrl();
 			
 			$http.get(url,{params:{"id": $routeParams.id}}).then(function(reponse) {
 				//console.log('OK',reponse.data);
 				$scope.media = reponse.data;
 				
+			});
+			
+			var url1 = UrlService.getAdherentRechercheUrl();
+			
+			$http.get(url1).then(function(reponse) {
+				//console.log('OK',reponse.data);
+				$scope.adherents = reponse.data;
 				
 			});
+			
 
 		});
 
