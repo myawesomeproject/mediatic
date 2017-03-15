@@ -9,6 +9,7 @@
 			$rootScope.title = "Liste des médias" ;
 			
 			$scope.recherche = MediaRechercheService;
+			$scope.avancee=false;
 			
 			$scope.listeMedia = undefined;
 
@@ -16,7 +17,7 @@
 				
 				$scope.listeMedia = data;
 				
-			});
+			});	
 		 
 		});
 

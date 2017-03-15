@@ -10,14 +10,15 @@
 			<button class="btn btn-default" id="buttonRechercheBase" onclick="rechercheBasique()">
 				<i class="fa fa-search" aria-hidden="true"></i>
 			</button>
-			<a id="linkbuttonRechercheAvancee"
-				class="linkbuttonRechercheAvancee" href="#"
-				onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
+			<button id="linkbuttonRechercheAvancee"
+				class="btn btn-link" href="#"
+				zzonclick="maximizeRechercheAvancee()"
+				ng-show="avancee===false"
+				ng-click="avancee=true">Recherche avanc&eacute;e</a>
 	</div>
 	<div class="col-md-2 col-md-offset-3">
-		<a href="mediaCreation.html"
-			class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau
-			m&eacute;dia</a>
+		<a href="#/mediacreation"
+			class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau m&eacute;dia</a>
 	</div>
 </div>
 <!-- FIN DE LA BARRE -->
@@ -96,8 +97,13 @@
 							id="buttonRechercheAvancee" onclick="">
 							<i class="fa fa-search" aria-hidden="true"></i>
 						</button></th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+					<th>
+						<button
+							class="btn btn-default"
+							id="buttonRechercheAvancee"
+							zzonclick="minimizeRechercheAvancee()"
+							ng-show="avancee==true"
+							ng-click="avancee=false">
 							<i class="fa fa-window-minimize" aria-hidden="true"></i>
 						</button></th>
 				</tr>
@@ -105,16 +111,34 @@
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 			<tbody>
 				<tr data-ng-repeat="media in listeMedia">
-<!-- 				<tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titre} | intervalPrice:recherche.pmin:recherche.pmax"> -->
-			
+<!-- 			<tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titre} | intervalPrice:recherche.pmin:recherche.pmax"> -->			
 
-
-				<td><a href="#/livre/{{media._id.$oid}}">{{media['ISBN-13']}}</a></td>
-				<td ng-bind="media.title"></td>
-<!-- marche aussi	<td>{{ livre.title }}</td> -->
-				<td>{{ media.price | currency }}</td>
-			</tr>
-		</tbody>
+					<td><a href="#/mediavisualisation" class="btn"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+					<td ng-bind="media.titre"></td>
+					<td ng-bind="media.auteur"></td>
+					<td ng-if="media.type==='Livre'"><i class="fa fa-book" aria-hidden="true"></i></td>
+					<td ng-if="media.type==='CD'"><i class="fa fa-music" aria-hidden="true"></i></td>
+					<td ng-if="media.type==='DVD'"><i class="fa fa-film" aria-hidden="true"></i></td>	
+<!-- Utilisation de ng-if-start et -end pour délimiter un bloc complet soumis à la condition : en l'espèce : que le média est emprunté -->
+					<td ng-if-start="media.emprunteur!==undefined">
+						<i class="fa fa-ban text-danger" aria-hidden="true"></i>
+					</td>					
+					<td>
+						<a href="#/adherentvisualisation" class="btn">
+							<i class="fa fa-user-circle" aria-hidden="true"></i>
+						</a>
+						<span ng-bind="media.emprunteur.nom"></span>
+					</td>
+					<td ng-if-end ng-bind="media.retour"></td>
+<!-- idem quand le média est libre -->
+					<td ng-if-start="media.emprunteur===undefined">
+						<i class="fa fa-check text-success" aria-hidden="true"></i>
+					</td>
+					<td></td>
+					<td ng-if-end></td>
+												
+				</tr>		
+			</tbody>		
 			<tfoot>
 			</tfoot>
 		</table>
