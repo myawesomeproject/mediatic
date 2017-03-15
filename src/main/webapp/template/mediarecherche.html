@@ -193,17 +193,18 @@
 								ng-model="modelRechercheAvancee.emprunteur">
 						</th>
 						<th>
-							<datepicker>
-  								<input   									 
+							<datepicker	
+								date-set-hidden="true"
+      							date-format="y-MM-dd"      							
+							    date-typer="true"
+							    button-prev='<i class="fa fa-arrow-circle-left"></i>'
+								button-next='<i class="fa fa-arrow-circle-right"></i>'>
+  								<input  
+  									class="form-control" 									 
   									type="text"
   									id="inputRechercheDate"
-  									ng-model="date"/>
+  									ng-model="modelRechercheAvancee.date"/>
 							</datepicker>
-						
-<!-- 							<input 														 -->
-<!-- 								type="date"								 -->
-<!-- 								id="inputRechercheDate" -->
-<!-- 								ng-model="modelRechercheAvancee.date">							 -->
 						</th>
 						<th>
 							<button 
@@ -231,15 +232,15 @@
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 			<tbody>
-				<tr 
-					dir-paginate="media in listeMedia |
- 								filter: filterRechercheBase |
- 								filter:{titre:modelRechercheAvancee.titre} |
- 								filter:{auteur:modelRechercheAvancee.auteur} |
- 								filter:{type:modelRechercheAvancee.type} |
- 								filter:{etat:modelRechercheAvancee.etat} |
-								filter:{emprunteur:{nom:modelRechercheAvancee.emprunteur}} |
-								itemsPerPage: 12" > 
+<!-- 				<tr  -->
+<!-- 					dir-paginate="media in listeMedia | -->
+<!--  								filter: filterRechercheBase | -->
+<!--  								filter:{titre:modelRechercheAvancee.titre} | -->
+<!--  								filter:{auteur:modelRechercheAvancee.auteur} | -->
+<!--  								filter:{type:modelRechercheAvancee.type} | -->
+<!--  								filter:{etat:modelRechercheAvancee.etat} | -->
+<!-- 								filter:{emprunteur:{nom:modelRechercheAvancee.emprunteur}} | -->
+<!-- 								itemsPerPage: 10" >  -->
 								
 								
 								 
@@ -253,11 +254,11 @@
 <!-- 												'auteur': modelRechercheAvancee.datemedia -->
 
 
-<!-- <tr -->
-<!-- 						dir-paginate="media in listeMedia | -->
-<!-- 										filter: filterRechercheBase | -->
-<!-- 										filter: filterRechercheAvancee |			  -->
-<!-- 										itemsPerPage: 12" > 	 -->
+<tr
+						dir-paginate="media in listeMedia |
+ 										filter: filterRechercheBase |
+ 										filter: filterRechercheAvancee |			
+ 										itemsPerPage: 10" > 	 
 			
 <!-- dir-paginate= remplace le data-ng-repeat pour avoir la version paginée -->
 <!-- exemple : <tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titremedia}"> -->			
