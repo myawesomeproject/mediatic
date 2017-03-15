@@ -17,10 +17,12 @@ angular.module('MyApp.Connexion')
 			}
 		};
 		return $http.post(UrlService.getConnection(),data , config).then(function(){
+			console.log('Connection OK');
 			connected = true;
 			$http.defaults.headers.common['Authorization'] = auth;
 			return true;
 		}, function(){
+			console.log('Connection NOK');
 			connected = false;
 			$http.defaults.headers.common['Authorization'] = defaut;
 			return false;

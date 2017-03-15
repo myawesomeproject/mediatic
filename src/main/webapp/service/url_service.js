@@ -23,7 +23,7 @@ angular.module('MyApp')
 
 	
 	var ConnexionUrl = serveur + '/resource/connexion.login';
-	//var ConnexionUrl = serveur + '/resource/connexion.rights';
+	var ConnexionUrl2 = serveur + '/resource/connexion.rights';
 	
 	Service.getConnection = function() {
 		return ConnexionUrl;
