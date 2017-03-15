@@ -79,7 +79,7 @@
 						<button 
 							class="btn btn-default btn-xs" 
 							id="buttonSortTitre"
-							onclick="">
+							ng-click="tdTri == 'Titre'">
 							<i 
 								class="fa fa-sort" 
 								aria-hidden="true">
@@ -89,27 +89,29 @@
 					<th 
 						class="colonneAuteur">
 						Auteur
-						<button class="btn btn-default btn-xs" 
-							id="buttonSortAuteur"
-							onclick="">
-							<i 
-								class="fa fa-sort" 
-								aria-hidden="true">
-							</i>
-						</button>
+            			<button            				
+            				ng-show="triInverse==true" 
+            				ng-click="tdTri = 'auteur'; triInverse = false"           				
+            				class="fa fa-caret-down">
+            			</button>
+            			<button 
+            				ng-show="triInverse==false" 
+            				ng-click="tdTri = 'auteur'; triInverse = true"
+            				class="fa fa-caret-up"> 
+            			</button>       				
 					</th>
-					<th 
-						class="colonneType">
-						Type : 
-							<select 								
-								id="filtreType"
-								ng-model="filtreBy.type">
-								<option value="">Tous</option>
-								<option>Livre</option>
-								<option>CD</option>
-								<option>DVD</option>
-							</select>
-					</th>
+<!-- 					<th  -->
+<!-- 						class="colonneType"> -->
+<!-- 						Type :  -->
+<!-- 							<select 								 -->
+<!-- 								id="filtreType" -->
+<!-- 								ng-model="filtreBy.type"> -->
+<!-- 								<option value="">Tous</option> -->
+<!-- 								<option>Livre</option> -->
+<!-- 								<option>CD</option> -->
+<!-- 								<option>DVD</option> -->
+<!-- 							</select> -->
+<!-- 					</th> -->
 					<th 
 						class="colonneEtat">
 						&Eacute;tat
@@ -131,7 +133,7 @@
 						<button 
 							class="btn btn-default btn-xs"
 							id="buttonSortNomEmprunteur" 
-							onclick="">
+							ng-click="tdTri == 'Emprunteur'">
 							<i 
 								class="fa fa-sort" 
 								aria-hidden="true">
@@ -144,7 +146,7 @@
 						<button 
 							class="btn btn-default btn-xs" 
 							id="buttonSortDateRetour"
-							onclick="">
+							ng-click="tdTri == 'Retour'">
 							<i 
 								class="fa fa-sort" 
 								aria-hidden="true">
@@ -174,7 +176,7 @@
 								placeholder="Auteur"
 								ng-model="modelRechercheAvancee.auteur">
 						</th>
-						<th>
+<!-- 						<th> -->
 <!-- 							<select  -->
 <!-- 								class="form-control" -->
 <!-- 								id="inputRechercheType" -->
@@ -184,7 +186,7 @@
 <!-- 								<option>CD</option> -->
 <!-- 								<option>DVD</option> -->
 <!-- 							</select> -->
-						</th>
+<!-- 						</th> -->
 						<th>
 <!-- 							<select  -->
 <!-- 								class="form-control" -->
@@ -242,35 +244,15 @@
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 			<tbody>
-<!-- 				<tr  -->
-<!-- 					dir-paginate="media in listeMedia | -->
-<!--  								filter: filterRechercheBase | -->
-<!--  								filter:{titre:modelRechercheAvancee.titre} | -->
-<!--  								filter:{auteur:modelRechercheAvancee.auteur} | -->
-<!--  								filter:{type:modelRechercheAvancee.type} | -->
-<!--  								filter:{etat:modelRechercheAvancee.etat} | -->
-<!-- 								filter:{emprunteur:{nom:modelRechercheAvancee.emprunteur}} | -->
-<!-- 								itemsPerPage: 10" >  -->
-								
-								
-								 
-<!-- 							filter:{'titre': recherche.titremedia,  -->
-<!-- 												'auteur': recherche.auteuremedia, -->
-<!-- 												'emprunteur' : recherche.emprunteurmedia} | -->
 
-<!-- 												'auteur': modelRechercheAvancee.typemedia -->
-<!-- 												'auteur': modelRechercheAvancee.etatmedia -->
-<!-- 												'auteur': modelRechercheAvancee.emprunteurmedia  -->
-<!-- 												'auteur': modelRechercheAvancee.datemedia -->
-
-
-<tr
-						dir-paginate="media in listeMedia |	
-										filter: {type:filtreBy.type} |
-										filter: {etat:filtreBy.etat} |
- 										filter: filterRechercheBase |
- 										filter: filterRechercheAvancee |			
- 										itemsPerPage: 10" > 	 
+			<tr
+				dir-paginate="media in listeMedia |
+								orderBy:tdTri:triInverse |
+								filter: {type:filtreBy.type} |
+								filter: {etat:filtreBy.etat} |
+				 				filter: filterRechercheBase |
+				 				filter: filterRechercheAvancee |			
+				 				itemsPerPage: 10" > 	 
 			
 <!-- dir-paginate= remplace le data-ng-repeat pour avoir la version paginée -->
 <!-- exemple : <tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titremedia}"> -->			
@@ -285,7 +267,8 @@
 							</i>
 						</a>
 					</td>
-					<td> 
+					<td 
+						class="text-left"> 
 						<span 						 
 							ng-if="media.type==='Livre'">
 							<i 
@@ -311,34 +294,38 @@
 							ng-bind="media.titre">
 						</span>
 					</td>
-					<td> 
+					<td 
+						class="text-left"> 
 						<span 
 							ng-bind="media.auteur">
 						</span>
 					</td>
-					<td>
-						<span 						 
-							ng-if="media.type==='Livre'">
-							<i 
-								class="fa fa-book" 
-								aria-hidden="true">
-							</i>
-						</span>
-							<span 						 
-							ng-if="media.type==='CD'">
-							<i 
-								class="fa fa-music" 
-								aria-hidden="true">
-							</i>
-						</span>
-							<span 						 
-							ng-if="media.type==='DVD'">
-							<i 
-								class="fa fa-film" 
-								aria-hidden="true">
-							</i>
-						</span>						
-					</td>				
+					
+<!-- Ancienne colonne type -->
+<!-- 					<td> -->
+<!-- 						<span 						  -->
+<!-- 							ng-if="media.type==='Livre'"> -->
+<!-- 							<i  -->
+<!-- 								class="fa fa-book"  -->
+<!-- 								aria-hidden="true"> -->
+<!-- 							</i> -->
+<!-- 						</span> -->
+<!-- 							<span 						  -->
+<!-- 							ng-if="media.type==='CD'"> -->
+<!-- 							<i  -->
+<!-- 								class="fa fa-music"  -->
+<!-- 								aria-hidden="true"> -->
+<!-- 							</i> -->
+<!-- 						</span> -->
+<!-- 							<span 						  -->
+<!-- 							ng-if="media.type==='DVD'"> -->
+<!-- 							<i  -->
+<!-- 								class="fa fa-film"  -->
+<!-- 								aria-hidden="true"> -->
+<!-- 							</i> -->
+<!-- 						</span>						 -->
+<!-- 					</td>
+				 -->
 <!-- Utilisation de ng-if-start et -end pour délimiter un bloc complet soumis à la condition : en l'espèce : que le média est emprunté -->
 					<td 
 						ng-if-start="media.emprunteur!==undefined">
@@ -347,7 +334,8 @@
 							aria-hidden="true">
 						</i>
 					</td>					
-					<td>
+					<td 
+						class="text-left">
 						<a 
 							class="btn"
 							href="#/adherentvisualisation/{{media.emprunteur.id}}">
