@@ -97,15 +97,15 @@
 				<!-- Text input-->
 				<div class="form-group">
 					<div class="col-sm-3">
-						<input type="text" placeholder="Titre du Media"
+						<input ng-model="membre.emprunt.media.titre" type="text" placeholder="Titre du Media"
 							class="form-control">
 					</div>
 					<div class="col-sm-4">
-						<input type="date" name="Date_de_l'emprunt"
+						<input ng-model="membre.emprunt.media.depart"type="date" name="Date_de_l'emprunt"
 							placeholder="Date d'emprunt" class="form-control">
 					</div>
 					<div class="col-sm-4">
-						<input type="date" name="Date_de_l'emprunt"
+						<input ng-model="membre.emprunt.media.retour" type="date" name="Date_de_retour_de_l'emprunt"
 							placeholder="Date de retour prevu" class="form-control">
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 				<!-- Command -->
 				<div class="form-group">
 					<div class="col-sm-12">
-						<button type="submit" class="btn btn-primary pull-right">Enregistrer</button>
+						<button type="submit" class="btn btn-primary pull-right" ng-click="update(membre)">Enregistrer</button>
 					</div>
 				</div>
 			</fieldset>
