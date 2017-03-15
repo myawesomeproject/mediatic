@@ -10,7 +10,7 @@
 			
 			$scope.recherche = MediaRechercheService;
 			
-			$scope.rechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation
+			$scope.modeRechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation
 			
 			$scope.listeMedia = undefined;
 
@@ -18,7 +18,12 @@
 				
 				$scope.listeMedia = data;
 				
-			});	
+			});		
+	    
+		    $scope.lancerRechercheAvancee = function(){
+		    	console.log($scope.modelRechercheAvancee);
+		    	$scope.filterRechercheAvancee = $scope.modelRechercheAvancee;
+		    }
 		 
 		});
 
