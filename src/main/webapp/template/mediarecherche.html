@@ -1,41 +1,52 @@
-<!-- BARRE DE RECHERCHE -->
+<!-- BARRE DE RECHERCHE + BOUTTON AJOUT MEDIA -->
 <div 
-	class="row rowRechercheBase">
+	class="section">
 	<div 
-		class="col-md-2 col-md-offset-2">
-		<input 			 
-			class="form-control" 
-			type="text"
-			name="inputRechercheBase"
-			id="inputRechercheBase"
-			placeholder="Cherchez des titres, auteurs ou autre chose">
-	</div>
-	<div 
-		class="col-md-2">
-		<button 
-			class="btn btn-default" 
-			id="buttonRechercheBase" 
-			onclick="rechercheBasique()">
-			<i 
-				class="fa fa-search" 
-				aria-hidden="true">
-			</i>
-		</button>
-		<button 
-			class="btn btn-link" 
-			id="linkbuttonRechercheAvancee"			
-			href="#"			
-			ng-show="rechercheAvancee===false"
-			ng-click="rechercheAvancee=true">
-			Recherche avanc&eacute;e</a>
-		</button>
-	</div>
-	<div 
-		class="col-md-2 col-md-offset-3">
-		<a 
-			class="btn btn-default buttonlinkAjouterMedia"
-			href="#/mediacreation">
-			Ajouter nouveau m&eacute;dia</a>
+		class="container">
+		<div 
+			class="row well">
+			<div>
+				<div 
+					class="col-md-4 ">
+					<input 
+						class="form-control"
+						type="text" 							
+						id="inputRechercheBase"
+						placeholder="Cherchez des titres, auteurs ou autre chose"
+						ng-model="modelRechercheBase.tout">
+				</div>
+				<div 
+					class="col-md-3">
+					<button 
+						class="btn btn-default" 
+						id="buttonRechercheBase"
+						ng-click="filterRechercheBase = modelRechercheBase.tout">
+						<i 
+							class="fa fa-search" 
+							aria-hidden="true">
+						</i>
+					</button>
+					<button 
+						class="btn btn-link" 
+						id="buttonModeRechercheAvanceeOn"										
+						ng-show="modeRechercheAvancee===false"
+						ng-click="modeRechercheAvancee=true">
+						Recherche avanc&eacute;e</a>
+					</button>
+				</div>
+			</div>
+<!-- FIN DE LA RECHERCHE - DEBUT BOUTON AJOUT MEDIA  -->
+			<div>	
+				<a 
+					class="btn btn-primary pull-right"
+					href="#/mediacreation">
+					<i 
+						class="fa fa-fw -square -circle fa-plus-square">
+					</i>
+					Ajouter nouveau m&eacute;dia
+				</a>                   	
+			</div>
+		</div>
 	</div>
 </div>
 <!-- FIN DE LA BARRE -->
@@ -136,27 +147,29 @@
 				<!-- BARRE DE RECHERCHE AVANCEE -->
 				<tr 
 					class="rowRechercheAvancee" 
-					ng-show="rechercheAvancee==true">
+					ng-show="modeRechercheAvancee==true">
 						<th></th>
 						<th>
 							<input 
 								class="form-control"
-								type="text" 
-								name="inputRechercheTitre" 
+								type="text" 								 
 								id="inputRechercheTitre"
-								placeholder="Titre">
+								placeholder="Titre"
+								ng-model="modelRechercheAvancee.titre">
 						</th>
 						<th>
 							<input 
 								class="form-control"
-								type="text" 
-								name="inputRechercheAuteur" 
+								type="text" 								 
 								id="inputRechercheAuteur"
-								placeholder="Auteur">
+								placeholder="Auteur"
+								ng-model="modelRechercheAvancee.auteur">
 						</th>
 						<th>
 							<select 
-								class="form-control">
+								class="form-control"
+								id="inputRechercheType"
+								ng-model="modelRechercheAvancee.type">
 								<option>Livre</option>
 								<option>CD</option>
 								<option>DVD</option>
@@ -164,7 +177,9 @@
 						</th>
 						<th>
 							<select 
-								class="form-control">
+								class="form-control"
+								id="inputRechercheEtat"
+								ng-model="modelRechercheAvancee.etat">
 								<option>Emprunt&eacute;</option>
 								<option>En rayon</option>
 							</select>
@@ -172,48 +187,86 @@
 						<th>
 							<input
 								class="form-control"
-								type="text" 
-								name="inputRechercheNomEmprunteur"
+								type="text" 								
 								id="inputRechercheNomEmprunteur"
-								placeholder="Emprunt&eacute; par">
+								placeholder="Emprunt&eacute; par"
+								ng-model="modelRechercheAvancee.emprunteur">
 						</th>
 						<th>
-							<input 
-								class="datepicker"
-								type="text">
+							<datepicker	
+								date-set-hidden="true"
+      							date-format="y-MM-dd"      							
+							    date-typer="true"
+							    button-prev='<i class="fa fa-arrow-circle-left"></i>'
+								button-next='<i class="fa fa-arrow-circle-right"></i>'>
+  								<input  
+  									class="form-control" 									 
+  									type="text"
+  									id="inputRechercheDate"
+  									ng-model="modelRechercheAvancee.date"/>
+							</datepicker>
 						</th>
 						<th>
 							<button 
 								class="btn btn-default"
 								id="buttonRechercheAvancee"
-								onclick="">
+								ng-click="lancerRechercheAvancee()">
 								<i 
 									class="fa fa-search" 
 									aria-hidden="true">
 								</i>
-							</button></th>
+							</button>
+						</th>
 						<th>
 							<button
 								class="btn btn-default"
-								id="buttonRechercheAvancee"
-								zzonclick="minimizeRechercheAvancee()"							
-								ng-click="rechercheAvancee=false">
+								id="buttonModeRechercheAvanceeOff"														
+								ng-click="modeRechercheAvancee=false">
 								<i 
 									class="fa fa-window-minimize" 
 									aria-hidden="true">
 								</i>
-							</button></th>
+							</button>
+						</th>
 				</tr>
 			</thead>
 			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
 			<tbody>
-				<tr data-ng-repeat="media in listeMedia">
-<!-- 			<tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titre} | intervalPrice:recherche.pmin:recherche.pmax"> -->			
+<!-- 				<tr  -->
+<!-- 					dir-paginate="media in listeMedia | -->
+<!--  								filter: filterRechercheBase | -->
+<!--  								filter:{titre:modelRechercheAvancee.titre} | -->
+<!--  								filter:{auteur:modelRechercheAvancee.auteur} | -->
+<!--  								filter:{type:modelRechercheAvancee.type} | -->
+<!--  								filter:{etat:modelRechercheAvancee.etat} | -->
+<!-- 								filter:{emprunteur:{nom:modelRechercheAvancee.emprunteur}} | -->
+<!-- 								itemsPerPage: 10" >  -->
+								
+								
+								 
+<!-- 							filter:{'titre': recherche.titremedia,  -->
+<!-- 												'auteur': recherche.auteuremedia, -->
+<!-- 												'emprunteur' : recherche.emprunteurmedia} | -->
+
+<!-- 												'auteur': modelRechercheAvancee.typemedia -->
+<!-- 												'auteur': modelRechercheAvancee.etatmedia -->
+<!-- 												'auteur': modelRechercheAvancee.emprunteurmedia  -->
+<!-- 												'auteur': modelRechercheAvancee.datemedia -->
+
+
+<tr
+						dir-paginate="media in listeMedia |
+ 										filter: filterRechercheBase |
+ 										filter: filterRechercheAvancee |			
+ 										itemsPerPage: 10" > 	 
+			
+<!-- dir-paginate= remplace le data-ng-repeat pour avoir la version paginée -->
+<!-- exemple : <tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titremedia}"> -->			
 
 					<td>
 						<a 
 							class="btn"
-							href="#/mediavisualisation">
+							href="#/mediavisualisation/{{media.id}}">
 							<i 
 								class="fa fa-eye" 
 								aria-hidden="true">
@@ -264,7 +317,7 @@
 					<td>
 						<a 
 							class="btn"
-							href="#/adherentvisualisation">
+							href="#/adherentvisualisation/{{media.emprunteur.id}}">
 							<i 
 								class="fa fa-user-circle" 
 								aria-hidden="true">
@@ -274,9 +327,10 @@
 							ng-bind="media.emprunteur.nom">
 						</span>
 					</td>
-					<td>
+					<td
+						ng-if-end>
 						<span 
-							ng-if-end ng-bind="media.retour">
+							ng-bind="media.retour">
 						</span>	
 					</td>
 <!-- idem quand le média est libre -->
@@ -296,5 +350,16 @@
 			</tfoot>
 			
 		</table>
+		
+		<div 
+			class="panel-footer">
+			<div 
+				class="row">
+				<dir-pagination-controls 
+					class="pull-right">
+				</dir-pagination-controls>
+			</div>
+		</div>
+		
 	</div>
 </div>

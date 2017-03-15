@@ -1,4 +1,6 @@
-angular.module('MyApp').factory('UrlService', function() {
+angular.module('MyApp')
+	
+	.factory('UrlService', function() {
 
 	var Service = {};
 
