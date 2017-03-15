@@ -16,6 +16,15 @@
 				});	
 				
 			};
+			
+			this.update = function(membre){
+				var url = UrlService.getAdherentModificationUrl();
+				$http.post(url, membre).then(function(reponse) {
+					$rootScope.datas = reponse.data;
+				
+				});	
+			};
+			
 			this.getHT = function(ligne){
 				return ligne.article.price *ligne.qte;
 				

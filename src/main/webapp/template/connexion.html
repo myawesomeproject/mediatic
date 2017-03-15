@@ -4,11 +4,11 @@
 		    <h3 class="form-signin-heading">Bienvenu sur Mediatic </h3>
 			  <hr class="colorgraph"><br>
 			  <label>Nom d'utilisateur :</label>
-			  <input type="text" class="form-control" name="Username" placeholder="Utilisateur"  />
+			  <input type="text" class="form-control" name="Username" placeholder="Utilisateur" ng-model="login" />
 			  <label>Code secret :</label>
-			  <input type="password" class="form-control" name="Password" placeholder="Mot de passe"/>  
+			  <input type="password" class="form-control" name="Password" placeholder="Mot de passe" ng-model="pass"/>  
 			 
-			  <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Connexion</button>  			
+			  <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" ng-click="connect(login,pass)">Connexion</button>  			
 		</form>			
 	</div>
 </div>

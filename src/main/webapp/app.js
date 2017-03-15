@@ -36,7 +36,7 @@
 				title: 'Adhérent'
 			});	
 			
-			$routeProvider.when('/mediavisualisation', {
+			$routeProvider.when('/mediavisualisation/:id', {
 				controller :'MediaVisualisationCtrl',
 				templateUrl : './template/mediavisualisation.html',
 				title : 'Média'

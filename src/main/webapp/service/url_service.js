@@ -18,8 +18,17 @@ angular.module('MyApp')
 	// MEDIA
 	var mediaRechercheUrl = serveur + '/resource/media.recherche';
 	var mediaCreationUrl = serveur + '/resource/media.creation';
-	var mediaModificationUrl = serveur + 'resource/media.modification';
+	var mediaModificationUrl = serveur + '/resource/media.modification';
+	var mediaAccessionUrl = serveur + '/resource/media.accession';
 
+	
+	var ConnexionUrl = serveur + '/resource/connexion.login';
+	//var ConnexionUrl = serveur + '/resource/connexion.rights';
+	
+	Service.getConnection = function() {
+		return ConnexionUrl;
+	}
+	
 	Service.getAdherentCreationUrl = function() {
 		return adherentCreationUrl;
 	}
@@ -57,6 +66,11 @@ angular.module('MyApp')
 	Service.getMediaModificationUrl = function() {
 
 		return mediaModificationUrl;
+	}
+	
+	Service.getMediaAccessionUrl = function() {
+
+		return mediaAccessionUrl;
 	}
 
 	return Service;
