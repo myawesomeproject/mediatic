@@ -4,10 +4,9 @@
 
 	angular
 		.module('MyApp.Media')
-		.controller('MediaRechercheCtrl',function($scope, $rootScope, ListeMediaService, MediaRechercheService) {
+		.controller('MediaRechercheCtrl',function($scope, $rootScope, ListeMediaService) {
 		
-			$rootScope.title = "Liste des médias" ;			
-			$scope.recherche = MediaRechercheService; //inutile atm			
+			$rootScope.title = "Médias";		
 			$scope.modeRechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation			
 			$scope.listeMedia = undefined;
 			
