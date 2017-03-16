@@ -25,12 +25,43 @@
 						media.etat = 'LIBRE';
 					}
 				}				
-			});		
+			});	
+		    
+		    $scope.modelRechercheBase = {};
+		    $scope.modelRechercheAvancee = {};
+		    $scope.filterRechercheAvancee = {};
+		    $scope.filterRechercheBase = '';
 	    
 		    $scope.lancerRechercheAvancee = function(){		    	
 		    	$scope.filterRechercheAvancee = angular.copy($scope.modelRechercheAvancee);
 		    }
-		 
-		});
+		    
+		    $scope.lancerRechercheBase = function(){
+		    	$scope.modeRechercheAvancee = false;
+		    	$scope.filterRechercheBase = angular.copy($scope.modelRechercheBase);
+		    }
 
+		    $scope.getObjetFiltre = function(){
+		    	if($scope.modeRechercheAvancee===false){
+		    		return $scope.filterRechercheBase.tout;
+		    	}
+		    	else {
+			    	var obj = {};
+			    	obj.titre = $scope.filterRechercheAvancee.titre;
+			    	obj.auteur = $scope.filterRechercheAvancee.auteur;		    	
+			    	if($scope.filterRechercheAvancee.emprunteur!==undefined){
+			    		var nom = $scope.filterRechercheAvancee.emprunteur.nom;
+				    	if((nom!==undefined)&&(nom!=='')){
+				    		obj.emprunteur = obj.emprunteur || {};
+				    		obj.emprunteur.nom = nom;
+				    	}
+			    	}
+			    	if(($scope.filterRechercheAvancee.retour!==undefined)&&($scope.filterRechercheAvancee.retour!=='')){
+//idem, pour éviter de renseigner le champ s'il n'existe pas ou est vide, comme ça la recherche n'est pas fuckée
+			    		obj.retour = $scope.filterRechercheAvancee.retour;
+			    	}
+			    	return obj;
+		    	}
+		    };
+		})
 })();
