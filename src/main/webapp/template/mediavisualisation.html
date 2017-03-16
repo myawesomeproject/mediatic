@@ -80,7 +80,7 @@
 									<td>Date de naissance</td>
 								</tr>
 								<tr dir-paginate="ligne in adherents | filter: filtreemprunteur | itemsPerPage: 6">
-									<td><a href="#"  data-dismiss="modal" ng-click="emprunt('ligne')" class="glyphicon glyphicon-user"></a></td>
+									<td><a href="#"  data-dismiss="modal" ng-click="addemprunt(ligne)" class="glyphicon glyphicon-user"></a></td>
 									<td>{{ligne.nom}}</td>
 									<td>{{ligne.prenom}}</td>
 									<td>{{ligne.date_naissance}}</td>
