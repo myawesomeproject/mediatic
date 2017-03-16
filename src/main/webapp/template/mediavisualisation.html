@@ -1,7 +1,7 @@
 
 <!-- Debut de la page de visualisation -->
 	<div class="container" style="height:80%">
-		<div class="col-sm-6 col-xs-offset-1">
+		<div class="col-sm-5 col-xs-offset-1">
 			<!-- Informations générales de visualisation-->
 			<legend><h1><span 						 
 							ng-if="media.type==='Livre'">
@@ -51,10 +51,13 @@
 				<h3>Libre</h3>
 				<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">R&eacute;aliser un  emprunt</button>
 			</div>
+				
+			
+			
 			<!-- Modal de confirmation -->
 			<div class="modal fade bs-modal-sm" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 				 <div class="modal-dialog modal-md">
-    				<div class="modal-content">
+    				<div class="modal-content" ng-controller='EmpruntCtrl'>
 				 
 						<div class="modal-header">
 							<h3 class="col-xs-10">Choix de l'emprunteur</h3>
@@ -76,44 +79,50 @@
 									<td>Prenom</td>
 									<td>Date de naissance</td>
 								</tr>
-								<tr ng-repeat='ligne in adherents | filter: filtreemprunteur'>
-									<td><a href="#/adherentvisualisation/{{lignes.id}}" data-dismiss="modal" class="glyphicon glyphicon-user"></a></td>
+								<tr dir-paginate="ligne in adherents | filter: filtreemprunteur | itemsPerPage: 6">
+									<td><a href="#"  data-dismiss="modal" ng-click="addemprunt(ligne)" class="glyphicon glyphicon-user"></a></td>
 									<td>{{ligne.nom}}</td>
 									<td>{{ligne.prenom}}</td>
 									<td>{{ligne.date_naissance}}</td>
 								</tr>
 							</table>
+						
+								<div class="row">
+							   		<dir-pagination-controls class="pull-right"></dir-pagination-controls>
+								</div>
+							</div>
 						</div>
 					</div>		
 				</div>
 			</div>
+			<!-- Tableau d'historique sur le coté droit de la page-->
+					<div class="col-sm-4">
+						<div id = "historiqueempruntmedia" class="xs-pull-right">
+							<h3 class="text-center">Historique</h3>
+							<table id="historiquemedia" class="table table-bordered table-striped">
+								
+								
+								<tr>
+									<td>Nom</td>
+									<td>Prenom</td>
+									<td>Date emprunt</td>
+									<td>Date retour</td>
+								</tr>
+								<tr ng-repeat='ligne in media.emprunteurs'>
+									<td>{{ligne.adherent.nom}}</td>
+									<td>{{ligne.adherent.prenom}}</td>
+									<td>{{ligne.depart}}</td>
+									<td>{{ligne.retour}}</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			<!-- fin de la page de visualisation -->
 			
-		</div>
 		
-		<!-- Tableau d'historique sur le coté droit de la page-->
-		<div class="col-sm-4">
-			<div id = "historiqueempruntmedia" class="xs-pull-right">
-				<h3 class="text-center">Historique</h3>
-				<table id="historiquemedia" class="table table-bordered table-striped">
-					
-					
-					<tr>
-						<td>Nom</td>
-						<td>Prenom</td>
-						<td>Date emprunt</td>
-						<td>Date retour</td>
-					</tr>
-					<tr ng-repeat='ligne in media.emprunteurs'>
-						<td>{{ligne.adherent.nom}}</td>
-						<td>{{ligne.adherent.prenom}}</td>
-						<td>{{ligne.depart}}</td>
-						<td>{{ligne.retour}}</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-<!-- fin de la page de visualisation -->
+		
+	
 
-<pre>{{adherents | json}}</pre>
+<pre>{{media | json}}</pre>
 
