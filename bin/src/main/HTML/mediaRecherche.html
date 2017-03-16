@@ -1,0 +1,276 @@
+ <html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Recherche Media</title>
+<!-- Import de bootstrap -->
+<link rel="stylesheet" href="../ressources/bootstrap-3.3.7-dist/css/bootstrap.css">
+<!-- Import de bootstrap theme -->
+<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+<!-- Import de font awesome -->
+<link rel="stylesheet" href="../ressources/font-awesome-4.7.0/css/font-awesome.css">
+<!-- Import de jQuery -->
+<script src="../ressources/jquery-3.1.1.js"></script>
+<!-- Import de jquery-ui pour datepicker -->
+<script src="../ressources/jquery-ui-1.12.1/jquery-ui.js"></script>
+<link rel="  stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<!-- Import du module de pagination custom par Guillaume -->
+<script src="../ressources/jQuery-Paging_Guillaume/paging.js"></script> 
+
+<script>
+'use strict';
+
+	function rechercheBasique() {
+		var searchinput = $('#inputRechercheBase').val();
+		if (searchinput === undefined | searchinput === null || searchinput === '') {
+			console.log("GO SEARCH YOURSELF");
+			return;
+		} else {
+			$('#inputRechercheBase').val("");
+			$('#inputRechercheBase').focus();
+			console.log("Recherche de " + searchinput);
+		}
+	}
+
+	function maximizeRechercheAvancee() {
+		$(".rowRechercheAvancee").slideToggle();
+		$(".rowRechercheBase").slideToggle();
+	}
+
+	function minimizeRechercheAvancee() {
+		$(".rowRechercheAvancee").slideToggle();
+		$(".rowRechercheBase").slideToggle();
+	}
+
+	$(function() {
+		$(".datepicker").datepicker();
+		$(".datepicker").datepicker("option", "dateFormat", 'dd/mm/yy');
+	});
+	
+	$.getJSON('datamedia.json', function(data) {
+	    var ligne;
+	    for (var i = 0; i < data.length; i++) {
+	        ligne = $('<tr/>');	        
+	        var bidule = '<a href=\"mediaVisualisation.html\" class=\"btn buttonlinkVoirMedia\"><i class=\"fa fa-eye\" aria-hidden=\"true"></i></a>'; 
+	        ligne.append("<td>" + bidule + "</td>");
+	        ligne.append("<td>" + data[i].titre + "</td>");
+	        ligne.append("<td>" + data[i].auteur + "</td>");
+	        if (data[i].type === "DVD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-film\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else if (data[i].type === "CD") {
+	        	ligne.append("<td>" + "<i class=\"fa fa-music\" aria-hidden=\"true\"></i>" + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-book\" aria-hidden=\"true\"></i>" + "</td>");
+	        }	        
+	        if (data[i].emprunt === true) {
+	        	ligne.append("<td>" + "<i class=\"fa fa-ban\" aria-hidden=\"true\"></i>" + "</td>")
+	        	ligne.append("<td>" + data[i].emprunteur + "</td>");
+		        ligne.append("<td>" + data[i].retour + "</td>");
+	        }
+	        else {
+	        	ligne.append("<td>" + "<i class=\"fa fa-check\" aria-hidden=\"true\"></i>" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        	ligne.append("<td>" + "" + "</td>");
+	        }
+	        $('table').append(ligne);
+	    }
+	});
+	
+	$(function() {
+		$('.table25PPage').paging({limit:25});		
+	});
+	
+	$(function() {
+		$('.paging-nav').addClass("hidden-xs pull-right");		
+	});
+	
+	
+</script>
+
+<style>
+
+.rowRechercheAvancee {
+	display: none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+	<!-- CREATION/DEBUT DU MENU -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><i class="fa fa-university " aria-hidden="true"></i> Mediatic </a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="mediaRecherche.html"> <i class="fa fa-database" aria-hidden="true"></i> Media </a>
+						</li>
+						<li>
+							<a href="adherentRecherche.html"><i class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="connexion.html"> <i class="fa fa-sign-out fa-1x" aria-hidden="true"></i> D&eacute;connexion </a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+	<!-- FIN DU MENU -->
+
+
+	<!-- BARRE DE RECHERCHE -->
+	<div class="row rowRechercheBase">
+		<div class="col-md-2 col-md-offset-2">
+				<input type="text" class="form-control" name="inputRechercheBase"
+					id="inputRechercheBase"
+					placeholder="Cherchez des titres, auteurs ou autre chose">
+		</div>
+		<div class="col-md-2">
+				<button class="btn btn-default" id="buttonRechercheBase" onclick="rechercheBasique()">
+					<i class="fa fa-search" aria-hidden="true"></i>
+				</button>
+				<a id="linkbuttonRechercheAvancee"
+					class="linkbuttonRechercheAvancee" href="#"
+					onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
+		</div>
+		<div class="col-md-2 col-md-offset-3">
+			<a href="mediaCreation.html"
+				class="btn btn-default buttonlinkAjouterMedia">Ajouter nouveau
+				m&eacute;dia</a>
+		</div>
+</div>
+
+	<!-- FIN DE LA BARRE -->
+	<!-- TABLEAU DE DONNEES -->
+
+	<div class="row">
+		<div class="table-responsive col-md-8 col-md-offset-2">
+			<table
+				class="table table-striped table-bordered table-hover table-sortable table25PPage text-center">
+				<!--TITRE DES COLONNES + BOUTONS DE TRI -->
+				<thead>
+					<tr>
+						<th class="colonneVue">Aller &agrave;</th>
+						<th class="colonneTitre">Titre
+							<button class="btn btn-default btn-xs" id="buttonSortTitre"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneAuteur">Auteur
+							<button class="btn btn-default btn-xs" id="buttonSortAuteur"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneType">Type
+							<button class="btn btn-default btn-xs" id="buttonSortType"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneEtat">&Eacute;tat
+							<button class="btn btn-default btn-xs" id="buttonSortEtat"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneNomEmprunteur">Emprunt&eacute; par
+							<button class="btn btn-default btn-xs"
+								id="buttonSortNomEmprunteur" onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+						<th class="colonneDateRetour">Retour le
+							<button class="btn btn-default btn-xs" id="buttonSortDateRetour"
+								onclick="">
+								<i class="fa fa-sort" aria-hidden="true"></i>
+							</button>
+						</th>
+					</tr>
+					<!-- FIN DES TITRES -->
+					<!-- BARRE DE RECHERCHE AVANCEE -->
+					<tr class="rowRechercheAvancee">
+						<th></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheTitre" id="inputRechercheTitre"
+							placeholder="Titre"></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheAuteur" id="inputRechercheAuteur"
+							placeholder="Auteur"></th>
+						<th><select class="form-control">
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+						</select></th>
+						<th><select class="form-control">
+								<option>Emprunt&eacute;</option>
+								<option>En rayon</option>
+						</select></th>
+						<th><input type="text" class="form-control"
+							name="inputRechercheNomEmprunteur"
+							id="inputRechercheNomEmprunteur"
+							placeholder="Emprunt&eacute; par"></th>
+						<th><input type="text" class="datepicker" /></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="">
+								<i class="fa fa-search" aria-hidden="true"></i>
+							</button></th>
+						<th><button class="btn btn-default"
+								id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
+								<i class="fa fa-window-minimize" aria-hidden="true"></i>
+							</button></th>
+					</tr>
+				</thead>
+				<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
+				<tbody class="myTable">
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+
+	<!-- DEBUT DU FOOTER -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- FIN DU FOOTER -->
+
+</body>
+</html>
