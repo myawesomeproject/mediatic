@@ -57,7 +57,7 @@
 	<div 
 		class="table-responsive col-md-8 col-md-offset-2">
 		<table 
-			class="table table-hover table-striped text-center">
+			class="table table-striped table-bordered table-hover table-sortable text-center">
 <!--TITRE DES COLONNES + BOUTONS DE TRI -->
 			<thead>
 				<tr>
@@ -75,83 +75,47 @@
 							<option>CD</option>
 							<option>DVD</option>
 						</select>
-						<span
-							id="spanTitrePasTri"
-							ng-show="tdTri !== 'titre'" 
-							ng-click="tdTri = 'titre'">
-							Titre		
+						Titre
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortTitre"
+							ng-click="tdTri == 'Titre'">
 							<i 
-								class="fa fa-sort pull-right" 
+								class="fa fa-sort" 
 								aria-hidden="true">
-							</i>														
-						</span>
-						<span
-							id="spanTitreTri"
-							ng-show="tdTri === 'titre'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Titre
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanTitreTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Titre
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+							</i>
+						</button>
 					</th>
 					<th 
-						class="colonneAuteur">		
-						<span
-							id="spanAuteurPasTri"
-							ng-show="tdTri !== 'auteur'" 
-							ng-click="tdTri = 'auteur'">
-							Auteur		
-							<i 
-								class="fa fa-sort pull-right" 
-								aria-hidden="true">
-							</i>														
-						</span>
-						<span
-							id="spanAuteurTri"
-							ng-show="tdTri === 'auteur'">												
-							<span
-								id="spanAuteurTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Auteur
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanAuteurTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Auteur
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+						class="colonneAuteur">
+						Auteur
+            			<button            				
+            				ng-show="triInverse==true" 
+            				ng-click="tdTri = 'auteur'; triInverse = false"           				
+            				class="fa fa-caret-down">
+            			</button>
+            			<button 
+            				ng-show="triInverse==false" 
+            				ng-click="tdTri = 'auteur'; triInverse = true"
+            				class="fa fa-caret-up"> 
+            			</button>       				
 					</th>
+<!-- 					<th  -->
+<!-- 						class="colonneType"> -->
+<!-- 						Type :  -->
+<!-- 							<select 								 -->
+<!-- 								id="filtreType" -->
+<!-- 								ng-model="filtreBy.type"> -->
+<!-- 								<option value="">Tous</option> -->
+<!-- 								<option>Livre</option> -->
+<!-- 								<option>CD</option> -->
+<!-- 								<option>DVD</option> -->
+<!-- 							</select> -->
+<!-- 					</th> -->
 					<th 
 						class="colonneEtat">
-						&Eacute;tat :
-						<select
-							class="pull-right"							
+						&Eacute;tat
+						<select							
 							id="filtreEtat"
 							ng-model="filtreBy.etat">
 							<option value="">Tous</option>
@@ -165,77 +129,29 @@
 					</th>
 					<th 
 						class="colonneNomEmprunteur">
-						<span
-							id="spanEmprunteurPasTri"
-							ng-show="tdTri !== 'emprunteur.nom'" 
-							ng-click="tdTri = 'emprunteur.nom'">
-							Emprunteur		
+						Emprunt&eacute; par
+						<button 
+							class="btn btn-default btn-xs"
+							id="buttonSortNomEmprunteur" 
+							ng-click="tdTri == 'Emprunteur'">
 							<i 
-								class="fa fa-sort pull-right" 
+								class="fa fa-sort" 
 								aria-hidden="true">
-							</i>														
-						</span>
-						<span
-							id="spanEmprunteurTri"
-							ng-show="tdTri === 'emprunteur.nom'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Emprunteur
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanEmprunteurTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Emprunteur
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+							</i>
+						</button>
 					</th>
 					<th 
 						class="colonneDateRetour">
-						<span
-							id="spanDateRetourPasTri"
-							ng-show="tdTri !== 'retour'" 
-							ng-click="tdTri = 'retour'">
-							Retour	
+						Retour le
+						<button 
+							class="btn btn-default btn-xs" 
+							id="buttonSortDateRetour"
+							ng-click="tdTri == 'Retour'">
 							<i 
-								class="fa fa-sort pull-right" 
+								class="fa fa-sort" 
 								aria-hidden="true">
-							</i>														
-						</span>
-						<span
-							id="spanDateRetourTri"
-							ng-show="tdTri === 'retour'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Retour
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanDateRetourTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Retour
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+							</i>
+						</button>
 					</th>
 				</tr>
 				<!-- FIN DES TITRES -->

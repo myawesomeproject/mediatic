@@ -1,0 +1,247 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Visualisation Media</title>
+
+<!-- Import CSS & JS-->
+<script src="../ressources/jquery-3.1.1.js"></script>
+<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap.css">
+<link rel="stylesheet" 	href="../ressources/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+<script src="../ressources/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<link rel="stylesheet" 	href="../ressources/font-awesome-4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+#siemprunt{
+	display:none;
+}
+
+#sipasemprunt{
+	display:block;
+}
+
+#testemprunt:checked ~ #siemprunt {
+display:block;
+}
+#testemprunt:checked ~ #sipasemprunt {
+display:none;
+}?
+
+.visualisation{
+font-size : 25px!important;
+}
+
+
+</style>
+</head>
+<body>
+
+
+	<!-- CREATION/DEBUT DU MENU -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><i class="fa fa-university " aria-hidden="true"></i> Mediatic </a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="mediaRecherche.html"> <i class="fa fa-database" aria-hidden="true"></i> Media </a>
+						</li>
+						<li>
+							<a href="adherentRecherche.html"><i class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="connexion.html"> <i class="fa fa-sign-out fa-1x" aria-hidden="true"></i> D&eacute;connexion </a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+	<!-- FIN DU MENU -->
+
+<!-- Debut de la page de visualisation -->
+	<div class="container" style="height:80%">
+		<div class="col-sm-6 col-xs-offset-1">
+			<!-- Informations générales de visualisation-->
+			<legend><h1><i class="fa fa-film"></i> Les mis&eacute;roides</h1></legend>
+			<div id="infomedia">
+				<label>Auteur :</label>
+				<span style ="font-size:25px" class="visualisation">Martine</span>
+				<br>
+				<label>Type :</label>
+				<span style ="font-size:25px" class="visualisation">DVD</span>
+			</div>
+			<!-- pour le test-->
+			<input type="checkbox" id="testemprunt">Emprunt ?
+			
+			<div id="siemprunt">
+			<!-- S'affiche si le média est emprunté-->
+				<h3>Emprunt&eacute;</h3>
+				<label>Nom emprunteur :</label>
+				<label id="nomemprunteur"></label>
+				<br>
+				<label>Prenom emprunteur :</label>
+				<label id="prenomemprunteur"></label>
+				<br>
+				<label>Date d'emprunt :</label>
+				<label id="dateempruntvisumedia"></label>
+				<br>
+				<label>Date de retour maximum :</label>
+				<label id="dateretourvisumedia"></label>
+				<br>
+				<button class="btn btn-primary btn-lg" id="boutonretourmedia">Validation retour</button>
+			</div>
+			
+			<div id="sipasemprunt">
+			<!-- S'affiche si le média n'est pas emprunté-->
+				<h3>Libre</h3>
+				<label>Nom emprunteur :</label>
+				<input type="text" id="nomemprunt">
+				<br>
+				<label>Prenom emprunteur :</label>
+				<input type="text" id="prenomemprunt">
+				<br>
+				<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Validation emprunt</button>
+			</div>
+			<!-- Modal de confirmation -->
+			<div class="modal fade bs-modal-sm" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+				 <div class="modal-dialog modal-md">
+    				<div class="modal-content">
+				 
+						<div class="modal-header">
+							<h3 class="col-xs-10">Choix de l'emprunteur</h3>
+		    				<button type="button" class="close col-xs-2" data-dismiss="modal">close</button>
+						</div>
+						
+						<div class="modal-body">
+							<table id="emprunteurconfirm" class="table table-bordered table-striped">
+								<tr>
+									<td></td>
+									<td>Nom</td>
+									<td>Prenom</td>
+									<td>Date de naissance</td>
+								</tr>
+								<tr>
+									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
+									<td>Pompidou</td>
+									<td>Georges</td>
+									<td>29/02/87</td>
+								</tr>
+								<tr>
+									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td><a href="#" class="glyphicon glyphicon-user"></a></td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</table>
+						</div>
+					</div>		
+				</div>
+			</div>
+			
+		</div>
+		
+		<!-- Tableau d'historique sur le coté droit de la page-->
+		<div class="col-sm-4">
+			<div id = "historiqueempruntmedia" class="xs-pull-right">
+				<h3 class="text-center">Historique</h3>
+				<table id="historiquemedia" class="table table-bordered table-striped">
+					
+					
+					<tr>
+						<td>Nom</td>
+						<td>Prenom</td>
+						<td>Date emprunt</td>
+						<td>Date retour</td>
+					</tr>
+					<tr>
+						<td>Pompidou</td>
+						<td>Georges</td>
+						<td>29/02/87</td>
+						<td>5/03/87</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+<!-- fin de la page de visualisation -->
+
+	<!-- DEBUT DU FOOTER -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- FIN DU FOOTER -->
+
+</body>
+
+</html>
