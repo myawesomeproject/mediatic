@@ -1,153 +1,472 @@
-
-<div class="container">
-<!-- ZONE TITRE PAGE -->
-
-<div class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="text-center">Les Membres</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
- <!-- ZONE Bouton Ajout Membre  -->
-        <div class="section">
-            <div class="container">
-                <div class="row well">
-					<!-- BARRE DE RECHERCHE -->
-					<div class=" rowRechercheBase ">
-						<div class="col-md-4 ">
-							<input type="text" class="form-control" name="inputRechercheBase"
-								id="inputRechercheBase"
-								placeholder="Cherchez des nom, prenom ou autre chose" ng-model="recherche.All">
-						</div>
-						<div class="col-md-3">
-							<button class="btn btn-default" id="buttonRechercheBase"
-								onclick="rechercheBasique()">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
-							<a id="linkbuttonRechercheAvancee"
-								class="linkbuttonRechercheAvancee" href="#"
-								onclick="maximizeRechercheAvancee()">Recherche avanc&eacute;e</a>
-						</div>
-					</div>
-					<!-- FIN DE LA BARRE -->
-
-
-					<div class=" ">
-                        <a class="btn btn-primary pull-right" href="#/adherentcreation"><i class="fa fa-fw -square -circle fa-plus-square"></i> Ajouter Membre</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- ZONE Tableau Membre -->
-        <div class="section">
-            <div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					
-						<table class="table table-hover table-striped text-center">
-							<tbody>
-							<thead>
-								<tr>
-									<th> #ID <i class="fa fa-sort pull-right" aria-hidden="true"></i></th>
-									<th></th>
-									<th>NOM <i class="fa fa-sort pull-right"
-										aria-hidden="true"></i>
-									</th>
-									<th>Prenon <i class="fa fa-sort pull-right"
-										aria-hidden="true"></i>
-									</th>
-									<th><i class="fa fa-envelope-o" aria-hidden="true"></i>
-										E-mail <i class="fa fa-sort pull-right" aria-hidden="true"></i>
-									</th>
-									<th><i class="fa fa-calendar-o" aria-hidden="true"></i>
-										Date naissance <i class="fa fa-sort pull-right"
-										aria-hidden="true"></i></th>
-									<th>Etat abonnement <i class="fa fa-sort pull-right"
-										aria-hidden="true"></i>
-									</th>
-									<th><i class="fa fa-book" aria-hidden="true"></i> Nombre
-										de pr&ecirc;t <i class="fa fa-sort pull-right"
-										aria-hidden="true"></i></th>
-
-								</tr>
-									<!-- FIN DES TITRES -->
-				<!-- BARRE DE RECHERCHE AVANCEE -->
-				<tr class="rowRechercheAvancee">
-					<th></th>
-					<th></th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheNom" id="inputRechercheNom"
-						placeholder="Nom"></th>
-					<th>
-					<input type="text" class="form-control"
-						name="inputRecherchePrenom" id="inputRecherchePrenom"
-						placeholder="Prenom">
-					</th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheEmail" id="inputRechercheEmail"
-						placeholder="E-mail">
-						</th>
-					<th><input type="text" class="form-control"
-						name="inputRechercheNaissance"
-						id="inputRechercheNaissance" placeholder="date nainssance"></th>
-					<th></th>
-					
-					<th><input type="text" class="form-control"
-						name="inputRechercheNombre"
-						id="inputRechercheNombre" placeholder="Nombre">
-						</th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="">
-							<i class="fa fa-search" aria-hidden="true"></i>
-						</button></th>
-					<th><button class="btn btn-default"
-							id="buttonRechercheAvancee" onclick="minimizeRechercheAvancee()">
-							<i class="fa fa-window-minimize" aria-hidden="true"></i>
-						</button></th>
-				</tr>
-							</thead>
-							<tfoot>
-								
-							</tfoot>
-
-							<tr dir-paginate="ligne in membres |filter:recherche.All | itemsPerPage: 6">
-								<td><a href="#/adherentvisualisation/{{ligne.id}}"><i
-										class="-alt fa fa-eye fa-fw"></i> @{{ligne.id}}</a></td>
-								<td><img
-									src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
-									class="img-circle" width="30"></td>
-								<td><b>{{ligne.nom}}</b></td>
-								<td>{{ligne.prenom}}</td>
-								<td><a href="mailto:{{ligne.email}}">{{ligne.email}}</a>
-								</td>
-								<td>{{ligne.date_naissance}}</td>
-								<td><i class="fa fa-check colorGreen" aria-hidden="true"></i></td>
-								<td>{{ligne.nombre_media}} <i class="fa fa-book" aria-hidden="true"></i>
-								</td>
-
-							</tr>
-
-							
-
-
-							</tbody>
-						</table>
-
-						<div class="panel-footer">
-						
-							<div class="row">
-							   <dir-pagination-controls class="pull-right"></dir-pagination-controls>
-							</div>
-						</div>
-					</div>
-
+<!-- BARRE DE RECHERCHE + BOUTTON AJOUT ADHERENT -->
+<div 
+	class="section">
+	<div 
+		class="container">
+		<div 
+			class="row well">
+			<div>
+				<div 
+					class="col-md-4 ">
+					<input 
+						class="form-control"
+						type="text" 							
+						id="inputRechercheBase"
+						placeholder="Cherchez des noms, pr&eacute;noms ou autre chose"
+						ng-model="modelRechercheBase.tout">
+				</div>
+				<div 
+					class="col-md-3">
+					<button 
+						class="btn btn-default" 
+						id="buttonRechercheBase"
+						ng-click="lancerRechercheBase()">
+						<i 
+							class="fa fa-search" 
+							aria-hidden="true">
+						</i>
+					</button>
+					<button 
+						class="btn btn-link" 
+						id="buttonModeRechercheAvanceeOn"										
+						ng-show="modeRechercheAvancee===false"
+						ng-click="modeRechercheAvancee=true">
+						Recherche avanc&eacute;e</a>
+					</button>
 				</div>
 			</div>
-            </div>
-        </div>
-    
+<!-- FIN DE LA RECHERCHE - DEBUT BOUTON AJOUT ADHERENT  -->
+			<div>	
+				<a 
+					class="btn btn-primary pull-right"
+					href="#/adherentcreation">
+					<i 
+						class="fa fa-fw -square -circle fa-plus-square">
+					</i>
+					Ajouter membre
+				</a>                   	
+			</div>
+		</div>
+	</div>
+</div>
+<!-- FIN DE LA BARRE -->
+       
+<!-- TABLEAU DES ADHERENTS -->
+<div 
+	class="row">
+	<div 
+		class="table-responsive col-md-8 col-md-offset-2">
+		<table 
+			class="table table-hover table-striped text-center">
+<!--TITRE DES COLONNES + BOUTONS DE TRI -->
+			<thead>
+				<tr>
+					<th 
+						class="colonneVue">
+						Aller &agrave;
+					</th>
+					<th 
+						class="colonneID">
+						<span
+							id="spanIDPasTri"
+							ng-show="tdTri !== 'id'" 
+							ng-click="tdTri = 'id'">
+							#ID	
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanIDTri"
+							ng-show="tdTri === 'id'">												
+							<span
+								id="spanIDTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								#ID	
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanIDTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								#ID	
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>						
+					</th>					
+					<th 
+						class="colonneNom">
+						<span
+							id="spanNomPasTri"
+							ng-show="tdTri !== 'nom'" 
+							ng-click="tdTri = 'nom'">
+							Nom	
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanNomTri"
+							ng-show="tdTri === 'nom'">												
+							<span
+								id="spanNomTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								Nom
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanNomTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								Nom	
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>						
+					</th>
+					<th 
+						class="colonnePrenom">
+						<span
+							id="spanPrenomPasTri"
+							ng-show="tdTri !== 'prenom'" 
+							ng-click="tdTri = 'prenom'">
+							Pr&eacutenom;
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanPrenomTri"
+							ng-show="tdTri === 'prenom'">												
+							<span
+								id="spanPrenomTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								Pr&eacutenom;	
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanPrenomTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								Pr&eacutenom;
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>						
+					</th>
+					<th 
+						class="colonneEmail">
+						<i 
+							class="fa fa-envelope-o" 
+							aria-hidden="true">
+						</i>
+						<span
+							id="spanEmailPasTri"
+							ng-show="tdTri !== 'email'" 
+							ng-click="tdTri = 'email'">
+							E-mail 	
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanEmailTri"
+							ng-show="tdTri === 'email'">												
+							<span
+								id="spanEmailTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								E-mail 
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanEmailTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								E-mail 
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>						
+					</th>
+					<th 
+						class="colonneDateNaissance">
+						<i 
+							class="fa fa-calendar-o" 
+							aria-hidden="true">
+						</i>
+						<span
+							id="spanDateNaissancePasTri"
+							ng-show="tdTri !== 'date_naissance'" 
+							ng-click="tdTri = 'date_naissance'">
+							Date naissance 	
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanDateNaissanceTri"
+							ng-show="tdTri === 'date_naissance'">												
+							<span
+								id="spanDateNaissanceTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								Date naissance 
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanDateNaissanceTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								Date naissance 
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>						
+					</th>
+					<th 
+						class="colonneEtat">
+						&Eacute;tat :
+						<select
+							class="pull-right"							
+							id="filtreEtat"
+							ng-model="filtreBy.etat">
+							<option value="">Tous</option>
+							<option value="ABONNE">
+								Abonn&eacute;
+							</option>
+							<option value="INACTIF">
+								Inactif
+							</option>
+						</select>	
+					</th>
+					<th 
+						class="colonneNbPret">
+						<i 
+							class="fa fa-book" 
+							aria-hidden="true">
+						</i>
+						<span
+							id="spanNbPretPasTri"
+							ng-show="tdTri !== 'nombre_media'" 
+							ng-click="tdTri = 'nombre_media'">
+							Nombre de pr&ecirc;ts	
+							<i 
+								class="fa fa-sort pull-right" 
+								aria-hidden="true">
+							</i>														
+						</span>
+						<span
+							id="spanNbPretTri"
+							ng-show="tdTri === 'nombre_media'">												
+							<span
+								id="spanNbPretTriOrdre"
+								ng-show="triInverse === false"
+								ng-click="triInverse = true">
+								Nombre de pr&ecirc;ts 
+								<i
+									class="fa fa-caret-up pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>					
+							<span
+								id="spanNbPretTriInverse"
+								ng-show="triInverse === true"
+								ng-click="triInverse = false">
+								Nombre de pr&ecirc;ts 
+								<i
+									class="fa fa-caret-down pull-right text-primary"
+									aria-hidden="true">
+								</i>								
+							</span>	
+						</span>					
+					</th>	
+				</tr>
+<!-- FIN DES TITRES -->
+<!-- BARRE DE RECHERCHE AVANCEE -->
+				<tr 
+					class="rowRechercheAvancee" 
+					ng-show="modeRechercheAvancee==true">
+						<th></th>
+						<th></th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 								 
+								id="inputRechercheNom"
+								placeholder="Nom"
+								ng-model="modelRechercheAvancee.nom">
+						</th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 								 
+								id="inputRecherchePrenom"
+								placeholder="Pr&eacute;nom"
+								ng-model="modelRechercheAvancee.prenom">
+						</th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 								 
+								id="inputRechercheEmail"
+								placeholder="E-mail"
+								ng-model="modelRechercheAvancee.email">
+						</th>
+						<th>
+							<datepicker	
+								date-set-hidden="true"
+      							date-format="y-MM-dd"      							
+							    date-typer="true"
+							    button-prev='<i class="fa fa-arrow-circle-left"></i>'
+								button-next='<i class="fa fa-arrow-circle-right"></i>'>
+  								<input  
+  									class="form-control" 									 
+  									type="text"
+  									id="inputRechercheDateNaissance"
+  									ng-model="modelRechercheAvancee.date_naissance"/>
+							</datepicker>
+						</th>
+						<th></th>
+						<th>
+							<input 
+								class="form-control"
+								type="text" 								 
+								id="inputRechercheNombrePrets"
+								placeholder="Nombre"
+								ng-model="modelRechercheAvancee.nombre_media">
+						</th>						
+						<th>
+							<button 
+								class="btn btn-default"
+								id="buttonRechercheAvancee"
+								ng-click="lancerRechercheAvancee()">
+								<i 
+									class="fa fa-search" 
+									aria-hidden="true">
+								</i>
+							</button>
+						</th>
+						<th>
+							<button
+								class="btn btn-default"
+								id="buttonModeRechercheAvanceeOff"														
+								ng-click="modeRechercheAvancee=false">
+								<i 
+									class="fa fa-window-minimize" 
+									aria-hidden="true">
+								</i>
+							</button>
+						</th>
+				</tr>
+			</thead>
+			<!-- FIN DE LA BARRE DE RECHERCHE AVANCEE -->
+			<tbody>
 
+				<tr 
+					dir-paginate="adherent in listeAdherent |
+								  orderBy:tdTri:triInverse |
+								  filter: filtreBy |
+								  filter: getObjetFiltre()  |
+								  itemsPerPage: 10">
+					
+					<td>
+						<a 
+							class="btn"
+							href="#/adherentvisualisation/{{adherent.id}}">
+							<i 
+								class="fa fa-eye" 
+								aria-hidden="true">
+							</i>
+						</a>
+					</td>
+					<td>
+						@{{adherent.id}}
+					</td>
+					<td
+						class="text-left">
+						<img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+							 class="img-circle pull-left" width="30">
+						{{adherent.nom}}	
+					</td>
+					<td
+						class="text-left">
+						{{adherent.prenom}}	
+					</td>
+					<td
+						class="text-left">
+						<a 
+							href="mailto:{{adherent.email}}">
+							{{adherent.email}}
+						</a>	
+					</td>
+					<td>
+						{{adherent.date_naissance}}	
+					</td>
+					<td>			
+						<i 
+							class="fa fa-check text-success" 
+							ng-if="adherent.etat === 'ABONNE'"
+							aria-hidden="true">
+						</i>
+						<i 
+							class="fa fa-ban text-danger"
+							ng-if="adherent.etat === 'INACTIF'" 
+							aria-hidden="true">
+						</i>		
+					</td>
+					<td>
+						{{adherent.nombre_media}}
+						<i 
+							class="fa fa-book" 
+							aria-hidden="true">
+						</i>						
+					</td>												
+				</tr>		
+			</tbody>
+					
+			<tfoot>
+			</tfoot>			
+		</table>
+		
+		<div 
+			class="panel-footer">
+			<div 
+				class="row">
+				<dir-pagination-controls
+					class="pull-right">
+				</dir-pagination-controls>
+			</div>
+		</div>
+		
+	</div>
+</div>

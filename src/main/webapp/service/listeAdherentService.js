@@ -2,10 +2,10 @@
 	'use strict';
 
 	angular
-			.module('MyApp.Media')	
-			.service('ListeMediaService', function($http, UrlService) {
+			.module('MyApp.Adherent')	
+			.service('ListeAdherentService', function($http, UrlService) {
 
-						var url = UrlService.getMediaRechercheUrl();
+						var url = UrlService.getAdherentRechercheUrl();
 						var promise = $http.get(url).then(function(response) {							
 							return response.data
 						}, function(){
@@ -17,15 +17,15 @@
 							return promise;
 						};
 
-						this.getMedia = function(id) {
+						this.getAdherent = function(id) {
 							return promise.then(function(liste) {
-								var media = undefined;
+								var adherent = undefined;
 								for (var index in liste) {
 									if (liste[index]._id.$oid === id) {
 										return liste[index];
 									}
 								}
-								throw 'Média non trouvé';
+								throw 'Adherent non trouvé';
 							});
 						}
 					})
