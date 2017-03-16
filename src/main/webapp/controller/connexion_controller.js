@@ -23,7 +23,8 @@ angular.module('MyApp.Connexion',['ngRoute'])
 		}
 		
 		$scope.disconnect = function(){
-			return AuthentificationService.disconnect();
+			//console.log('disconnect');
+			AuthentificationService.disconnect();
 		};
 		
 	});
