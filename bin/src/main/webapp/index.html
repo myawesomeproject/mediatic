@@ -1,0 +1,216 @@
+<html ng-app="MyApp">
+<head>
+
+ <script src="./bower_components/jquery/dist/jquery.js"></script>
+ 
+ <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+ <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+ 
+ <link href="./bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+ 
+ <link rel="stylesheet" href="./css/connexion.css">
+ 
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-route/angular-route.js"></script>
+  <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+    
+  <script src="./bower_components/angular-utils-pagination/dirPagination.js"></script>  
+  <script src="./bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>   
+  <link rel="stylesheet" href="./bower_components/angularjs-datepicker/src/css/angular-datepicker.css"/> 
+  
+  
+  <link rel="stylesheet" href="./bower_components/angular-input-stars/angular-input-stars.css" />
+  <script src="./bower_components/angular-input-stars/angular-input-stars.js"></script>
+ 
+   <script src="./app.js"></script>
+   <script src="./service/url_service.js"></script>   
+   
+   <script src="./controller/connexion_controller.js"></script>
+   <script src="./service/Auth.js"></script>
+   <script src="./controller/main_controller.js"></script>
+   
+   
+   <script src="./controller/adherentvisualisation_controller.js"></script>
+   <script src="./controller/adherentcreation_controller.js"></script>
+   <script src="./controller/adherentrecherche_controller.js"></script>
+   
+   <script src="./controller/mediavisualisation_controller.js"></script>
+   <script src="./controller/mediarecherche_controller.js"></script>
+   <script src="./controller/mediacreation_controller.js"></script>
+   
+   <script src="./controller/menu_controller.js"></script>
+    
+   <script src="./service/listeMediaService.js"></script>
+   <script src="./service/adherent_service.js"></script>
+   
+   
+   <script src="./controller/emprunt.js"></script>
+
+ 
+<title ng-bind="$root.title +' - MyAPP Home'"> - MyApp</title>
+
+</head>
+<body ng-controller="MainCtrl">
+
+
+<div ng-if="!isConnected()">
+		<div ng-include="'./template/connexion.html'"></div>
+		<!-- DEBUT DU FOOTER -->
+	 <footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer> 
+	</div>
+	
+<div ng-show="isConnected()">
+		<!-- CREATION/DEBUT DU MENU -->
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href=""><i class="fa fa-university "
+						aria-hidden="true"></i> Mediatic </a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" ng-controller="MenuCtrl">
+						<li ng-class="{ active: isMedia($root.title)}"><a href="#/mediarecherche"> <i
+								class="fa fa-database" aria-hidden="true"></i> Media
+						</a></li>
+						<li ng-class="{ active: isAdherent($root.title)}"><a href="#/adherentrecherche"><i
+								class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/connexion" ng-click="disconnet()"> <i
+								class="fa fa-sign-out fa-1x" aria-hidden="true"></i>
+								D&eacute;connexion
+						</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</header>
+	<!-- FIN DU MENU -->
+		<div ng-if="isConnected()" ng-view></div>
+		
+	<!-- DEBUT DU FOOTER -->
+	 <footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>	
+		
+</div>
+
+
+<!-- 
+<div ng-if="$root.title != 'connexion' "> -->
+<!-- CREATION/DEBUT DU MENU -->
+	<!--<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!--<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href=""><i class="fa fa-university "
+						aria-hidden="true"></i> Mediatic </a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+			<!--	<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" ng-controller="MenuCtrl">
+						<li ng-class="{ active: isMedia($root.title)}"><a href="#/mediarecherche"> <i
+								class="fa fa-database" aria-hidden="true"></i> Media
+						</a></li>
+						<li ng-class="{ active: isAdherent($root.title)}"><a href="#/adherentrecherche"><i
+								class="fa fa-users" aria-hidden="true"></i> Adh&eacute;rent</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#/connexion" ng-click="disconnet()"> <i
+								class="fa fa-sign-out fa-1x" aria-hidden="true"></i>
+								D&eacute;connexion
+						</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+<!--			</div>
+			<!-- /.container-fluid -->
+<!--		</nav>
+	</header>
+	<!-- FIN DU MENU -->
+<!--  </div>
+
+<div ng-view></div> -->
+
+
+	<!-- DEBUT DU FOOTER -->
+	<!-- <footer>
+		<div class="container">
+			<div class="row">
+				<hr>
+				<div class="col-lg-12">
+					<div class="col-md-8">
+						<a href="#">Terms of Service</a> | <a href="#">Privacy</a> | <a href="#">Contact</a>
+					</div>
+					<div class="col-md-4">
+						<p class="muted pull-right">
+							&copy; 2017 Company Name. All rights reserved <br>
+							Cr&eacute;&eacute; avec &hearts; et beaucoup de <i class="fa fa-coffee" aria-hidden="true"></i>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer> -->
+
+
+</body>
+</html>

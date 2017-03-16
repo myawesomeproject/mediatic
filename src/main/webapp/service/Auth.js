@@ -1,13 +1,22 @@
 angular.module('MyApp.Connexion')
-.factory('AuthentificationService', function($http, UrlService){
+.factory('AuthentificationService', function($http, UrlService,$cookieStore,$cookies){
 	
 	var AuthentificationService = {};
 
 	var connected = false;
 	var defaut = 'Basic';
 
+	var authCookie = $cookies.get('auth');
+	if (authCookie != undefined){
+		connected = true;
+		defaut = authCookie;
+	}
+	
+	
 	$http.defaults.headers.common['Authorization'] = defaut;
 
+	
+	
 	AuthentificationService.connect = function(login, password){
 		var auth = 'Basic ' + btoa(login+':'+password);
 		var data ={login :login, mdp:password};
@@ -17,14 +26,13 @@ angular.module('MyApp.Connexion')
 			}
 		};
 		return $http.post(UrlService.getConnection(),data , config).then(function(){
-			console.log('Connection OK');
-			connected = true;
+			//console.log('Connection OK');
+			connected = true;			
 			$http.defaults.headers.common['Authorization'] = auth;
+			$cookies.put('auth', auth);
 			return true;
 		}, function(){
-			console.log('Connection NOK');
-			connected = false;
-			$http.defaults.headers.common['Authorization'] = defaut;
+			AuthentificationService.disconnect();
 			return false;
 		});
 	};
@@ -36,7 +44,8 @@ angular.module('MyApp.Connexion')
 	
 	AuthentificationService.disconnect = function(){
 		connected = false;
-		$http.defaults.headers.common['Authorization'] = defaut;
+		$cookies.remove('auth');
+		$http.defaults.headers.common['Authorization'] = 'Basic';
 	};
 	
 

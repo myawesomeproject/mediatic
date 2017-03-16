@@ -1,0 +1,14 @@
+<div class = "container" ng-controller="ConnexionCtrl">
+	<div class="wrapper">
+		<form name="Login_Form" class="form-signin" ng-submit="connect(login,pass)" novalidate>
+		    <h3 class="form-signin-heading">Bienvenu sur Mediatic </h3>
+			  <hr class="colorgraph"><br>
+			  <label>Nom d'utilisateur :</label>
+			  <input type="text" class="form-control" name="Username" placeholder="Utilisateur" ng-model="login" />
+			  <label>Code secret :</label>
+			  <input type="password" class="form-control" name="Password" placeholder="Mot de passe" ng-model="pass"/>  
+			 
+			  <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Connexion</button>  			
+		</form>			
+	</div>
+</div>
