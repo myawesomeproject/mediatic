@@ -20,7 +20,7 @@
 					<button 
 						class="btn btn-default" 
 						id="buttonRechercheBase"
-						ng-click="filterRechercheBase = modelRechercheBase.tout">
+						ng-click="lancerRechercheBase()">
 						<i 
 							class="fa fa-search" 
 							aria-hidden="true">
@@ -238,8 +238,8 @@
 						</span>
 					</th>
 				</tr>
-				<!-- FIN DES TITRES -->
-				<!-- BARRE DE RECHERCHE AVANCEE -->
+<!-- FIN DES TITRES -->
+<!-- BARRE DE RECHERCHE AVANCEE -->
 				<tr 
 					class="rowRechercheAvancee" 
 					ng-show="modeRechercheAvancee==true">
@@ -299,7 +299,7 @@
   									class="form-control" 									 
   									type="text"
   									id="inputRechercheDate"
-  									ng-model="modelRechercheAvancee.date"/>
+  									ng-model="modelRechercheAvancee.retour"/>
 							</datepicker>
 						</th>
 						<th>
@@ -330,16 +330,11 @@
 			<tbody>
 
 			<tr
-				dir-paginate="media in listeMedia |
-								orderBy:tdTri:triInverse |
-								filter: {type:filtreBy.type} |
-								filter: {etat:filtreBy.etat} |
-				 				filter: filterRechercheBase |
-				 				filter: filterRechercheAvancee |			
-				 				itemsPerPage: 10" > 	 
-			
-<!-- dir-paginate= remplace le data-ng-repeat pour avoir la version paginée -->
-<!-- exemple : <tr data-ng-repeat="media in listeMedia | filter:{title:recherche.titremedia}"> -->			
+				dir-paginate="media in listeMedia | 
+							  orderBy:tdTri:triInverse | 
+							  filter: filtreBy | 
+							  filter: getObjetFiltre()  | 
+							  itemsPerPage: 10">											
 
 					<td>
 						<a 
@@ -383,33 +378,7 @@
 						<span 
 							ng-bind="media.auteur">
 						</span>
-					</td>
-					
-<!-- Ancienne colonne type -->
-<!-- 					<td> -->
-<!-- 						<span 						  -->
-<!-- 							ng-if="media.type==='Livre'"> -->
-<!-- 							<i  -->
-<!-- 								class="fa fa-book"  -->
-<!-- 								aria-hidden="true"> -->
-<!-- 							</i> -->
-<!-- 						</span> -->
-<!-- 							<span 						  -->
-<!-- 							ng-if="media.type==='CD'"> -->
-<!-- 							<i  -->
-<!-- 								class="fa fa-music"  -->
-<!-- 								aria-hidden="true"> -->
-<!-- 							</i> -->
-<!-- 						</span> -->
-<!-- 							<span 						  -->
-<!-- 							ng-if="media.type==='DVD'"> -->
-<!-- 							<i  -->
-<!-- 								class="fa fa-film"  -->
-<!-- 								aria-hidden="true"> -->
-<!-- 							</i> -->
-<!-- 						</span>						 -->
-<!-- 					</td>
-				 -->
+					</td>					
 <!-- Utilisation de ng-if-start et -end pour délimiter un bloc complet soumis à la condition : en l'espèce : que le média est emprunté -->
 					<td 
 						ng-if-start="media.emprunteur!==undefined">
@@ -440,20 +409,20 @@
 					</td>
 <!-- idem quand le média est libre -->
 					<td 
-						ng-if-start="media.emprunteur===undefined">		
+						ng-if-start="media.emprunteur===undefined"
+						>		
 						<i 
 							class="fa fa-check text-success" 
 							aria-hidden="true">
 						</i>						
 					</td>
 					<td></td>
-					<td ng-if-end></td>												
+					<td	ng-if-end></td>										
 				</tr>		
 			</tbody>
 					
 			<tfoot>
-			</tfoot>
-			
+			</tfoot>			
 		</table>
 		
 		<div 
