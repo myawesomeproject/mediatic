@@ -26,8 +26,19 @@
 
 						<div class="form-group">
 							<div class="col-sm-4">
-								<input type="date" placeholder="Date de Naissance" 
-									class="form-control" ng-model="data.date_naissance">
+							<datepicker	
+								date-set-hidden="true"
+      							date-format="yyyy-MM-dd"      							
+							    date-typer="true"
+							    button-prev='<i class="fa fa-arrow-circle-left"></i>'
+								button-next='<i class="fa fa-arrow-circle-right"></i>'>
+  								<input  
+  									class="form-control" 									 
+  									type="text"
+  									placeholder="Date de Naissance"
+  									ng-model="data.date_naissance"/>
+							</datepicker>
+								
 							</div>
 						</div>
 
@@ -67,15 +78,26 @@
 						<!-- Text input-->
 						<div class="form-group">
 							<div class="col-sm-4">
-								<input type="date" name="Date_de_Cotisation" 
-									placeholder="Date de Cotisation" class="form-control" ng-model="data.cotisation.debut">
+							<datepicker	
+								date-set-hidden="true"
+      							date-format="yyyy-MM-dd"      							
+							    date-typer="true"
+							    button-prev='<i class="fa fa-arrow-circle-left"></i>'
+								button-next='<i class="fa fa-arrow-circle-right"></i>'>
+  								<input  
+  									class="form-control" 									 
+  									type="text"
+  									placeholder="Date de Cotisation"
+  									ng-model="data.cotisation.debut"/>
+							</datepicker>
+								
 							</div>
 							<div class="col-sm-3">
-								<input type="text" placeholder="Montant" class="form-control" ng-model="data.cotisation.montant">
+								<input type="text" placeholder="Montant" class="form-control" ng-model="data.cotisation.montant" />
 							</div>
 							<div class="col-sm-4">
 								<div class="form-control2">
-									<input type="checkbox" name="payer" value="payer">
+									<input type="checkbox" name="payer" value="payer" />
 									Payer
 								</div>
 							</div>
