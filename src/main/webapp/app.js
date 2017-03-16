@@ -7,7 +7,8 @@
 							'MyApp.Adherent',												
 							'MyApp.Media',
 							'MyApp.Emprunt',
-							'angularUtils.directives.dirPagination'
+							'angularUtils.directives.dirPagination',
+							'ngCookies'
 							])
 	
 		.config(function($routeProvider){
