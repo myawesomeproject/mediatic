@@ -8,7 +8,9 @@
 							'MyApp.Media',
 							'MyApp.Emprunt',
 							'angularUtils.directives.dirPagination',
-							'ngCookies'
+							'ngCookies',
+							'ui.bootstrap',
+							'ui.bootstrap.typeahead'
 							])
 	
 		.config(function($routeProvider){

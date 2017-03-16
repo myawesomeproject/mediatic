@@ -13,108 +13,137 @@
 				<!-- Information personnel Section -->
 				<!-- Form Name -->
 				<legend>
-					Informations personnelles <button   id="editInfos" ng-click="editKeyword(keyword); editInfos = true"
-						class="btn btn-md btn-default pull-right"> <span
-						class="glyphicon glyphicon-pencil"></span></button>
+					Informations personnelles
+					<button id="editInfos"
+						ng-click="editKeyword(keyword); editInfos = true"
+						class="btn btn-md btn-default pull-right">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
 				</legend>
 
 				<div class="form-group">
-					<label class="col-sm-3">Nom:</label> 
-					<span id="membre.nom" ng-if="!editInfos">{{membre.nom}}</span> 
-						<span ng-if="editInfos"><input ng-model="membre.nom"></span>
-					<!-- 	<button ng-click="save(keyword); editInfos = false">Save</button> -->	
+					<label class="col-sm-3">Nom:</label> <span id="membre.nom"
+						ng-if="!editInfos">{{membre.nom}}</span> <span ng-if="editInfos"><input
+						ng-model="membre.nom"></span>
+					<!-- 	<button ng-click="save(keyword); editInfos = false">Save</button> -->
 					<!-- <button ng-click="deleteKeyword(keyword)">Delete</button> -->
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 ">Prenom:</label>
-						<span id="membre.prenom" ng-if="!editInfos">{{membre.prenom}}</span> 
-						<span ng-if="editInfos"><input ng-model="membre.prenom"></span>
+					<label class="col-sm-3 ">Prenom:</label> <span id="membre.prenom"
+						ng-if="!editInfos">{{membre.prenom}}</span> <span
+						ng-if="editInfos"><input ng-model="membre.prenom"></span>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-sm-3">Date de naissance:</label>
-					<span id="membre.prenom" ng-if="!editInfos">{{membre.date_naissance}}</span> 
-					<span ng-if="editInfos"><input ng-model="membre.date_naissance"></span>
+					<label class="col-sm-3">Date de naissance:</label> <span
+						id="membre.prenom" ng-if="!editInfos">{{membre.date_naissance}}</span>
+					<span ng-if="editInfos"><input
+						ng-model="membre.date_naissance"></span>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-sm-3">Email:</label> 
-					<span id="membre.prenom" ng-if="!editInfos">{{membre.email}}</span>
-					<span ng-if="editInfos"><input ng-model="membre.email"></span>
+					<label class="col-sm-3">Email:</label> <span id="membre.prenom"
+						ng-if="!editInfos">{{membre.email}}</span> <span ng-if="editInfos"><input
+						ng-model="membre.email"></span>
 				</div>
 
 				<!-- Form Name -->
 				<legend>
-					Adresse : <button id="editAdresse" ng-click="editKeyword(keyword); editAdresse = true"
-						class="btn btn-md btn-default pull-right"> <span
-						class="glyphicon glyphicon-pencil"></span>
+					Adresse :
+					<button id="editAdresse" ng-click="editAdresse = true"
+						class="btn btn-md btn-default pull-right">
+						<span class="glyphicon glyphicon-pencil"></span>
 					</button>
 				</legend>
 				<!-- Text input-->
 				<div class="form-group">
 
-					<label class="col-sm-3">Rue : </label> 
-					<span id="membre.adresse.ligne1" ng-if="!editAdresse">{{membre.adresse.ligne1}},</span>
-					<span ng-if="editAdresse"><input ng-model="membre.adresse.ligne1"></span>
-					<span id="membre.adresse.ligne2" ng-if="!editAdresse">{{membre.adresse.ligne2}}</span>
-					<span ng-if="editAdresse"><input ng-model="membre.adresse.ligne2"></span>
+					<label class="col-sm-3">Rue : </label> <span
+						id="membre.adresse.ligne1" ng-if="!editAdresse">{{membre.adresse.ligne1}},</span>
+					<span ng-if="editAdresse"><input
+						ng-model="membre.adresse.ligne1"></span> <span
+						id="membre.adresse.ligne2" ng-if="!editAdresse">{{membre.adresse.ligne2}}</span>
+					<span ng-if="editAdresse"><input
+						ng-model="membre.adresse.ligne2"></span>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
 
-					<label class="col-sm-3">Code postal:</label>
-					<span id="membre.adresse.codepostal" ng-if="!editAdresse">{{membre.adresse.codepostal}}</span>
-					<span ng-if="editAdresse"><input ng-model="membre.adresse.codepostal"></span>
+					<label class="col-sm-3">Code postal:</label> <span
+						id="membre.adresse.codepostal" ng-if="!editAdresse">{{membre.adresse.codepostal}}</span>
+					<span ng-if="editAdresse"><input
+						ng-model="membre.adresse.codepostal"></span>
 
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-sm-3">Ville:</label> 
-					<span id="membre.adresse.ville" ng-if="!editAdresse">{{membre.adresse.ville}}</span>
-					<span ng-if="editAdresse"><input ng-model="membre.adresse.ville"></span>
+					<label class="col-sm-3">Ville:</label> <span
+						id="membre.adresse.ville" ng-if="!editAdresse">{{membre.adresse.ville}}</span>
+					<span ng-if="editAdresse"><input
+						ng-model="membre.adresse.ville"></span>
 				</div>
 
 				<legend>
-					Gestion Abonnement Membre : <button id="editAbo" ng-click="editKeyword(keyword); editAbo = true"
-						class="btn btn-md btn-default pull-right"> <span
-						class="glyphicon glyphicon-pencil"></span></button>
+					Gestion Abonnement Membre :
+					<button id="editAbo"
+						ng-click="editKeyword(keyword); editAbo = true"
+						class="btn btn-md btn-default pull-right">
+						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
 				</legend>
 				<div class="form-group">
 
-					<label class="col-sm-3">Date de cotisation:</label>
-					<span id="membre.adresse.cotisation" ng-if="!editAbo">{{membre.cotisation.debut}}</span>
-					<span ng-if="editAbo"><input ng-model="membre.cotisation.debut"></span>
+					<label class="col-sm-3">Date de cotisation:</label> <span
+						id="membre.adresse.cotisation" ng-if="!editAbo">{{membre.cotisation.debut}}</span>
+					<span ng-if="editAbo"><input
+						ng-model="membre.cotisation.debut"></span>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3"> Montant:</label>
-					<span id="membre.adresse.montant" ng-if="!editAbo">{{membre.cotisation.montant |currency}}</span>
-					<span ng-if="editAbo"><input ng-model="membre.cotisation.montant"></span>
+					<label class="col-sm-3"> Montant:</label> <span
+						id="membre.adresse.montant" ng-if="!editAbo">{{membre.cotisation.montant
+						|currency}}</span> <span ng-if="editAbo"><input
+						ng-model="membre.cotisation.montant"></span>
 
 				</div>
 				<!--Gestion Abonnement Membre Section -->
 				<!-- Form Name -->
-				<legend>Gestion Emprunt :</legend>
+				<legend>
+					Ajout Emprunt :
+					<button id="ajoutEmprunt" ng-click="ajoutEmprunt = true"
+						class="btn btn-md btn-default pull-right">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</legend>
+
+				</legend>
 				<!-- Text input-->
-				<div class="form-group">
-					<div class="col-sm-3">
-						<input ng-model="membre.emprunt.media.titre" type="text" placeholder="Titre du Media"
+				<div class="form-group" ng-show="ajoutEmprunt">
+
+					<div class="col-sm-4">
+						<input type="text" ng-model="selected"
+							placeholder="Titre du Media" ng-model-options="modelOptions"
+							uib-typeahead="media as media.titre for media in listeMedia | filter:$viewValue  | limitTo:8"
 							class="form-control">
 					</div>
 					<div class="col-sm-4">
-						<input ng-model="membre.emprunt.media.depart"type="date" name="Date_de_l'emprunt"
+						<input type="date" ng-model="date_depart" name="Date_de_l'emprunt"
 							placeholder="Date d'emprunt" class="form-control">
 					</div>
 					<div class="col-sm-4">
-						<input ng-model="membre.emprunt.media.retour" type="date" name="Date_de_retour_de_l'emprunt"
+						<input ng-model="membre.emprunt.media.retour" type="date"
+							name="Date_de_retour_de_l'emprunt"
 							placeholder="Date de retour prevu" class="form-control">
 					</div>
 				</div>
-
+				
 				<!-- Command -->
 				<div class="form-group">
 					<div class="col-sm-12">
-						<button type="submit" class="btn btn-primary pull-right" ng-click="update(membre)">Enregistrer</button>
+						{{selected.id}}, {{membre.id}}
+						<button type="submit" class="btn btn-primary pull-right"
+							ng-click="emprunte(membre.id,selected.id,date_depart)">Enregistrer</button>
 					</div>
+					{{membre|json}}
 				</div>
 			</fieldset>
 
@@ -122,7 +151,7 @@
 	</div>
 	<!-- /.col-lg-12 -->
 	<!-- /.row -->
-	<div class="col-sm-1 col-md-offset-4 ">
+	<div class="col-sm-3 col-sm-offset-2 ">
 		<div id="historiqueempruntmedia" class="pull-right">
 			<!-- Tableau d'historique sur le coté droit de la page-->
 			<h2 class="text-center">Historique</h2>
