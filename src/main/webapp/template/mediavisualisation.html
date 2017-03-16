@@ -3,7 +3,27 @@
 	<div class="container" style="height:80%">
 		<div class="col-sm-6 col-xs-offset-1">
 			<!-- Informations générales de visualisation-->
-			<legend><h1><i class="fa fa-film"></i> {{media.titre}}</h1></legend>
+			<legend><h1><span 						 
+							ng-if="media.type==='Livre'">
+							<i 
+								class="fa fa-book" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='CD'">
+							<i 
+								class="fa fa-music" 
+								aria-hidden="true">
+							</i>
+						</span>
+							<span 						 
+							ng-if="media.type==='DVD'">
+							<i 
+								class="fa fa-film" 
+								aria-hidden="true">
+							</i>
+						</span>	 {{media.titre}}</h1></legend>
 			<div id="infomedia">
 				<label>Auteur :</label>
 				<span style ="font-size:25px" class="visualisation">{{media.auteur}}</span>
