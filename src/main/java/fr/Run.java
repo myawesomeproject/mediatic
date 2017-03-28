@@ -1,13 +1,14 @@
+package fr;
 import java.sql.Date;
 
-import adherent.dao.AdherentDAO;
-import adherent.model.Adherent;
-import adherent.model.Cotisation;
-import emprunt.dao.EmpruntDAO;
-import emprunt.model.Emprunt;
-import media.dao.MediaDAO;
-import media.model.Media;
-import media.model.TypeMedia;
+import fr.adherent.dao.AdherentDAO;
+import fr.adherent.model.Adherent;
+import fr.adherent.model.Cotisation;
+import fr.emprunt.dao.EmpruntDAO;
+import fr.emprunt.model.Emprunt;
+import fr.media.dao.MediaDAO;
+import fr.media.model.Media;
+import fr.media.model.TypeMedia;
 
 
 public class Run {

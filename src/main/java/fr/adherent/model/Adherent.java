@@ -1,11 +1,11 @@
-package adherent.model;
+package fr.adherent.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import emprunt.model.Emprunt;
+import fr.emprunt.model.Emprunt;
 
 import java.util.Date;
 import java.util.List;

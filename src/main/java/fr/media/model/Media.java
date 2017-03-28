@@ -1,4 +1,4 @@
-package media.model;
+package fr.media.model;
 
 
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import emprunt.model.*;
+import fr.emprunt.model.*;
 
 @Entity
 @Table(name = "media")

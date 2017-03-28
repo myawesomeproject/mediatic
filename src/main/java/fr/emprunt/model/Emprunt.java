@@ -1,11 +1,11 @@
-package emprunt.model;
+package fr.emprunt.model;
 
 import java.util.Date;
 
 import javax.persistence.*;
 
-import adherent.model.*;
-import media.model.Media;
+import fr.adherent.model.*;
+import fr.media.model.Media;
 
 
 

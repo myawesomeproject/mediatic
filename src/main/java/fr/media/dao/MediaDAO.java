@@ -1,14 +1,14 @@
-package media.dao;
+package fr.media.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import adherent.model.Adherent;
-import media.model.*;
-import service.DatabaseHelper;
-import service.GenericDAO;
+import fr.adherent.model.Adherent;
+import fr.media.model.*;
+import fr.service.DatabaseHelper;
+import fr.service.GenericDAO;
 
 public class MediaDAO extends GenericDAO<Media> {
 
@@ -51,6 +51,13 @@ public class MediaDAO extends GenericDAO<Media> {
 		TypedQuery<Media> query = entityManager.createQuery(qlQuery, Media.class);
 		query.setParameter("id", id_media);
 		return query.getSingleResult();
+	}
+	
+	public List<Media> getListMedia() {
+		EntityManager entityManager = DatabaseHelper.createEntityManager();
+		TypedQuery<Media> query = entityManager.createQuery("from Media", Media.class);
+		List<Media> adherents = query.getResultList();
+		return adherents;
 	}
 
 }

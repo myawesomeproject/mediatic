@@ -1,4 +1,4 @@
-package adherent.model;
+package fr.adherent.model;
 
 import java.util.Date;
 import javax.persistence.*;
