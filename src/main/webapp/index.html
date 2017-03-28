@@ -56,10 +56,10 @@
 </head>
 <body ng-controller="MainCtrl">
 
-
-<div ng-if="!isConnected()">
+<!-- ng-if="!isConnected()" -->
+<!-- <div >
 		<div ng-include="'./template/connexion.html'"></div>
-		<!-- DEBUT DU FOOTER -->
+		DEBUT DU FOOTER
 	 <footer>
 		<div class="container">
 			<div class="row">
@@ -79,9 +79,9 @@
 		</div>
 
 	</footer> 
-	</div>
+	</div> -->
 	
-<div ng-show="isConnected()">
+<div> <!-- ng-show="isConnected()" -->
 		<!-- CREATION/DEBUT DU MENU -->
 	<header>
 		<nav class="navbar navbar-default">
@@ -121,7 +121,8 @@
 		</nav>
 	</header>
 	<!-- FIN DU MENU -->
-		<div ng-if="isConnected()" ng-view></div>
+	<!--  ng-if="isConnected()" -->
+		<div ng-view></div>
 		
 	<!-- DEBUT DU FOOTER -->
 	 <footer>
