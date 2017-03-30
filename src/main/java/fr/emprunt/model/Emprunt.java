@@ -4,41 +4,41 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import fr.adherent.model.*;
 import fr.media.model.Media;
 
-
-
-
 @Entity
 @Table(name = "emprunt")
+// @JsonIgnore
 public class Emprunt {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	
-	@ManyToOne 
-	private Adherent adherent;
-	
+
 	@ManyToOne
+	@JsonManagedReference
+	private Adherent adherent;
+
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Media media;
-	
+
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date dateEmprunt;
-	
+
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date dateRetour;
-	
-	@Column
-	private boolean retourner =false;
 
-	
-	
-	/******************    GET & SET **************************/
+	@Column
+	private boolean retourner = false;
+
+	/****************** GET & SET **************************/
 	public Long getId() {
 		return id;
 	}
@@ -93,10 +93,4 @@ public class Emprunt {
 				+ ", dateRetour=" + dateRetour + ", retourner=" + retourner + "]";
 	}
 
-	
-	
-	
-		
-	
-	
 }

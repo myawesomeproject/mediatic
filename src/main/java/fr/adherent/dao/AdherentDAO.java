@@ -23,7 +23,7 @@ public class AdherentDAO extends GenericDAO<Adherent> {
 
 	private static AdherentDAO dao;
 
-	private AdherentDAO() {
+	public AdherentDAO() {
 		super(Adherent.class);
 	}
 
@@ -49,6 +49,7 @@ public class AdherentDAO extends GenericDAO<Adherent> {
 		query.setParameter("id", AdherentId);
 		return query.getSingleResult();
 	}
+	
 
 	public List<Adherent> getListAdherent() {
 		EntityManager entityManager = DatabaseHelper.createEntityManager();

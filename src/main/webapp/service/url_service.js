@@ -4,7 +4,7 @@ angular.module('MyApp')
 
 	var Service = {};
 
-	var serveur = 'http://192.168.1.86:8090';
+	var serveur = 'http://localhost:8080/mediatic/ws';
 
 	// ADHERENT
 	var adherentCreationUrl = serveur + '/resource/adherent.creation';
