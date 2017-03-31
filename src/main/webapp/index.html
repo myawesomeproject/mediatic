@@ -1,59 +1,50 @@
 <html ng-app="MyApp">
 <head>
+<meta charset=utf-8 />
 
- <script src="./bower_components/jquery/dist/jquery.js"></script>
-
- <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
- <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
- <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="./bower_components/jquery/dist/jquery.js"></script>
+	
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	<link href="./bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/connexion.css">
+	
+	<script src="./bower_components/angular/angular.js"></script>
+	<script src="./bower_components/angular-route/angular-route.js"></script>
+	<script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="./bower_components/angular-cookies/angular-cookies.js"></script>
+	<script src="./bower_components/angular-utils-pagination/dirPagination.js"></script> 
+	<script src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<script src="./bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>   
+	<link rel="stylesheet" href="./bower_components/angularjs-datepicker/src/css/angular-datepicker.css"/>
+	<link rel="stylesheet" href="./bower_components/angular-input-stars/angular-input-stars.css" />
+	<script src="./bower_components/angular-input-stars/angular-input-stars.js"></script>
+	
+	<script src="./app.js"></script>
+	<script src="./service/url_service.js"></script>    
+	<script src="./controller/connexion_controller.js"></script>
+	<script src="./service/Auth.js"></script>
+	<script src="./controller/main_controller.js"></script> 
+	<script src="./controller/adherentvisualisation_controller.js"></script> 
+	<script src="./controller/adherentcreation_controller.js"></script>
+	<script src="./controller/adherentrecherche_controller.js"></script> 
+	<script src="./controller/mediavisualisation_controller.js"></script>
+	<script src="./controller/mediarecherche_controller.js"></script>
+	<script src="./controller/mediacreation_controller.js"></script> 
+	<script src="./controller/menu_controller.js"></script>  
+	<script src="./service/listeMediaService.js"></script>
+	<script src="./service/listeAdherentService.js"></script>
+	<script src="./service/adherent_service.js"></script>
+	<script src="./service/media_service.js"></script>  
+	<script src="./controller/emprunt.js"></script>
  
- <link href="./bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
- 
- <link rel="stylesheet" href="./css/connexion.css">
- 
-  <script src="./bower_components/angular/angular.js"></script>
-  <script src="./bower_components/angular-route/angular-route.js"></script>
-  <script src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="./bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="./bower_components/angular-utils-pagination/dirPagination.js"></script> 
-  <script src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-   <script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="./bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>   
-  <link rel="stylesheet" href="./bower_components/angularjs-datepicker/src/css/angular-datepicker.css"/> 
-  
-  <link rel="stylesheet" href="./bower_components/angular-input-stars/angular-input-stars.css" />
-  <script src="./bower_components/angular-input-stars/angular-input-stars.js"></script>
- 
-   <script src="./app.js"></script>
-   <script src="./service/url_service.js"></script>   
-   
-   <script src="./controller/connexion_controller.js"></script>
-   <script src="./service/Auth.js"></script>
-   <script src="./controller/main_controller.js"></script>
-   
-   
-   <script src="./controller/adherentvisualisation_controller.js"></script>
-   <script src="./controller/adherentcreation_controller.js"></script>
-   <script src="./controller/adherentrecherche_controller.js"></script>
-   
-   <script src="./controller/mediavisualisation_controller.js"></script>
-   <script src="./controller/mediarecherche_controller.js"></script>
-   <script src="./controller/mediacreation_controller.js"></script>
-   
-   <script src="./controller/menu_controller.js"></script>
-    
-   <script src="./service/listeMediaService.js"></script>
-   <script src="./service/listeAdherentService.js"></script>
-   <script src="./service/adherent_service.js"></script>
-   <script src="./service/media_service.js"></script>
-   
-   
-   <script src="./controller/emprunt.js"></script>
-
- 
-<title ng-bind="$root.title +' - MyAPP Home'"> - MyApp</title>
+	<title ng-bind="$root.title +' - MyAPP Home'"> - MyApp</title>
 
 </head>
+
 <body ng-controller="MainCtrl">
 
 <!-- ng-if="!isConnected()" -->

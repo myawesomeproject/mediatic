@@ -12,7 +12,7 @@ angular.module('MyApp')
 			
 			$scope.isMedia = function(value){
 				//console.log(value);
-				return (value === 'Liste des médias' 
+				return (value === 'Médias' 
 					|| value === 'Création média' 
 					|| value === 'Visualisation média');
 			}

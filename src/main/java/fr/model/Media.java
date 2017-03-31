@@ -1,15 +1,12 @@
-package fr.media.model;
-
+package fr.model;
 
 import java.util.List;
-
 import javax.persistence.*;
-
 import org.hibernate.validator.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import fr.emprunt.model.*;
+import fr.model.*;
+
 
 @Entity
 @Table(name = "media")

@@ -1,18 +1,14 @@
-
-package fr.adherent.dao;
+package fr.dao;
 
 import java.util.List;
-
 import javax.persistence.TypedQuery;
-
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.adherent.model.Adherent;
-import fr.emprunt.model.Emprunt;
-import fr.service.GenericDAO;
+import fr.model.*;
+import fr.service.*;
 
 @Service
 @Repository
