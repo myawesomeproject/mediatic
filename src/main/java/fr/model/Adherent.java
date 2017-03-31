@@ -1,15 +1,10 @@
-package fr.adherent.model;
+package fr.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import org.hibernate.validator.constraints.NotBlank;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import fr.emprunt.model.Emprunt;
-
 import java.util.Date;
 import java.util.List;
 

@@ -1,8 +1,7 @@
-package fr.emprunt.dao;
+package fr.dao;
 
-
-import fr.emprunt.model.*;
-import fr.service.GenericDAO;
+import fr.model.*;
+import fr.service.*;
 
 public class EmpruntDAO extends GenericDAO<Emprunt> {
 

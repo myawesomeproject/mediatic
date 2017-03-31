@@ -6,7 +6,7 @@
 		.module('MyApp.Adherent')
 		.controller('AdherentRechercheCtrl',function($scope, $rootScope, ListeAdherentService) {
 		
-			$rootScope.title = "Adh&eacute;rents" ;
+			$rootScope.title = "Adhérents" ;
 			$scope.modeRechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation
 			$scope.listeAdherent = undefined;
 			

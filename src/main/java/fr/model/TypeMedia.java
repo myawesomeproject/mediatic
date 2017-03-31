@@ -1,4 +1,4 @@
-package fr.media.model;
+package fr.model;
 
 public enum TypeMedia {	
 	

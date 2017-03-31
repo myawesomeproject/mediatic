@@ -6,7 +6,7 @@
 		.module('MyApp.Media')
 		.controller('MediaRechercheCtrl',function($scope, $rootScope, ListeMediaService) {
 		
-			$rootScope.title = "M&eacute;dias";		
+			$rootScope.title = "Médias";		
 			$scope.modeRechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation			
 			$scope.listeMedia = undefined;
 			

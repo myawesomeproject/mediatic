@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.adherent.dao.AdherentDAO;
-import fr.adherent.model.Adherent;
-import fr.media.dao.MediaDAO;
-import fr.media.model.Media;
+import fr.dao.AdherentDAO;
+import fr.dao.MediaDAO;
+import fr.model.Adherent;
+import fr.model.Media;
 
 @RestController
 @RequestMapping("/resource")

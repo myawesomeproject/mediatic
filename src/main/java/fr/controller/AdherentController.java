@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.adherent.dao.AdherentDAO;
-import fr.adherent.model.Adherent;
+import fr.dao.AdherentDAO;
+import fr.model.Adherent;
 
 @RestController
 @RequestMapping("/resource")

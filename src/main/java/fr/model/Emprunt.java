@@ -1,15 +1,10 @@
-package fr.emprunt.model;
+package fr.model;
 
 import java.util.Date;
-
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import fr.adherent.model.*;
-import fr.media.model.Media;
 
 @Entity
 @Table(name = "emprunt")

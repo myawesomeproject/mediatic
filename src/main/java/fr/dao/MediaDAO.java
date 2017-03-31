@@ -1,4 +1,4 @@
-package fr.media.dao;
+package fr.dao;
 
 import java.util.List;
 import javax.persistence.TypedQuery;
@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.media.model.Media;
-import fr.media.model.TypeMedia;
-import fr.service.GenericDAO;
+import fr.model.*;
+import fr.service.*;
 
 @Service
 @Repository
