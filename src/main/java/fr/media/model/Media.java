@@ -1,6 +1,5 @@
 package fr.media.model;
 
-
 import java.util.List;
 
 import javax.persistence.*;

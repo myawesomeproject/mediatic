@@ -1,10 +1,7 @@
-
 package fr.adherent.dao;
 
 import java.util.List;
-
 import javax.persistence.TypedQuery;
-
 import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;

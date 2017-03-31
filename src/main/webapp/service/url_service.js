@@ -15,12 +15,11 @@ angular.module('MyApp')
 	// EMPRUNT
 	var empruntAjoutUrl = serveur + '/resource/emprunt.ajout';
 
-	// MEDIA
-	var mediaRechercheUrl = serveur + '/resource/media.recherche';
+	// MEDIA	
 	var mediaCreationUrl = serveur + '/resource/media.creation';
 	var mediaModificationUrl = serveur + '/resource/media.modification';
 	var mediaAccessionUrl = serveur + '/resource/media.accession';
-
+	var mediaRechercheUrl = serveur + '/resource/media.recherche';
 	
 	var ConnexionUrl = serveur + '/resource/connexion.login';
 	var ConnexionUrl2 = serveur + '/resource/connexion.rights';
@@ -34,42 +33,34 @@ angular.module('MyApp')
 	}
 
 	Service.getAdherentModificationUrl = function() {
-
 		return adherentModificationUrl;
 	}
 
 	Service.getAdherentRechercheUrl = function() {
-
 		return adherentRechercheUrl;
 	}
 
 	Service.getMediaRechercheUrl = function() {
-
 		return mediaRechercheUrl;
 	}
 
 	Service.getEmpruntAjoutUrl = function() {
-
 		return empruntAjoutUrl;
 	}
 
 	Service.getAdherentAccessionUrl = function() {
-
 		return adherentAccessionUrl;
 	}
 
 	Service.getMediaCreationUrl = function() {
-
 		return mediaCreationUrl;
 	}
 
 	Service.getMediaModificationUrl = function() {
-
 		return mediaModificationUrl;
 	}
 	
 	Service.getMediaAccessionUrl = function() {
-
 		return mediaAccessionUrl;
 	}
 

@@ -3,10 +3,13 @@ package fr.service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
+
 public class GenericDAO<T> {
 
-	@PersistenceContext protected EntityManager em;
-	
+	@PersistenceContext 
+	protected EntityManager em;	
 	
     private Class<T> klass;
 

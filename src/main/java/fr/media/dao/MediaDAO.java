@@ -1,17 +1,24 @@
 package fr.media.dao;
 
 import java.util.List;
-
 import javax.persistence.TypedQuery;
+import org.hibernate.Hibernate;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.media.model.Media;
+import fr.media.model.TypeMedia;
 import fr.service.GenericDAO;
 
+@Service
+@Repository
+@Transactional
 public class MediaDAO extends GenericDAO<Media> {
 
-	private static MediaDAO dao;
+	public static MediaDAO dao;
 
-	private MediaDAO() {
+	public MediaDAO() {
 		super(Media.class);
 	}
 
