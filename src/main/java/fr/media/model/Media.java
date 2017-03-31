@@ -7,6 +7,8 @@ import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import fr.emprunt.model.*;
 
 @Entity
@@ -28,6 +30,7 @@ public class Media {
 	private String auteur;
 	
 	@OneToMany (mappedBy = "media")
+	@JsonIgnore
 	private List<Emprunt> emprunts;
 
 	/* si besoin pour plus tard

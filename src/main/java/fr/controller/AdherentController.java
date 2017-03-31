@@ -25,7 +25,8 @@ public class AdherentController {
 	@ResponseBody
 	@RequestMapping(value = "/adherent.recherche", method = RequestMethod.GET)
 	public List<Adherent> display() {
-		return adherentDAO.getListAdherent();
+		List<Adherent> result = adherentDAO.getListAdherent();
+		return result;
 	}
 	
 //	@ResponseBody

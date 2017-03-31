@@ -21,7 +21,8 @@ public class Emprunt {
 	private Long id;
 
 	@ManyToOne
-	@JsonManagedReference
+	@JsonIgnore
+	//@JsonManagedReference
 	private Adherent adherent;
 
 	@ManyToOne(fetch = FetchType.EAGER)

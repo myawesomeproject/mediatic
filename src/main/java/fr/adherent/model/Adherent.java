@@ -47,7 +47,7 @@ public class Adherent {
 	private Cotisation cotisation;
 
 	@OneToMany(fetch = FetchType.EAGER,mappedBy = "adherent")
-	@JsonBackReference
+	//@JsonBackReference
 	private List<Emprunt> emprunts;
 
 	public Adherent() {
