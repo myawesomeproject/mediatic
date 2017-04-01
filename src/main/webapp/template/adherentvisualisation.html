@@ -167,12 +167,12 @@
 				</thead>
 				<tbody>
 
-					<tr ng-repeat="media in membre.emprunt">
-						<td>{{media.type}}</td>
-						<td>{{media.titre}}</td>
-						<td>{{media.auteur}}</td>
-						<td>{{media.depart}}</td>
-						<td>{{media.retour}}</td>
+					<tr ng-repeat="media in membre.emprunts">
+						<td>{{media.media.type}}</td>
+						<td>{{media.media.titre}}</td>
+						<td>{{media.media.auteur}}</td>
+						<td>{{media.dateEmprunt}}</td>
+						<td>{{media.dateRetour}}</td>
 					</tr>
 				</tbody>
 
