@@ -33,16 +33,17 @@
 						ng-if="!editInfos">{{membre.prenom}}</span> <span
 						ng-if="editInfos"><input ng-model="membre.prenom"></span>
 				</div>
+				
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-sm-3">Date de naissance:</label> <span
-						id="membre.prenom" ng-if="!editInfos">{{membre.date_naissance}}</span>
+						id="membre.date" ng-if="!editInfos">{{membre.dateNaissance}}</span>
 					<span ng-if="editInfos"><input
-						ng-model="membre.date_naissance"></span>
+						ng-model="membre.dateNaissance"></span>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
-					<label class="col-sm-3">Email:</label> <span id="membre.prenom"
+					<label class="col-sm-3">Email:</label> <span id="membre.email"
 						ng-if="!editInfos">{{membre.email}}</span> <span ng-if="editInfos"><input
 						ng-model="membre.email"></span>
 				</div>
@@ -59,18 +60,15 @@
 				<div class="form-group">
 
 					<label class="col-sm-3">Rue : </label> <span
-						id="membre.adresse.ligne1" ng-if="!editAdresse">{{membre.adresse.ligne1}},</span>
+						id="membre.adresse" ng-if="!editAdresse">{{membre.adresse}},</span>
 					<span ng-if="editAdresse"><input
-						ng-model="membre.adresse.ligne1"></span> <span
-						id="membre.adresse.ligne2" ng-if="!editAdresse">{{membre.adresse.ligne2}}</span>
-					<span ng-if="editAdresse"><input
-						ng-model="membre.adresse.ligne2"></span>
+						ng-model="membre.adresse"></span> 
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
 
 					<label class="col-sm-3">Code postal:</label> <span
-						id="membre.adresse.codepostal" ng-if="!editAdresse">{{membre.adresse.codepostal}}</span>
+						id="membre.adresse.codepostal" ng-if="!editAdresse">{{membre.codePostal}}</span>
 					<span ng-if="editAdresse"><input
 						ng-model="membre.adresse.codepostal"></span>
 
@@ -78,7 +76,7 @@
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-sm-3">Ville:</label> <span
-						id="membre.adresse.ville" ng-if="!editAdresse">{{membre.adresse.ville}}</span>
+						id="membre.adresse.ville" ng-if="!editAdresse">{{membre.ville}}</span>
 					<span ng-if="editAdresse"><input
 						ng-model="membre.adresse.ville"></span>
 				</div>
@@ -170,9 +168,9 @@
 				<tbody>
 
 					<tr ng-repeat="media in membre.emprunt">
-						<td>{{media.media.type}}</td>
-						<td>{{media.media.titre}}</td>
-						<td>{{media.media.auteur}}</td>
+						<td>{{media.type}}</td>
+						<td>{{media.titre}}</td>
+						<td>{{media.auteur}}</td>
 						<td>{{media.depart}}</td>
 						<td>{{media.retour}}</td>
 					</tr>
