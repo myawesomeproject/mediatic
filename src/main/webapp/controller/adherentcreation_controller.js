@@ -36,25 +36,24 @@
 			
 			$scope.ajoute = function(data) {
 				
-				data.adresse.ligne2 = " ";
-				data.emprunt = [];
-				data.nombre_media = 0;
-				data.date_naissance = dateFilter(data.date_naissance, 'yyyy-MM-dd');
+				//data.adresse.ligne2 = " ";
+				data.emprunts = null;
+				//data.nombre_media = 0;
+				data.dateNaissance = dateFilter(data.dateNaissance, 'yyyy-MM-dd');
 				
-				data.age = calculAge(data.date_naissance); // faire une function age;
+				// data.age = calculAge(data.dateNaissance); // faire une function age;
 
 				
-				if (data.cotisation.debut != undefined){
+				/*if (data.cotisation.datecotisation != undefined || data.cotisation.datecotisation != "" ){
 					
-					data.cotisation.debut = dateFilter(data.cotisation.debut, 'yyyy-MM-dd');
-					data.cotisation.fin = Abonnement1Y(data.cotisation.debut); // function ajouté 1 ans
+					data.cotisation.datecotisation = dateFilter(data.cotisation.debut, 'yyyy-MM-dd');
+					//data.cotisation.fin = Abonnement1Y(data.cotisation.debut); // function ajouté 1 ans
 				}
-				else {
-					data.cotisation.debut = " ";
-					data.cotisation.fin = " ";
-				}
+				else {*/
+					data.cotisation = null;
+				//}
 					
-				//console.log(data);
+				console.log(data);
 				
 				
 		        AdherentService.add(data);

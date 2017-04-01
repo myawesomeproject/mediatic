@@ -50,12 +50,12 @@ public class AdherentController {
 		return ResponseEntity.status(HttpStatus.OK).body(adherent);
 	}
 	
-	@RequestMapping(value = "/adherent.ajout", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void CreateAdherent(@RequestBody Adherent adherent) {
+	@RequestMapping(value = "/adherent.creation", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Adherent> CreateAdherent(@RequestBody Adherent adherent) {
 		 adherentDAO.persist(adherent);
 		System.out.println(adherent.toString());
 		
-		//return ResponseEntity.status(HttpStatus.OK).body(adherent);
+		return ResponseEntity.status(HttpStatus.OK).body(adherent);
 	}
 	
 }
