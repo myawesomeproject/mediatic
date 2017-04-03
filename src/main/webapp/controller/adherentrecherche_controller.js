@@ -17,9 +17,10 @@
 				var estlibre = true;
 				var today = new Date();
 				$scope.listeAdherent = data;
+				console.log(data);
 				for (var index in $scope.listeAdherent){
 					var adherent = $scope.listeAdherent[index];					
-					if ((adherent.cotisation.fin==undefined)||(adherent.cotisation.fin=="")||(adherent.cotisation.fin<today)){
+					if ((adherent.cotisation==null)||(adherent.cotisation.fin==undefined)||(adherent.cotisation.fin=="")||(adherent.cotisation.fin<today)){
 						adherent.etat = 'INACTIF';					
 					} else {						
 						adherent.etat = 'ABONNE';

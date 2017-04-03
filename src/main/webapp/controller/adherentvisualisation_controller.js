@@ -17,7 +17,7 @@ angular.module('MyApp.Adherent',['ngRoute','ui.bootstrap','ui.bootstrap.typeahea
 			
 			membre = reponse.data;
 			$scope.membre = reponse.data;
-
+console.log(membre);
 			
 		});
 		
@@ -31,13 +31,13 @@ angular.module('MyApp.Adherent',['ngRoute','ui.bootstrap','ui.bootstrap.typeahea
 		$scope.update = function(data) {
 			membre.nom = data.nom
 			membre.prenom = data.prenom
-			membre.date_naissance = data.date_naissance;
-			membre.adresse.ligne1 =data.adresse.ligne2;
-			membre.adresse.ligne2 =data.adresse.ligne2;
+			membre.dateNaissance = data.dateNaissance;
+			membre.adresse =data.adresse;
+			//membre.adresse.ligne2 =data.adresse.ligne2;
 			membre.email = data.email;
-			membre.code_postal = data.code_postal; 
+			membre.codePostal = data.codePostal; 
 			membre.ville = data.ville;
-			membre.date_naissance = data.date_naissance;
+			//membre.date_naissance = data.date_naissance;
 			membre.cotisation.debut = dateFilter(data.cotisation.debut, 'yyyy-MM-dd');
 			membre.cotisation.fin = dateFilter(data.cotisation.debut, 'yyyy-MM-dd'); // function
 																						// ajouté
