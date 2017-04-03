@@ -2,7 +2,7 @@
 <div 
 	class="section">
 	<div 
-		class="container">
+		class="container col-md-8 col-md-offset-2">
 		<div 
 			class="row well">
 			<div>
@@ -12,11 +12,11 @@
 						class="form-control"
 						type="text" 							
 						id="inputRechercheBase"
-						placeholder="Cherchez des titres, auteurs ou autre chose"
+						placeholder="Titres, auteurs, emprunteurs..."
 						ng-model="modelRechercheBase.tout">
 				</div>
 				<div 
-					class="col-md-3">
+					class="col-md-3">			
 					<button 
 						class="btn btn-default" 
 						id="buttonRechercheBase"
@@ -36,7 +36,7 @@
 				</div>
 			</div>
 <!-- FIN DE LA RECHERCHE - DEBUT BOUTON AJOUT MEDIA  -->
-			<div>	
+			<div>				
 				<a 
 					class="btn btn-primary pull-right"
 					href="#/mediacreation">
@@ -44,7 +44,7 @@
 						class="fa fa-fw -square -circle fa-plus-square">
 					</i>
 					Ajouter nouveau m&eacute;dia
-				</a>                   	
+				</a>		                   	
 			</div>
 		</div>
 	</div>
@@ -59,189 +59,141 @@
 		<table 
 			class="table table-hover table-striped text-center">
 <!--TITRE DES COLONNES + BOUTONS DE TRI -->
-			<thead>
-				<tr>
+			<thead>				
+				<tr>					
 					<th 
 						class="colonneVue"
-						style="width: 5%">
-						Aller &agrave;
-					</th>
-					<th 
-						class="colonneTitre"
-						style="width: 30%">
+						style="width: 3%">
 						<select 								
 							id="filtreType"
-							ng-model="filtreBy.type">
+							ng-model="filtreBy.type"
+							ng-show="modeRechercheAvancee===false">
 							<option value="">Tous</option>
 							<option>Livre</option>
 							<option>CD</option>
 							<option>DVD</option>
 						</select>
-						<span
-							id="spanTitrePasTri"
-							ng-show="tdTri !== 'titre'" 
-							ng-click="tdTri = 'titre'">
+					</th>
+					<th 
+						class="colonneTitre"
+						style="width: 32%">
+						<div
+							id="divTitre"							 
+							ng-click="changerTri('titre')">
 							Titre		
-							<i 
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'titre'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'titre' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'titre' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanTitreTri"
-							ng-show="tdTri === 'titre'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Titre
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanTitreTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Titre
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+						</div>
 					</th>
 					<th 
 						class="colonneAuteur"
 						style="width: 20%">		
-						<span
-							id="spanAuteurPasTri"
-							ng-show="tdTri !== 'auteur'" 
-							ng-click="tdTri = 'auteur'">
+						<div
+							id="divAuteur"							 
+							ng-click="changerTri('auteur')">
 							Auteur		
-							<i 
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'auteur'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'auteur' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'auteur' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanAuteurTri"
-							ng-show="tdTri === 'auteur'">												
-							<span
-								id="spanAuteurTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Auteur
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanAuteurTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Auteur
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+						</div>						
 					</th>
 					<th 
 						class="colonneEtat"
 						style="width: 10%">
-						&Eacute;tat :
-						<select
-							class="pull-right"							
+						<span
+							ng-show="modeRechercheAvancee===true">
+							&Eacute;tat :
+						</span>						
+						<select														
 							id="filtreEtat"
-							ng-model="filtreBy.etat">
-							<option value="">Tous</option>
-							<option value="PRETE">
+							ng-model="filtreBy.etat"
+							ng-show="modeRechercheAvancee===false">
+							<option 
+								value="">
+								&Eacute;tat :
+							</option>
+							<option 
+								value="PRETE">
 								Emprunt&eacute;
 							</option>
-							<option value="LIBRE">
+							<option 
+								value="LIBRE">
 								En rayon
 							</option>
 						</select>
 					</th>
 					<th 
 						class="colonneNomEmprunteur"
-						style="width: 20%">
-						<span
-							id="spanEmprunteurPasTri"
-							ng-show="tdTri !== 'emprunteur.nom'" 
-							ng-click="tdTri = 'emprunteur.nom'">
+						style="width: 20%">						
+						<div
+							id="divNomEmprunteur"							 
+							ng-click="changerTri('emprunteur.nom')">
 							Emprunteur		
-							<i 
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'emprunteur.nom'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'emprunteur.nom' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'emprunteur.nom' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanEmprunteurTri"
-							ng-show="tdTri === 'emprunteur.nom'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Emprunteur
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanEmprunteurTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Emprunteur
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+						</div>
 					</th>
 					<th 
 						class="colonneDateRetour"
-						style="width: 15%">
-						<span
-							id="spanDateRetourPasTri"
-							ng-show="tdTri !== 'retour'" 
-							ng-click="tdTri = 'retour'">
-							Retour	
-							<i 
+						style="width: 15%">						
+						<div
+							id="divDateRetour"							 
+							ng-click="changerTri('retour')">
+							Retour		
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'retour'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'retour' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'retour' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanDateRetourTri"
-							ng-show="tdTri === 'retour'">												
-							<span
-								id="spanTitreTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Retour
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanDateRetourTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Retour
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>
-						</span>
+						</div>
 					</th>
 				</tr>
 <!-- FIN DES TITRES -->
@@ -249,7 +201,17 @@
 				<tr 
 					class="rowRechercheAvancee" 
 					ng-show="modeRechercheAvancee==true">
-						<th></th>
+						<th>
+							<select 								
+								id="filtreType"
+								ng-model="filtreBy.type"
+								ng-show="modeRechercheAvancee===true">
+								<option value="">Tous</option>
+								<option>Livre</option>
+								<option>CD</option>
+								<option>DVD</option>
+							</select>
+						</th>
 						<th>
 							<input 
 								class="form-control"
@@ -266,25 +228,24 @@
 								placeholder="Auteur"
 								ng-model="modelRechercheAvancee.auteur">
 						</th>
-<!-- 						<th> -->
-<!-- 							<select  -->
-<!-- 								class="form-control" -->
-<!-- 								id="inputRechercheType" -->
-<!-- 								ng-model="modelRechercheAvancee.type"> -->
-<!-- 								<option>Tous</option> -->
-<!-- 								<option>Livre</option> -->
-<!-- 								<option>CD</option> -->
-<!-- 								<option>DVD</option> -->
-<!-- 							</select> -->
-<!-- 						</th> -->
 						<th>
-<!-- 							<select  -->
-<!-- 								class="form-control" -->
-<!-- 								id="inputRechercheEtat" -->
-<!-- 								ng-model="modelRechercheAvancee.etat"> -->
-<!-- 								<option>Emprunt&eacute;</option> -->
-<!-- 								<option>En rayon</option> -->
-<!-- 							</select> -->
+							<select														
+								id="filtreEtat"
+								ng-model="filtreBy.etat"
+								ng-show="modeRechercheAvancee===true">
+								<option 
+									value="">
+									Tous
+								</option>
+								<option 
+									value="PRETE">
+									Emprunt&eacute;
+								</option>
+								<option 
+									value="LIBRE">
+									En rayon
+								</option>
+							</select>
 						</th>
 						<th>
 							<input
@@ -337,7 +298,7 @@
 
 			<tr
 				dir-paginate="media in listeMedia | 
-							  orderBy:tdTri:triInverse | 
+							  orderBy:colonneTri:descending | 
 							  filter: filtreBy | 
 							  filter: getObjetFiltre()  | 
 							  itemsPerPage: 10">											
@@ -361,14 +322,14 @@
 								aria-hidden="true">
 							</i>
 						</span>
-							<span 						 
+						<span 						 
 							ng-if="media.type==='CD'">
 							<i 
 								class="fa fa-music" 
 								aria-hidden="true">
 							</i>
 						</span>
-							<span 						 
+						<span 						 
 							ng-if="media.type==='DVD'">
 							<i 
 								class="fa fa-film" 

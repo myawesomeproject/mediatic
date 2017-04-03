@@ -8,10 +8,7 @@
 		
 			$rootScope.title = "Médias";		
 			$scope.modeRechercheAvancee=false; //pour cacher la barre de recherche avancée à l'initialisation			
-			$scope.listeMedia = undefined;
-			
-			$scope.tdTri = 'titre'; // Type de tri par défault
-			$scope.triInverse = false;  // Sens de tri par défault
+			$scope.listeMedia = undefined;			
 			
 			ListeMediaService.getList().then(function(data) {
 				var estlibre = true;
@@ -38,7 +35,19 @@
 		    $scope.lancerRechercheBase = function(){
 		    	$scope.modeRechercheAvancee = false;
 		    	$scope.filterRechercheBase = angular.copy($scope.modelRechercheBase);
-		    }
+		    }   
+ 
+			$scope.colonneTri = 'titre'; // Type de tri par défault
+			$scope.descending = false;  // Sens de tri par défault 
+		        
+		    $scope.changerTri = function(colonne) {
+	    		if ($scope.colonneTri == colonne) {
+	    			$scope.descending = !$scope.descending;
+	    		} else {
+	    			$scope.colonneTri = colonne;
+	    			$scope.descending = false;
+	    		}
+		    };
 
 		    $scope.getObjetFiltre = function(){
 		    	if($scope.modeRechercheAvancee===false){
