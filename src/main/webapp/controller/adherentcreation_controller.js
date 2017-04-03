@@ -33,6 +33,7 @@
 			
 			
 			
+
 			
 			$scope.ajoute = function(data) {
 				
@@ -50,7 +51,10 @@
 					//data.cotisation.fin = Abonnement1Y(data.cotisation.debut); // function ajouté 1 ans
 				}
 				else {*/
-					data.cotisation = null;
+				//data.cotisation.datecotisation 	
+				//data.cotisation.montantcotisation			
+
+				//data.cotisation = null;
 				//}
 					
 				console.log(data);

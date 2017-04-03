@@ -47,4 +47,11 @@ public class Cotisation {
 		this.montantCotisation = montantCotisation;
 	}
 
+	@Override
+	public String toString() {
+		return "Cotisation [id=" + id + ", dateCotisation=" + dateCotisation + ", montantCotisation="
+				+ montantCotisation + "]";
+	}
+	
+
 }
