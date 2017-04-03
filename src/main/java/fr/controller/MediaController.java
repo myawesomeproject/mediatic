@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +22,7 @@ import fr.model.Media;
 
 @RestController
 @RequestMapping("/resource")
+@Transactional
 public class MediaController {
 	
 	@Autowired
@@ -46,4 +50,11 @@ public class MediaController {
 		return ResponseEntity.status(HttpStatus.OK).body(media);
 	}
 
+	@RequestMapping(value = "/media.creation", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Media> CreateMedia(@RequestBody Media media) {
+		 mediaDAO.persist(media);
+		System.out.println(media.toString());
+		
+		return ResponseEntity.status(HttpStatus.OK).body(media);
+	}
 }
