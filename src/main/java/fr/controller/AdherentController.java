@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import fr.dao.*;
 import fr.model.*;
 
+
 @Controller
 @RequestMapping("/resource")
 @Transactional
@@ -18,6 +19,9 @@ public class AdherentController {
 
 	@Autowired
 	private AdherentDAO adherentDAO;
+	
+	@Autowired
+	private CotisationDAO cotisationDAO;
 	
 	@ResponseBody
 	@RequestMapping(value = "/adherent.recherche", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -43,7 +47,13 @@ public class AdherentController {
 	
 	@RequestMapping(value = "/adherent.creation", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Adherent> CreateAdherent(@RequestBody Adherent adherent) {
-		 adherentDAO.persist(adherent);
+		// System.out.println(adherent.getCotisation());
+		Cotisation cot ;
+		cot = adherent.getCotisation();		
+		cotisationDAO.persist(cot);
+		
+		adherentDAO.persist(adherent);
+		 
 		System.out.println(adherent.toString());
 		
 		return ResponseEntity.status(HttpStatus.OK).body(adherent);
