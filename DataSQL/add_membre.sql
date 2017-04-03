@@ -1,0 +1,36 @@
+INSERT INTO public.adherent(
+	id, adresse, codepostal, datenaissance, email, nom, prenom, ville, cotisation_id)
+	VALUES  
+	(101, '2 Lot Chanteperdrix', '80300', '1968-02-16', 'PARUCH@gamil.com', 'PARUCH', 'Armand', 'MEAULTE', null),
+	(102, '5 Rue du Jeu de Tamis', '80370', '1963-04-16', 'MACRON@gamil.com', 'MACRON', 'Bruno', 'BERNAVILLE', null),
+	(103, '14 Rue Neuve', '62111', '1967-02-10', 'HOSSART@gamil.com', 'HOSSART', 'Marc', 'SAILLY AU BOIS', null),
+	(104, '2 Rue du Moulin', '80270', '1978-02-26', 'CLOP@gamil.com', 'CLOP', 'Guillaume', 'VERGIES ', null),
+	(105, '1 Rue d en Haut', '80640', '1988-05-06', 'DEVIENNE@gamil.com', 'DEVIENNE', 'Damien', 'GOUY L HOPITAL', null),
+	(106, '70 Grande Rue ', '80300', '1998-10-10', 'DELPLANQUE@gamil.com', 'DELPLANQUE', 'Florian', 'MEAULTE', null),
+	(107, '6 Rue de Vaux', '80490', '1990-05-16', 'DUCHEMIN@gamil.com', 'DUCHEMIN', 'Vincent', 'FRUCOURT', null),
+	(108, '4 Rue du Bois', '80140', '1968-12-15', 'PEGARD@gamil.com', 'PEGARD', 'Matthieu', 'FONTAINE LE SEC', null),
+	(109, '14 Grande Rue', '80200', '1984-02-10', 'LEPOIX@gamil.com', 'LEPOIX', 'Pierre', 'SAINT CHRIST BRIOST', null),
+	(110, '1 Rue de Crécy', '80370', '1994-02-06', 'MARQUANT@gamil.com', 'MARQUANT ', 'Florine', 'CONTEVILLE ', null),
+	(111, '22 Rue Gaston Morin', '80620', '1992-12-16', 'PATTE@gamil.com', 'PATTE', 'Nicolas', 'DOMART EN PONTHIEU', null),
+	(112, '2 Rue de la République', '80490', '1981-02-16', 'RIGOLLE@gamil.com', 'RIGOLLE', 'Benoît', 'HALLENCOURT', null),
+	
+	(113, '17 Rue des Héritages ', '80300', '1969-12-11', 'BAUWIN@gamil.com', 'BAUWIN ', 'Claudie', 'MIRAUMONT', null),
+	(114, '42 route du Coq Gaulois Digeon', '80290', '1978-05-26', 'DARTOIS@gamil.com', 'DARTOIS', 'Etienne ', 'DIGEON', null),
+	(115, '7 Rue des Prés', '80300', '1982-02-16', 'DUCANCHEZ@gamil.com', 'DUCANCHEZ', 'Pauline', 'MORLANCOURT', null),
+	(116, '13 Rue du Château', '80210', '1985-02-16', 'FRANCOIS@gamil.com', 'FRANCOIS', 'Maxime', 'MONS BOUBERT', null),
+	(117, '16 Route de Conteuille', '80370', '1991-02-16', 'LALOUX@gamil.com', 'LALOUX', 'Arnaud', 'BERNATRE', null),
+	(118, 'Ferme Le Bel Air', '80250', '1991-08-06', 'LEROUX@gamil.com', 'LEROUX', 'Antoine', 'LA FALOISE', null),
+	(119, '100 Rue Bréant', '80132', '1986-09-16', 'LEVEQUE@gamil.com', 'LEVEQUE', 'Pierre', 'HAUTVILLERS OUVILLE', null),
+	(120, '4 Bis Rue de Moreuil ', '80134', '1988-07-18', 'MACHART@gamil.com', 'MACHART', 'Laurent', 'HANGEST EN SANTERRE', null),
+	(121, '4 Rue Boulanger', '80290', '1978-03-19', 'ROBITAILLE@gamil.com', 'ROBITAILLE', 'Hugues', 'CAULIERES', null),
+	(122, '200 Rue Jean Jaurès', '80470', '1993-04-17', 'THIBAUT@gamil.com', 'THIBAUT', 'Quentin', 'DREUIL LES AMIENS', null),
+	(123, '17 Rue Fursy Lesage', '80800', '1987-01-12', 'TONDELLIER@gamil.com', 'TONDELLIER', 'Quentin', 'CACHY', null),
+	(124, '9 Rue du 22ème RMVE', '80890', '1989-09-16', 'VANDYCKE@gamil.com', 'VAN DYCKE', 'Aurélie', 'CONDE FOLIE', null),
+	
+	(125, 'La Molière de terre - Chemin de la corde', '80410', '1988-02-14', 'BRUNET@gamil.com', 'BRUNET ', 'Edouard', 'CAYEUX SUR MER', null),
+	(126, '13 Rue d Amiens', '80310', '1989-01-11', 'GOURGUECHON@gamil.com', 'GOURGUECHON', 'Benoît', 'SAINT VAAST EN CHAUSSEE ', null),
+	(127, '26 Rue du Moulin', '80120', '1990-03-20', 'Aline@gamil.com', 'BOITEL LANDRIEUX', 'Aline', 'RUE', null),
+	(128, '13 rue Principale - Saigneville', '80230', '1979-07-22', 'PIOLE@gamil.com', 'PIOLE', 'Julien', 'PETIT PORT', null),
+	(129, 'Ferme de Mezoutre', '80150', '1977-05-15', 'Louis@gamil.com', 'PIOLE', 'Louis', 'VIRONCHAUX ', null),
+	(130, '17 Rue Alexis Carrel', '80400', '1969-04-25', 'TARDIEUX@gamil.com', 'TARDIEUX', 'Fabien', 'HAM', null),
+	(131, 'La Mare du Bois', '76390', '1991-12-29', 'VERMERSCH@gamil.com', 'VERMERSCH', 'Elie', 'HAUDRICOURT', null);
