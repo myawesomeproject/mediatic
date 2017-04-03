@@ -20,7 +20,6 @@ public class Cotisation {
 	private Long montantCotisation;
 
 	public Cotisation() {
-
 	}
 
 	public Long getId() {

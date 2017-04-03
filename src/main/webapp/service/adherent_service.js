@@ -36,18 +36,6 @@
 			var url = UrlService.getEmpruntAjoutUrl();
 			$http.post(url, data);
 		};
-
-		this.getHT = function(ligne) {
-			return ligne.article.price * ligne.qte;
-
-		}
-
-		$rootScope.getPanierServiceSize = function() {
-			return panier.reduce(function(previous, item) {
-				return previous + item.qte;
-			}, 0);
-		}
-		return this;
 	})
 
 })();
