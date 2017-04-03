@@ -92,13 +92,13 @@
 				<div class="form-group">
 
 					<label class="col-sm-3">Date de cotisation:</label> <span
-						id="membre.adresse.cotisation" ng-if="!editAbo">{{membre.cotisation.debut}}</span>
+						id="membre.adresse.cotisation" ng-if="!editAbo">{{membre.cotisation.dateCotisation}}</span>
 					<span ng-if="editAbo"><input
 						ng-model="membre.cotisation.debut"></span>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3"> Montant:</label> <span
-						id="membre.adresse.montant" ng-if="!editAbo">{{membre.cotisation.montant
+						id="membre.adresse.montant" ng-if="!editAbo">{{membre.cotisation.montantCotisation
 						|currency}}</span> <span ng-if="editAbo"><input
 						ng-model="membre.cotisation.montant"></span>
 
