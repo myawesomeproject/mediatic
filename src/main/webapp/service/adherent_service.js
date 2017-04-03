@@ -18,7 +18,7 @@
 
 		this.update = function(membre) {
 			var url = UrlService.getAdherentModificationUrl();
-			$http.post(url, membre).then(function(reponse) {
+			$http.put(url, membre).then(function(reponse) {
 
 			});
 		};
