@@ -5,10 +5,6 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 1f451bb72151d6d72005eb063b085d96d8619cfa
 public class GenericDAO<T> {
 
 	@PersistenceContext 

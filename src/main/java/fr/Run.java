@@ -5,10 +5,11 @@ import fr.dao.AdherentDAO;
 import fr.dao.EmpruntDAO;
 import fr.dao.MediaDAO;
 import fr.model.Adherent;
-import fr.model.Cotisation;
 import fr.model.Emprunt;
 import fr.model.Media;
 import fr.model.TypeMedia;
+
+
 
 
 public class Run {
