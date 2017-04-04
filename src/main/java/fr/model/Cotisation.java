@@ -52,6 +52,6 @@ public class Cotisation {
 		return "Cotisation [id=" + id + ", dateCotisation=" + dateCotisation + ", montantCotisation="
 				+ montantCotisation + "]";
 	}
-	
 
 }
+
