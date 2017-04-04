@@ -11,18 +11,38 @@
 			$scope.listeAdherent = undefined;			
 
 			ListeAdherentService.getList().then(function(data) {
-				var estlibre = true;
+				var estlibre = true;	
 				var today = new Date();
-				$scope.listeAdherent = data;				
+				$scope.listeAdherent = data;
 				for (var index in $scope.listeAdherent){
-					var adherent = $scope.listeAdherent[index];					
-					if ((adherent.cotisation==null)||(adherent.cotisation.fin==undefined)||(adherent.cotisation.fin=="")||(adherent.cotisation.fin<today)){
-						adherent.etat = 'INACTIF';					
-					} else {						
-						adherent.etat = 'ABONNE';
+					var adherent = $scope.listeAdherent[index];	
+					if (adherent.cotisation==null 
+						|| adherent.cotisation==undefined 
+						|| adherent.cotisation.dateCotisation=="" 
+						|| adherent.cotisation.dateCotisation==undefined){
+						adherent.etat = 'INACTIF';
+					} else {
+						var fin = new Date(Abonnement1Y(adherent.cotisation.dateCotisation));
+						if (fin<today){
+							adherent.etat = 'INACTIF';
+						} else {
+							adherent.etat = 'ABONNE';
+						}
 					}
 				}				
 			});	
+			
+			function Abonnement1Y(strDate) {
+			    strDate = strDate.split('-');
+			    var birthMonth = strDate[1], 
+			        birthDay = strDate[2], 
+			        age = strDate[0];
+			     
+			    age = parseInt(age) + 1;
+			    var str = age+"-"+birthMonth+"-"+birthDay;
+			    
+			    return str;
+			}
 			
 		    $scope.modelRechercheBase = {};
 		    $scope.modelRechercheAvancee = {};
@@ -48,8 +68,7 @@
 	    			$scope.colonneTri = colonne;
 	    			$scope.descending = false;
 	    		}
-		    };
-		    
+		    };		    
 
 		    $scope.getObjetFiltre = function(){
 		    	if($scope.modeRechercheAvancee===false){
