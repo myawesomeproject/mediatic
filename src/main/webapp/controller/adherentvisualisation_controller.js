@@ -52,9 +52,9 @@ console.log(membre);
 	        return AdherentService.update(membre);
 	    };
 		
-		$scope.emprunte = function(id_adherent,id_media,date_depart){
+		$scope.emprunte = function(id_adherent,id_media,date_depart,type){
 //			var date_departt = dateFilter(date_depart,'yyyy-MM-dd');
-			return AdherentService.emprunte(id_adherent,id_media,date_depart);
+			return AdherentService.emprunte(id_adherent,id_media,date_depart,type);
 			
 			
 		};

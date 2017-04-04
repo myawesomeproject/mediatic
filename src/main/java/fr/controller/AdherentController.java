@@ -81,5 +81,8 @@ public class AdherentController {
 
 		return ResponseEntity.status(HttpStatus.OK).body(adherent);
 	}
+	
+	
+	
 
 }

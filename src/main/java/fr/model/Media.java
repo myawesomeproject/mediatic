@@ -26,8 +26,7 @@ public class Media {
 	@Column
 	private String auteur;
 	
-	@OneToMany (mappedBy = "media")
-	@JsonIgnore
+	@OneToMany (fetch = FetchType.EAGER,mappedBy = "media")
 	private List<Emprunt> emprunts;
 
 	/* si besoin pour plus tard
