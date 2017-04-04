@@ -33,7 +33,8 @@
 					id : id_adherent
 				},
 				media : {
-					id : id_media
+					id : id_media,
+					type : type
 				}
 			};
 			console.log(type);
