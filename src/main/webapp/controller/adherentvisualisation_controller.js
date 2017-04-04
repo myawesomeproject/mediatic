@@ -38,20 +38,23 @@ console.log(membre);
 			membre.codePostal = data.codePostal; 
 			membre.ville = data.ville;
 			//membre.date_naissance = data.date_naissance;
-			membre.cotisation.debut = dateFilter(data.cotisation.debut, 'yyyy-MM-dd');
-			membre.cotisation.fin = dateFilter(data.cotisation.debut, 'yyyy-MM-dd'); // function
-																						// ajouté
+			if(membre.cotisation.dateCotisation == null || membre.cotisation.dateCotisation == undefined){
+				membre.cotisation = null;
+			}
+			else {
+				membre.cotisation.dateCotisation = dateFilter(data.cotisation.dateCotisation, 'yyyy-MM-dd');
+				membre.cotisation.montantCotisation = data.cotisation.montantCotisation;
+			}																	// ajouté
 																						// 1
-																						// ans
-			membre.cotisation.montant = data.cotisation.montant;
+			console.log(membre);																		// ans
 
 			
 	        return AdherentService.update(membre);
 	    };
 		
-		$scope.emprunte = function(id_adherent,id_media,date_depart){
+		$scope.emprunte = function(id_adherent,id_media,date_depart,type){
 //			var date_departt = dateFilter(date_depart,'yyyy-MM-dd');
-			return AdherentService.emprunte(id_adherent,id_media,date_depart);
+			return AdherentService.emprunte(id_adherent,id_media,date_depart,type);
 			
 			
 		};

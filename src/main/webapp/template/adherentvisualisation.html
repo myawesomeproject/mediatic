@@ -33,7 +33,7 @@
 						ng-if="!editInfos">{{membre.prenom}}</span> <span
 						ng-if="editInfos"><input ng-model="membre.prenom"></span>
 				</div>
-				
+
 				<!-- Text input-->
 				<div class="form-group">
 					<label class="col-sm-3">Date de naissance:</label> <span
@@ -59,10 +59,9 @@
 				<!-- Text input-->
 				<div class="form-group">
 
-					<label class="col-sm-3">Rue : </label> <span
-						id="membre.adresse" ng-if="!editAdresse">{{membre.adresse}},</span>
-					<span ng-if="editAdresse"><input
-						ng-model="membre.adresse"></span> 
+					<label class="col-sm-3">Rue : </label> <span id="membre.adresse"
+						ng-if="!editAdresse">{{membre.adresse}},</span> <span
+						ng-if="editAdresse"><input ng-model="membre.adresse"></span>
 				</div>
 				<!-- Text input-->
 				<div class="form-group">
@@ -92,61 +91,76 @@
 				<div class="form-group">
 
 					<label class="col-sm-3">Date de cotisation:</label> <span
-						id="membre.adresse.cotisation" ng-if="!editAbo">{{membre.cotisation.dateCotisation}}</span>
+						id="membre.cotisation.dateCotisation" ng-if="!editAbo">{{membre.cotisation.dateCotisation}}</span>
 					<span ng-if="editAbo"><input
-						ng-model="membre.cotisation.debut"></span>
+						ng-model="membre.cotisation.dateCotisation"></span>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3"> Montant:</label> <span
-						id="membre.adresse.montant" ng-if="!editAbo">{{membre.cotisation.montantCotisation
+						id="membre.cotisation.montantCotisation" ng-if="!editAbo">{{membre.cotisation.montantCotisation
 						|currency}}</span> <span ng-if="editAbo"><input
-						ng-model="membre.cotisation.montant"></span>
+						ng-model="membre.cotisation.montantCotisation"></span>
 
 				</div>
-				<!--Gestion Abonnement Membre Section -->
-				<!-- Form Name -->
-				<legend>
-					Ajout Emprunt :
-					<button id="ajoutEmprunt" ng-click="ajoutEmprunt = true"
-						class="btn btn-md btn-default pull-right">
-						<span class="glyphicon glyphicon-plus"></span>
-					</button>
-				</legend>
-
-				</legend>
-				<!-- Text input-->
-				<div class="form-group" ng-show="ajoutEmprunt">
-
-					<div class="col-sm-4">
-						<input type="text" ng-model="selected"
-							placeholder="Titre du Media" ng-model-options="modelOptions"
-							uib-typeahead="media as media.titre for media in listeMedia | filter:$viewValue  | limitTo:8"
-							class="form-control">
-					</div>
-					<div class="col-sm-4">
-						<input type="date" ng-model="date_depart" name="Date_de_l'emprunt"
-							placeholder="Date d'emprunt" class="form-control">
-					</div>
-					<div class="col-sm-4">
-						<input ng-model="membre.emprunt.media.retour" type="date"
-							name="Date_de_retour_de_l'emprunt"
-							placeholder="Date de retour prevu" class="form-control">
-					</div>
-				</div>
-				
-				<!-- Command -->
 				<div class="form-group">
 					<div class="col-sm-12">
-					
-						<button type="submit" class="btn btn-primary pull-right"
-							ng-click="emprunte(membre.id,selected.id,date_depart)">Enregistrer</button>
+
+						<button type="submit" class="btn btn-primary"
+							ng-click="update(membre)">Enregistrer</button>
 					</div>
-				
+
 				</div>
+		</form>
+		<form class="form-horizontal" role="form">
+			<!--Gestion Abonnement Membre Section -->
+			<!-- Form Name -->
+			<legend>
+				Ajout Emprunt :
+				<button id="ajoutEmprunt" ng-click="ajoutEmprunt = true"
+					class="btn btn-md btn-default pull-right">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			</legend>
+
+			</legend>
+			<!-- Text input-->
+			<div class="form-group" ng-show="ajoutEmprunt">
+
+				<div class="col-sm-4">
+					<input type="text" ng-model="selected" placeholder="Titre du Media"
+						ng-model-options="modelOptions"
+						uib-typeahead="media as media.titre for media in listeMedia | filter:$viewValue  | limitTo:8"
+						class="form-control">
+				</div>
+				<div class="col-sm-4">
+					<datepicker date-set-hidden="true" date-format="yyyy-MM-dd"
+						date-typer="true"
+						button-prev='<i class="fa fa-arrow-circle-left"></i>'
+						button-next='<i class="fa fa-arrow-circle-right"></i>'>
+					<input class="form-control" type="text"
+						placeholder="Date d'emprunt" ng-model="date_depart" /> </datepicker>
+				</div>
+
+
+
+				<div class="col-sm-4">
+					<input ng-model="membre.emprunt.media.retour" type="date"
+						name="Date_de_retour_de_l'emprunt"
+						placeholder="Date de retour prevu" class="form-control">
+				</div>
+
+				<div class="col-sm-12">
+					<br>
+					<button type="submit" class="btn btn-primary pull-right"
+						ng-click="emprunte(membre.id,selected.id,date_depart,selected.type)">Ajouter</button>
+				</div>
+			</div>
+
 			</fieldset>
 
 		</form>
 	</div>
+
 	<!-- /.col-lg-12 -->
 	<!-- /.row -->
 	<div class="col-sm-3 col-sm-offset-2 ">

@@ -17,8 +17,10 @@ public class Emprunt {
 	private Long id;
 
 	@ManyToOne
-	@JsonIgnoreProperties("emprunts")
+
+	//@JsonIgnore
 	//@JsonManagedReference
+	@JsonIgnoreProperties("emprunts")
 	private Adherent adherent;
 
 	@ManyToOne
