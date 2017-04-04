@@ -4,6 +4,7 @@ import java.util.List;
 import javax.persistence.*;
 import org.hibernate.validator.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import fr.model.*;
 
@@ -26,8 +27,7 @@ public class Media {
 	@Column
 	private String auteur;
 	
-	@OneToMany (mappedBy = "media")
-	@JsonIgnore
+	@OneToMany (fetch = FetchType.EAGER,mappedBy = "media")
 	private List<Emprunt> emprunts;
 
 	/* si besoin pour plus tard

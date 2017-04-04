@@ -32,7 +32,7 @@
 				<span style ="font-size:25px" class="visualisation">{{media.type}}</span>
 			</div>
 			
-			<div id="siemprunt" ng-if="isReturn(media.retour)">
+			<div id="siemprunt" ng-if="isReturn()">
 			<!-- S'affiche si le média est emprunté-->
 				<h3>Emprunt&eacute;</h3>
 				<label>Nom emprunteur :</label>{{media.emprunteur.nom}}
@@ -46,7 +46,7 @@
 				<button class="btn btn-primary btn-lg" id="boutonretourmedia">Validation retour</button>
 			</div>
 			
-			<div id="sipasemprunt" ng-if="!isReturn(media.retour)">
+			<div id="sipasemprunt" ng-if="!isReturn()">
 			<!-- S'affiche si le média n'est pas emprunté-->
 				<h3>Libre</h3>
 				<button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">R&eacute;aliser un  emprunt</button>
@@ -83,7 +83,7 @@
 									<td><a href="#"  data-dismiss="modal" ng-click="addemprunt(ligne,media)" class="glyphicon glyphicon-user"></a></td>
 									<td>{{ligne.nom}}</td>
 									<td>{{ligne.prenom}}</td>
-									<td>{{ligne.date_naissance}}</td>
+									<td>{{ligne.dateNaissance}}</td>
 								</tr>
 							</table>
 						
@@ -108,11 +108,11 @@
 									<td>Date emprunt</td>
 									<td>Date retour</td>
 								</tr>
-								<tr ng-repeat='ligne in media.emprunteurs'>
+								<tr ng-repeat='ligne in media.emprunts'>
 									<td>{{ligne.adherent.nom}}</td>
 									<td>{{ligne.adherent.prenom}}</td>
-									<td>{{ligne.depart}}</td>
-									<td>{{ligne.retour}}</td>
+									<td>{{ligne.dateEmprunt}}</td>
+									<td>{{ligne.dateRetour}}</td>
 								</tr>
 							</table>
 						</div>

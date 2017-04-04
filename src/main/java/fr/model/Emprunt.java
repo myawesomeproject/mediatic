@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -16,11 +17,12 @@ public class Emprunt {
 	private Long id;
 
 	@ManyToOne
-	@JsonIgnore
+	@JsonIgnoreProperties("emprunts")
 	//@JsonManagedReference
 	private Adherent adherent;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
+	@JsonIgnoreProperties("emprunts")
 	private Media media;
 
 	@Column

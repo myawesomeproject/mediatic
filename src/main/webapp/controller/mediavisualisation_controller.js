@@ -10,9 +10,7 @@
 			
 			$scope.Date=new Date();
 			
-			$scope.isReturn=function(dateparam){
-				return Date > dateparam;
-			}
+			
 			
 			var url = UrlService.getMediaAccessionUrl();
 			
@@ -22,6 +20,8 @@
 				
 			});
 			
+			
+			
 			var url1 = UrlService.getAdherentRechercheUrl();
 			
 			$http.get(url1).then(function(reponse) {
@@ -30,6 +30,10 @@
 				
 			});
 			
+			
+			$scope.isReturn=function(){
+				return $scope.media.emprunts.retourner;
+			}
 
 		});
 

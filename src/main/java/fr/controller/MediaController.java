@@ -29,7 +29,7 @@ public class MediaController {
 	private MediaDAO mediaDAO;
 	
 	@ResponseBody
-	@RequestMapping(value = "/media.recherche", method = RequestMethod.GET)
+	@RequestMapping(value = "/media.recherche", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Media> display() {
 		List<Media> result = mediaDAO.getListMedia();
 		return result;
@@ -42,7 +42,7 @@ public class MediaController {
 //	}
 		
 	
-	@RequestMapping(value = "/media.accession", method = RequestMethod.GET)
+	@RequestMapping(value = "/media.accession", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Media> displayOne(@RequestParam("id") long id) {
 		Media media = mediaDAO.find(id);
 		System.out.println(media.toString());
