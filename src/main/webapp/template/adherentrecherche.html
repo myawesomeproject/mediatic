@@ -2,7 +2,7 @@
 <div 
 	class="section">
 	<div 
-		class="container">
+		class="container col-md-8 col-md-offset-2">
 		<div 
 			class="row well">
 			<div>
@@ -12,7 +12,7 @@
 						class="form-control"
 						type="text" 							
 						id="inputRechercheBase"
-						placeholder="Cherchez des noms, pr&eacute;noms ou autre chose"
+						placeholder="Noms, pr&eacute;noms, emails..."
 						ng-model="modelRechercheBase.tout">
 				</div>
 				<div 
@@ -62,253 +62,189 @@
 			<thead>
 				<tr>
 					<th 
-						class="colonneVue">
-						Aller &agrave;
+						class="colonneVue"
+						style="width: 3%">						
 					</th>
 					<th 
-						class="colonneID">
-						<span
-							id="spanIDPasTri"
-							ng-show="tdTri !== 'id'" 
-							ng-click="tdTri = 'id'">
-							#ID	
-							<i 
+						class="colonneID"
+						style="width: 6%">						
+						<div
+							id="divID"							 
+							ng-click="changerTri('id')">
+							#ID		
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'id'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'id' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'id' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanIDTri"
-							ng-show="tdTri === 'id'">												
-							<span
-								id="spanIDTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								#ID	
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanIDTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								#ID	
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>						
+						</div>				
 					</th>					
 					<th 
-						class="colonneNom">
-						<span
-							id="spanNomPasTri"
-							ng-show="tdTri !== 'nom'" 
-							ng-click="tdTri = 'nom'">
-							Nom	
-							<i 
+						class="colonneNom"
+						style="width: 15%">						
+						<div
+							id="divNom"							 
+							ng-click="changerTri('nom')">
+							Nom		
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'nom'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'nom' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'nom' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanNomTri"
-							ng-show="tdTri === 'nom'">												
-							<span
-								id="spanNomTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Nom
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanNomTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Nom	
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>						
+						</div>						
 					</th>
 					<th 
-						class="colonnePrenom">
-						<span
-							id="spanPrenomPasTri"
-							ng-show="tdTri !== 'prenom'" 
-							ng-click="tdTri = 'prenom'">
-							Pr&eacutenom;
-							<i 
+						class="colonnePrenom"
+						style="width: 15%">	
+						<div
+							id="divPrenom"							 
+							ng-click="changerTri('prenom')">
+							Pr&eacute;nom
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'prenom'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'prenom' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'prenom' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanPrenomTri"
-							ng-show="tdTri === 'prenom'">												
-							<span
-								id="spanPrenomTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Pr&eacutenom;	
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanPrenomTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Pr&eacutenom;
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>						
+						</div>					
 					</th>
 					<th 
-						class="colonneEmail">
-						<i 
-							class="fa fa-envelope-o" 
-							aria-hidden="true">
-						</i>
-						<span
-							id="spanEmailPasTri"
-							ng-show="tdTri !== 'email'" 
-							ng-click="tdTri = 'email'">
+						class="colonneEmail"
+						style="width: 24%">						
+						<div
+							id="divEmail"							 
+							ng-click="changerTri('email')">
+							<i 
+								class="fa fa-envelope-o" 
+								aria-hidden="true">
+							</i>
 							E-mail 	
-							<i 
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'email'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'email' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'email' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanEmailTri"
-							ng-show="tdTri === 'email'">												
-							<span
-								id="spanEmailTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								E-mail 
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanEmailTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								E-mail 
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>						
+						</div>						
 					</th>
 					<th 
-						class="colonneDateNaissance">
-						<i 
-							class="fa fa-calendar-o" 
-							aria-hidden="true">
-						</i>
-						<span
-							id="spanDateNaissancePasTri"
-							ng-show="tdTri !== 'date_naissance'" 
-							ng-click="tdTri = 'date_naissance'">
+						class="colonneDateNaissance"
+						style="width: 17%">						
+						<div
+							id="divEmail"							 
+							ng-click="changerTri('dateNaissance')">
+							<i 
+								class="fa fa-calendar-o" 
+								aria-hidden="true">
+							</i>
 							Date naissance 	
-							<i 
+							<i
 								class="fa fa-sort pull-right" 
-								aria-hidden="true">
+								aria-hidden="true"
+								ng-show="colonneTri !== 'dateNaissance'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'dateNaissance' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'dateNaissance' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanDateNaissanceTri"
-							ng-show="tdTri === 'date_naissance'">												
-							<span
-								id="spanDateNaissanceTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Date naissance 
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanDateNaissanceTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Date naissance 
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>						
+						</div>					
 					</th>
 					<th 
-						class="colonneEtat">
-						&Eacute;tat :
-						<select
-							class="pull-right"							
+						class="colonneEtat"
+						style="width: 10%">
+						<span
+							ng-show="modeRechercheAvancee===true">
+							&Eacute;tat :
+						</span>						
+						<select														
 							id="filtreEtat"
-							ng-model="filtreBy.etat">
-							<option value="">Tous</option>
-							<option value="ABONNE">
+							ng-model="filtreBy.etat"
+							ng-show="modeRechercheAvancee===false">
+							<option 
+								value="">
+								&Eacute;tat :
+							</option>							
+							<option 
+								value="ABONNE">
 								Abonn&eacute;
 							</option>
-							<option value="INACTIF">
+							<option 
+								value="INACTIF">
 								Inactif
-							</option>
-						</select>	
+							</option>							
+						</select>						
 					</th>
 					<th 
-						class="colonneNbPret">
-						<i 
-							class="fa fa-book" 
-							aria-hidden="true">
-						</i>
-						<span
-							id="spanNbPretPasTri"
-							ng-show="tdTri !== 'nombre_media'" 
-							ng-click="tdTri = 'nombre_media'">
-							Nombre de pr&ecirc;ts	
+						class="colonneNbPret"
+						style="width: 10%">						
+						<div
+							id="divEmail"							 
+							ng-click="changerTri('nombre_media')">
 							<i 
-								class="fa fa-sort pull-right" 
+								class="fa fa-book" 
 								aria-hidden="true">
+							</i>
+							Pr&ecirc;ts		
+							<i
+								class="fa fa-sort pull-right" 
+								aria-hidden="true"
+								ng-show="colonneTri !== 'nombre_media'">
+							</i>
+							<i
+								class="fa fa-caret-up pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'nombre_media' && descending === false">
+							</i>
+							<i
+								class="fa fa-caret-down pull-right text-primary"
+								aria-hidden="true"
+								ng-show="colonneTri === 'nombre_media' && descending === true">
 							</i>														
-						</span>
-						<span
-							id="spanNbPretTri"
-							ng-show="tdTri === 'nombre_media'">												
-							<span
-								id="spanNbPretTriOrdre"
-								ng-show="triInverse === false"
-								ng-click="triInverse = true">
-								Nombre de pr&ecirc;ts 
-								<i
-									class="fa fa-caret-up pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>					
-							<span
-								id="spanNbPretTriInverse"
-								ng-show="triInverse === true"
-								ng-click="triInverse = false">
-								Nombre de pr&ecirc;ts 
-								<i
-									class="fa fa-caret-down pull-right text-primary"
-									aria-hidden="true">
-								</i>								
-							</span>	
-						</span>					
+						</div>					
 					</th>	
 				</tr>
 <!-- FIN DES TITRES -->
@@ -356,7 +292,25 @@
   									ng-model="modelRechercheAvancee.date_naissance"/>
 							</datepicker>
 						</th>
-						<th></th>
+						<th>
+							<select														
+								id="filtreEtat"
+								ng-model="filtreBy.etat"
+								ng-show="modeRechercheAvancee===true">
+								<option 
+									value="">
+									Tous
+								</option>
+								<option 
+									value="ABONNE">
+									Abonn&eacute;
+								</option>
+								<option 
+									value="INACTIF">
+									Inactif
+								</option>
+							</select>
+						</th>
 						<th>
 							<input 
 								class="form-control"
@@ -394,7 +348,7 @@
 
 				<tr 
 					dir-paginate="adherent in listeAdherent |
-								  orderBy:tdTri:triInverse |
+								   orderBy:colonneTri:descending |
 								  filter: filtreBy |
 								  filter: getObjetFiltre()  |
 								  itemsPerPage: 10">
@@ -410,27 +364,39 @@
 						</a>
 					</td>
 					<td>
-						@{{adherent.id}}
+						<span 
+							ng-bind="adherent.id">
+						</span>
+<!-- alternative :  @{{adherent.id}} -->
 					</td>
 					<td
 						class="text-left">
-						<img src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
-							 class="img-circle pull-left" width="30">
-						{{adherent.nom}}	
+						<span 						 
+							ng-bind="adherent.nom">
+							<img 
+								class="img-circle pull-left"
+								width="30"
+								src="http://pingendo.github.io/pingendo-bootstrap/assets/user_placeholder.png"
+							>
+						</span>	
 					</td>
 					<td
 						class="text-left">
-						{{adherent.prenom}}	
+						<span 
+							ng-bind="adherent.prenom">
+						</span>		
 					</td>
 					<td
-						class="text-left">
-						<a 
+						class="text-left">							
+						<a
+							ng-bind="adherent.email"
 							href="mailto:{{adherent.email}}">
-							{{adherent.email}}
 						</a>	
 					</td>
 					<td>
-						{{adherent.dateNaissance}}	
+						<span 
+							ng-bind="adherent.dateNaissance">
+						</span>
 					</td>
 					<td>			
 						<i 
@@ -445,6 +411,7 @@
 						</i>		
 					</td>
 					<td>
+						
 						{{adherent.nombre_media}}
 						<i 
 							class="fa fa-book" 
